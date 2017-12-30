@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let interview = Interview()
+        let genderVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
+        let genderVM = GenderViewModel.init(model: interview)
+        genderVC.viewModel = genderVM
+        FirebaseApp.configure()
+        
         return true
     }
 
