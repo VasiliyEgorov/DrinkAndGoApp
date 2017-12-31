@@ -25,6 +25,7 @@
 		FFE5916D1FF737AD0027D029 /* GenderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5916C1FF737AD0027D029 /* GenderVM.swift */; };
 		FFE5916F1FF73DF60027D029 /* DidYouEatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5916E1FF73DF60027D029 /* DidYouEatVM.swift */; };
 		FFE591741FF85D870027D029 /* titleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591731FF85D870027D029 /* titleLabel.swift */; };
+		FFE591761FF86D210027D029 /* WeightVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591751FF86D210027D029 /* WeightVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		FFE5916C1FF737AD0027D029 /* GenderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVM.swift; sourceTree = "<group>"; };
 		FFE5916E1FF73DF60027D029 /* DidYouEatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidYouEatVM.swift; sourceTree = "<group>"; };
 		FFE591731FF85D870027D029 /* titleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleLabel.swift; sourceTree = "<group>"; };
+		FFE591751FF86D210027D029 /* WeightVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				FFE591661FF736850027D029 /* DidYouEatVC.swift */,
 				FFE5916E1FF73DF60027D029 /* DidYouEatVM.swift */,
 				FFE591681FF736940027D029 /* WeightVC.swift */,
+				FFE591751FF86D210027D029 /* WeightVM.swift */,
 				FFE5916A1FF736B10027D029 /* Interview.swift */,
 				FFE591721FF85D640027D029 /* Custom Views */,
 				FFE591331FF1A3D60027D029 /* Main.storyboard */,
@@ -501,6 +504,7 @@
 				FFE591741FF85D870027D029 /* titleLabel.swift in Sources */,
 				FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */,
 				FFE591651FF736750027D029 /* GenderVC.swift in Sources */,
+				FFE591761FF86D210027D029 /* WeightVM.swift in Sources */,
 				FFE5916D1FF737AD0027D029 /* GenderVM.swift in Sources */,
 				FFE5916B1FF736B10027D029 /* Interview.swift in Sources */,
 				FFE5916F1FF73DF60027D029 /* DidYouEatVM.swift in Sources */,
