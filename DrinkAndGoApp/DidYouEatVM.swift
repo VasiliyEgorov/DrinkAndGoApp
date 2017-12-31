@@ -11,7 +11,7 @@ import Foundation
 struct DidYouEatViewModel {
     private var model : Interview
     private var weightViewModel : WeightViewModel!
-    var didYouEat : Bool {
+    var didYouEat : Bool = false {
         didSet {
             self.model.didEat = self.didYouEat
         }
@@ -21,6 +21,6 @@ struct DidYouEatViewModel {
         return self.weightViewModel
     }
     init(model: Interview) {
-        self.init(model: model)
+        self.model = model
     }
 }

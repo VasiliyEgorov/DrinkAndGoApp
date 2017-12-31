@@ -17,10 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let interview = Interview()
-        let genderVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
-        let genderVM = GenderViewModel.init(model: interview)
-        genderVC.viewModel = genderVM
+        
+      //  let genderVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
+        
+        if let startController = self.window?.rootViewController as? UINavigationController {
+            if let genderController = startController.viewControllers.first as? GenderVC {
+                let interview = Interview()
+                genderController.viewModel = GenderViewModel.init(model: interview)
+            }
+        }
         FirebaseApp.configure()
         
         return true

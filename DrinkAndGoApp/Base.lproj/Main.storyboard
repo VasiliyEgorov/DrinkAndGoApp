@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="DMm-mU-DzC">
@@ -18,6 +23,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TXk-Mp-d5P">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="rQs-SC-7mA" kind="relationship" relationship="rootViewController" id="F3B-ax-mJJ"/>
@@ -41,15 +49,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw1-Vv-NaK">
-                                <rect key="frame" x="16" y="164" width="343" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw1-Vv-NaK" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="164" width="343" height="33.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-cC-UQM" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
                                 <rect key="frame" x="64" y="317" width="247" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="Male"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="Female"/>
@@ -67,6 +76,7 @@
                             <constraint firstItem="oTc-cC-UQM" firstAttribute="leading" secondItem="Q0X-t6-uAa" secondAttribute="leading" constant="64" id="Iro-bL-Ha0"/>
                             <constraint firstItem="Q0X-t6-uAa" firstAttribute="trailing" secondItem="oTc-cC-UQM" secondAttribute="trailing" constant="64" id="RyT-aA-Hq5"/>
                             <constraint firstItem="Q0X-t6-uAa" firstAttribute="bottom" secondItem="xGN-gs-r6y" secondAttribute="bottom" constant="20" id="aKy-ej-fx0"/>
+                            <constraint firstItem="yw1-Vv-NaK" firstAttribute="height" secondItem="ivH-Od-5Fx" secondAttribute="height" multiplier="0.05" id="brg-4x-BfP"/>
                             <constraint firstItem="yw1-Vv-NaK" firstAttribute="leading" secondItem="Q0X-t6-uAa" secondAttribute="leading" constant="16" id="cIH-0Z-iTr"/>
                             <constraint firstItem="xGN-gs-r6y" firstAttribute="leading" secondItem="Q0X-t6-uAa" secondAttribute="leading" constant="16" id="eH3-vu-4iT"/>
                             <constraint firstItem="Q0X-t6-uAa" firstAttribute="trailing" secondItem="yw1-Vv-NaK" secondAttribute="trailing" constant="16" id="h9p-CF-ASY"/>
@@ -100,34 +110,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59X-Mc-cbN">
-                                <rect key="frame" x="16" y="164" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59X-Mc-cbN" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="164" width="343" height="33.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ItB-54-Laj">
-                                <rect key="frame" x="0.0" y="252" width="375" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItB-54-Laj">
+                                <rect key="frame" x="28" y="225" width="320" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hXH-YW-0lv" id="prk-ZB-b36"/>
                                     <outlet property="delegate" destination="hXH-YW-0lv" id="Dh4-LP-eDg"/>
                                 </connections>
                             </pickerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z3Z-Gw-0S9" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="257" y="210" width="102" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="kg"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="lbs"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="59X-Mc-cbN" firstAttribute="top" secondItem="aiL-Vq-asA" secondAttribute="top" constant="100" id="3Zh-iE-1FV"/>
                             <constraint firstItem="aiL-Vq-asA" firstAttribute="trailing" secondItem="59X-Mc-cbN" secondAttribute="trailing" constant="16" id="7S9-fz-Xqg"/>
+                            <constraint firstItem="59X-Mc-cbN" firstAttribute="height" secondItem="03Y-vb-ydt" secondAttribute="height" multiplier="0.05" id="QlQ-WY-bl7"/>
+                            <constraint firstItem="ItB-54-Laj" firstAttribute="centerX" secondItem="03Y-vb-ydt" secondAttribute="centerX" id="WFu-af-078"/>
+                            <constraint firstItem="ItB-54-Laj" firstAttribute="centerY" secondItem="03Y-vb-ydt" secondAttribute="centerY" id="idq-Wu-MiD"/>
                             <constraint firstItem="59X-Mc-cbN" firstAttribute="leading" secondItem="aiL-Vq-asA" secondAttribute="leading" constant="16" id="oQ6-qe-xk4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aiL-Vq-asA"/>
@@ -156,15 +159,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you eat something ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKw-QF-rrv">
-                                <rect key="frame" x="18" y="164" width="339" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you eat something ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKw-QF-rrv" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                <rect key="frame" x="18" y="164" width="339" height="33.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3g9-BX-dAD" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
                                 <rect key="frame" x="64" y="316.5" width="247" height="33.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="Yes"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="No"/>
@@ -176,6 +180,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="nKw-QF-rrv" firstAttribute="height" secondItem="o5s-pg-dUN" secondAttribute="height" multiplier="0.05" id="D3q-UB-5Vn"/>
                             <constraint firstItem="Z3f-nf-4vf" firstAttribute="trailing" secondItem="3g9-BX-dAD" secondAttribute="trailing" constant="64" id="QQm-bI-mmf"/>
                             <constraint firstItem="nKw-QF-rrv" firstAttribute="top" secondItem="Z3f-nf-4vf" secondAttribute="top" constant="100" id="R9W-8d-6Gs"/>
                             <constraint firstItem="3g9-BX-dAD" firstAttribute="height" secondItem="o5s-pg-dUN" secondAttribute="height" multiplier="0.05" id="Smw-jp-MND"/>

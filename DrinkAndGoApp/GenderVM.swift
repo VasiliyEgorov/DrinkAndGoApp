@@ -11,7 +11,7 @@ import Foundation
 struct GenderViewModel {
     private var model : Interview
     private var didYouEatViewModel : DidYouEatViewModel!
-    var gender : Bool {
+    var gender : Bool = false {
         didSet {
             switch gender {
             case false: model.gender = GenderEnum.Male
@@ -24,7 +24,6 @@ struct GenderViewModel {
         return self.didYouEatViewModel
     }
     init(model: Interview) {
-        self.init(model: model)
         self.model = model
     }
 }
