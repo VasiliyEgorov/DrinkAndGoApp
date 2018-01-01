@@ -208,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="1289" y="71"/>
         </scene>
-        <!--View Controller-->
+        <!--AlcoholVC-->
         <scene sceneID="6Ph-mE-67n">
             <objects>
-                <viewController id="weA-qm-SSM" sceneMemberID="viewController">
+                <viewController id="weA-qm-SSM" customClass="AlcoholVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iF7-K0-QYF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

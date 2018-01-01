@@ -17,5 +17,4 @@ struct Interview {
     var gender : GenderEnum!
     var weight : Int!
     var didEat : Bool!
-    
 }
