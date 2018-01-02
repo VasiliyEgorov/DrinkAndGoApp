@@ -9,12 +9,15 @@
 import UIKit
 
 class AlcoholVC: UIViewController {
+    
+    @IBOutlet weak var resultsView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
+    private let segueID = "CompleteSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+ 
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,15 +25,16 @@ class AlcoholVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    // MARK: - Buttons
+    @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
+    }
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
+    
 
 }

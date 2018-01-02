@@ -216,13 +216,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YlJ-bC-RKC">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G77-i7-1Le">
                                 <rect key="frame" x="0.0" y="64" width="375" height="387"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ABm-FZ-9Y4">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -239,23 +236,31 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="weA-qm-SSM" id="BpI-eO-sSo"/>
+                                    <outlet property="delegate" destination="weA-qm-SSM" id="UtN-Sz-Fo4"/>
+                                    <outlet property="prefetchDataSource" destination="weA-qm-SSM" id="6qA-iL-7Sw"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-mW-oTQ">
                                 <rect key="frame" x="0.0" y="459" width="375" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YlJ-bC-RKC" firstAttribute="leading" secondItem="qag-MC-kbS" secondAttribute="leading" id="1J2-Og-E46"/>
-                            <constraint firstItem="YlJ-bC-RKC" firstAttribute="top" secondItem="qag-MC-kbS" secondAttribute="top" id="3Cy-Xg-KfW"/>
-                            <constraint firstItem="YlJ-bC-RKC" firstAttribute="trailing" secondItem="qag-MC-kbS" secondAttribute="trailing" id="jPK-vC-Lua"/>
-                            <constraint firstItem="YlJ-bC-RKC" firstAttribute="bottom" secondItem="qag-MC-kbS" secondAttribute="bottom" id="jmh-yY-bMi"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="qag-MC-kbS"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OIV-m1-bFM">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="OAZ-Ej-r0b">
+                            <connections>
+                                <action selector="nextButtonAction:" destination="weA-qm-SSM" id="0Qm-3G-1EK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="G77-i7-1Le" id="ej5-OP-724"/>
+                        <outlet property="resultsView" destination="uDD-mW-oTQ" id="dJD-ma-4zm"/>
                         <segue destination="X1e-bd-9R3" kind="show" identifier="CompleteSegue" id="fwh-UJ-0vm"/>
                     </connections>
                 </viewController>
