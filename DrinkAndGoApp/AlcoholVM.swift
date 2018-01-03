@@ -10,7 +10,13 @@ import Foundation
 
 struct AlcoholViewModel {
     private var model : Interview
+    private var cellViewModel : AlcoholCellViewModel!
+    private let images = [Data.init(imageName: "")]
+    private let titles = [""]
     
+    func numberOfCells() -> Int {
+        return images.count
+    }
     init(model: Interview) {
         self.model = model
     }
