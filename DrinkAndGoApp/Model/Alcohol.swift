@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Alcohol {
+    
+    var alcoholImage : Data!
+    var alcoholTitle : String!
+}

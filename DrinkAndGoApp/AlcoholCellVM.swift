@@ -9,5 +9,10 @@
 import Foundation
 
 struct AlcoholCellViewModel {
-    
+    var alcoholImage : Data?
+    var alcoholTitle : String!
+    init(image: Data?, title: String) {
+        self.alcoholImage = image
+        self.alcoholTitle = title
+    }
 }

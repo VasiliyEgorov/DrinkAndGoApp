@@ -12,7 +12,7 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
  
     @IBOutlet weak var weightPicker: UIPickerView!
     private let segueID = "AlcoholSegue"
-    var viewModel : WeightViewModel!
+    var viewModel : WeightViewModel! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,6 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let alcoholVC = segue.destination as? AlcoholVC {
             alcoholVC.viewModel = self.viewModel.setAlcoholViewModel()
-            self.navigationController?.pushViewController(alcoholVC, animated: true)
         }
     }
     

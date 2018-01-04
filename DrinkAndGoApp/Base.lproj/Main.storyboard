@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -90,12 +91,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="38r-ZZ-6pC">
                             <connections>
                                 <action selector="nextButtonAction:" destination="rQs-SC-7mA" id="5KM-nh-FWB"/>
-                                <segue destination="Ba5-tD-w97" kind="show" identifier="DidYouEatSeague" id="4nW-Hf-JsK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="genderSwitch" destination="oTc-cC-UQM" id="gDz-9p-bgM"/>
+                        <segue destination="Ba5-tD-w97" kind="show" identifier="DidYouEatSeague" id="t9t-37-brj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCS-IX-cNA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,12 +140,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="nOd-L4-xx1">
                             <connections>
                                 <action selector="nextButtonAction:" destination="hXH-YW-0lv" id="Lcq-o6-ypF"/>
-                                <segue destination="weA-qm-SSM" kind="show" identifier="AlcoholSegue" id="gmn-i1-5Pg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="weightPicker" destination="ItB-54-Laj" id="CrC-Ly-rfz"/>
+                        <segue destination="weA-qm-SSM" kind="show" identifier="AlcoholSegue" id="kWw-p2-NV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax4-Zm-iX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -196,12 +197,12 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="JI7-WO-7kQ">
                             <connections>
                                 <action selector="nextButtonAction:" destination="Ba5-tD-w97" id="zuf-Tr-eJ4"/>
-                                <segue destination="hXH-YW-0lv" kind="show" identifier="WeightSegue" id="iqo-kf-GLg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="eatSwitch" destination="3g9-BX-dAD" id="BSr-TD-d5B"/>
+                        <segue destination="hXH-YW-0lv" kind="show" identifier="WeightSegue" id="Gm5-ux-cFn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IlO-IA-gLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,34 +222,49 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ABm-FZ-9Y4">
-                                    <size key="itemSize" width="375" height="282"/>
+                                    <size key="itemSize" width="375" height="395"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="1234" id="GJf-Nh-SGV" customClass="AlcoholCell" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlcoholCell" id="GJf-Nh-SGV" customClass="AlcoholCell" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="395"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="282"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="395"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-Be-kYL">
-                                                    <rect key="frame" x="67" y="77" width="240" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-Be-kYL">
+                                                    <rect key="frame" x="108.5" y="0.0" width="158" height="316"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jvz-Be-kYL" secondAttribute="height" multiplier="1:2" id="yTe-rO-VhM"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZj-38-iVv">
+                                                    <rect key="frame" x="166" y="362" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="jvz-Be-kYL" firstAttribute="height" secondItem="GJf-Nh-SGV" secondAttribute="height" multiplier="0.8" id="ImF-PS-j4W"/>
+                                            <constraint firstItem="jvz-Be-kYL" firstAttribute="top" secondItem="GJf-Nh-SGV" secondAttribute="top" id="PSU-ca-5Xc"/>
+                                            <constraint firstItem="hZj-38-iVv" firstAttribute="centerX" secondItem="GJf-Nh-SGV" secondAttribute="centerX" id="SvY-dr-Q5l"/>
+                                            <constraint firstItem="jvz-Be-kYL" firstAttribute="centerX" secondItem="GJf-Nh-SGV" secondAttribute="centerX" id="bBc-h6-1B3"/>
+                                            <constraint firstAttribute="bottom" secondItem="hZj-38-iVv" secondAttribute="bottom" constant="12" id="kjt-jw-Bpu"/>
+                                        </constraints>
                                         <connections>
-                                            <outlet property="cellsImageView" destination="jvz-Be-kYL" id="aU9-yF-R4q"/>
+                                            <outlet property="cellsImageView" destination="jvz-Be-kYL" id="qfq-6D-Zeo"/>
+                                            <outlet property="titleLabel" destination="hZj-38-iVv" id="9hS-EW-Jia"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="weA-qm-SSM" id="BpI-eO-sSo"/>
                                     <outlet property="delegate" destination="weA-qm-SSM" id="UtN-Sz-Fo4"/>
-                                    <outlet property="prefetchDataSource" destination="weA-qm-SSM" id="6qA-iL-7Sw"/>
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-mW-oTQ">

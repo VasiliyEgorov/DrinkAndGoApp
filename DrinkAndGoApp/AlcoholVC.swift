@@ -7,26 +7,33 @@
 //
 
 import UIKit
+import GravitySliderFlowLayout
 
-class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CellsDelegate {
     
     @IBOutlet weak var resultsView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
     private let segueID = "CompleteSegue"
-    private let cellID = "Cell"
-    private let collectionViewCellHeight = 0.85
-    private let collectionViewCellWidth = 0.55
+    private let cellID = "AlcoholCell"
+    private let collectionViewCellHeight : CGFloat = 0.85
+    private let collectionViewCellWidth : CGFloat = 0.55
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
-        self.collectionView.register(AlcoholCell.self, forCellWithReuseIdentifier: cellID)
+        setupCollectionView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    // MARK: - Setup
+    
+    private func setupCollectionView() {
+        let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * self.collectionViewCellWidth,
+                                                                       height: self.collectionView.frame.size.height * self.collectionViewCellHeight))
+        self.collectionView.collectionViewLayout = gravityLayoutSlider
     }
     // MARK: - Collection View
     
@@ -37,10 +44,14 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! AlcoholCell
-        
+        cell.viewModel = self.viewModel.setCellsViewModel(row: indexPath.row)
+        cell.delegate = self
         return cell
     }
-    
+    // MARK: - Cells Delegate
+    func tapAction(recognizer: UITapGestureRecognizer) {
+        
+    }
     // MARK: - Buttons
     @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
     }
