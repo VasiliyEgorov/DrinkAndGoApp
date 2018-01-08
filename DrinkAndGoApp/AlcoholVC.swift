@@ -9,12 +9,13 @@
 import UIKit
 import GravitySliderFlowLayout
 
-class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CellsDelegate {
+class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CellsDelegate, AlcoholDetailsDelegate {
     
     @IBOutlet weak var resultsView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
     private let segueID = "CompleteSegue"
+    private let detailsID = "AlcoholDetailsSegue"
     private let cellID = "AlcoholCell"
     private let collectionViewCellHeight : CGFloat = 0.85
     private let collectionViewCellWidth : CGFloat = 0.55
@@ -49,8 +50,12 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         return cell
     }
     // MARK: - Cells Delegate
-    func tapAction(recognizer: UITapGestureRecognizer) {
-        
+    func tapAction(title: String?, alcPercent: String?) {
+        if let alcDetailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "") as? AlcoholDetailsVC {
+            alcDetailsVC.viewModel = self.viewModel.setAlcoholDetailsViewModel(title: title, alcPercentage: alcPercent)
+            alcDetailsVC.delegate = self
+            self.present(alcDetailsVC, animated: true, completion: nil)
+        }
     }
     // MARK: - Buttons
     @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {

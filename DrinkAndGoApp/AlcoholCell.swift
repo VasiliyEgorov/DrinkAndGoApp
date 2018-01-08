@@ -8,9 +8,10 @@
 
 import UIKit
 protocol CellsDelegate : class {
-    func tapAction(recognizer: UITapGestureRecognizer)
+    func tapAction(title: String?, alcPercent: String?)
 }
 class AlcoholCell: UICollectionViewCell {
+    @IBOutlet weak var alcPercentLabel: UILabel!
     @IBOutlet weak var cellsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     weak var delegate : CellsDelegate?
@@ -18,6 +19,7 @@ class AlcoholCell: UICollectionViewCell {
         didSet {
             cellsImageView.image = self.viewModel.alcoholImage?.uiImage
             titleLabel.text = self.viewModel.alcoholTitle
+            alcPercentLabel.text = self.viewModel.alcPercent
         }
     }
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +43,6 @@ class AlcoholCell: UICollectionViewCell {
     // MARK: - Gesture
     
     @objc private func tapGestureAction(recognizer: UITapGestureRecognizer) {
-        self.delegate?.tapAction(recognizer: recognizer)
+        self.delegate?.tapAction(title: self.titleLabel.text, alcPercent: alcPercentLabel.text)
     }
 }
