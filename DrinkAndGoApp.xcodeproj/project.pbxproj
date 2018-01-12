@@ -12,6 +12,7 @@
 		995F20DDD41358E0AAECE399 /* Pods_DrinkAndGoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6263D0DA6330A3A791A38D9 /* Pods_DrinkAndGoAppTests.framework */; };
 		FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */; };
 		FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */; };
+		FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995C2008B8D80032E0E5 /* alcTextField.swift */; };
 		FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */; };
 		FFA301A31FFCC43400D8C96B /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA301A21FFCC43300D8C96B /* DataExtension.swift */; };
 		FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */; };
@@ -64,6 +65,7 @@
 		EF85350714D9F553392E645E /* Pods-DrinkAndGoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoApp/Pods-DrinkAndGoApp.release.xcconfig"; sourceTree = "<group>"; };
 		FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVC.swift; sourceTree = "<group>"; };
 		FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVM.swift; sourceTree = "<group>"; };
+		FF82995C2008B8D80032E0E5 /* alcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alcTextField.swift; sourceTree = "<group>"; };
 		FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCell.swift; sourceTree = "<group>"; };
 		FFA301A21FFCC43300D8C96B /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCellVM.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				FFE591621FF726710027D029 /* RoundedSwitch.swift */,
 				FFE591731FF85D870027D029 /* titleLabel.swift */,
+				FF82995C2008B8D80032E0E5 /* alcTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */,
 				FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */,
 				FFE591741FF85D870027D029 /* titleLabel.swift in Sources */,
+				FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */,
 				FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */,
 				FFE591651FF736750027D029 /* GenderVC.swift in Sources */,
 				FFE591761FF86D210027D029 /* WeightVM.swift in Sources */,

@@ -49,13 +49,18 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         cell.delegate = self
         return cell
     }
+    
     // MARK: - Cells Delegate
     func tapAction(title: String?, alcPercent: String?) {
-        if let alcDetailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "") as? AlcoholDetailsVC {
+        if let alcDetailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlcoholDetails") as? AlcoholDetailsVC {
             alcDetailsVC.viewModel = self.viewModel.setAlcoholDetailsViewModel(title: title, alcPercentage: alcPercent)
             alcDetailsVC.delegate = self
             self.present(alcDetailsVC, animated: true, completion: nil)
         }
+    }
+    // MARK: - AlcoholDetailsDelegate
+    func setAlcohol(volume: String?, percentage: String?) {
+        self.viewModel.addAlcohol(volume: volume, percentage: percentage)
     }
     // MARK: - Buttons
     @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
