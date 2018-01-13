@@ -11,6 +11,7 @@ import GravitySliderFlowLayout
 
 class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CellsDelegate, AlcoholDetailsDelegate {
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var resultsView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
@@ -23,18 +24,21 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
     // MARK: - Setup
     
     private func setupCollectionView() {
         let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * self.collectionViewCellWidth,
                                                                        height: self.collectionView.frame.size.height * self.collectionViewCellHeight))
         self.collectionView.collectionViewLayout = gravityLayoutSlider
+        self.pageControl.numberOfPages = self.viewModel.numberOfCells()
     }
     // MARK: - Collection View
     
@@ -72,6 +76,30 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-    
+    /*
+    private func animateChangingTitle(for indexPath: IndexPath) {
+        UIView.transition(with: productTitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.productTitleLabel.text = self.titles[indexPath.row % self.titles.count]
+        }, completion: nil)
+        UIView.transition(with: productSubtitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.productSubtitleLabel.text = self.subtitles[indexPath.row % self.subtitles.count]
+        }, completion: nil)
+        UIView.transition(with: priceButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
+            self.priceButton.setTitle(self.prices[indexPath.row % self.prices.count], for: .normal)
+        }, completion: nil)
+    }
+ */
+}
 
+extension AlcoholVC {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let locationFirst = CGPoint(x: collectionView.center.x + scrollView.contentOffset.x, y: collectionView.center.y + scrollView.contentOffset.y)
+        let locationSecond = CGPoint(x: collectionView.center.x + scrollView.contentOffset.x + 20, y: collectionView.center.y + scrollView.contentOffset.y)
+        let locationThird = CGPoint(x: collectionView.center.x + scrollView.contentOffset.x - 20, y: collectionView.center.y + scrollView.contentOffset.y)
+        
+        if let indexPathFirst = collectionView.indexPathForItem(at: locationFirst), let indexPathSecond = collectionView.indexPathForItem(at: locationSecond), let indexPathThird = collectionView.indexPathForItem(at: locationThird), indexPathFirst.row == indexPathSecond.row && indexPathSecond.row == indexPathThird.row && indexPathFirst.row != pageControl.currentPage {
+            pageControl.currentPage = indexPathFirst.row
+            //self.animateChangingTitle(for: indexPathFirst)
+        }
+}
 }

@@ -16,6 +16,6 @@ struct AlcoholCellViewModel {
     init(image: Data?, title: String, alcPercent: String) {
         self.alcoholImage = image
         self.alcoholTitle = title
-        self.alcPercent = "% " + alcPercent
+        self.alcPercent = alcPercent + " %"
     }
 }

@@ -9,8 +9,8 @@
 import Foundation
 
 struct AlcoholDetailsViewModel {
-    private let maxMlLenght = 4
-    private let maxOunceLenght = 5
+    private let maxMlLenght = 5
+    private let maxOunceLenght = 6
     var title : String!
     var alcPercentage : String!
     
@@ -37,6 +37,6 @@ struct AlcoholDetailsViewModel {
     }
     init(alcTitle: String, alcPercentage: String) {
         self.title = alcTitle
-        self.alcPercentage = alcPercentage
+        self.alcPercentage = alcPercentage + " tap here to correct"
     }
 }
