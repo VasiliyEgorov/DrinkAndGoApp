@@ -14,7 +14,7 @@ struct AlcoholViewModel {
     private let images = [Data.init(imageName: "Beer.png"), Data.init(imageName: "Vodka.png"), Data.init(imageName: "Gin.png"), Data.init(imageName: "Wine.png"),
                           Data.init(imageName: "Champagne.png"), Data.init(imageName: "Vermouth.png"), Data.init(imageName: "Rum.png")]
     private let titles = ["Beer", "Vodka", "Gin" ,"Wine", "Champagne", "Vermouth", "Rum"]
-    private let alcPercent = ["5", "40", "37.5", "12", "13", "16", "45"]
+    private let alcPercent = ["5", "40", "37", "12", "13", "16", "45"]
     private var choosenVolume = [Float]()
     private var choosenPercent = [Float]()
     private var alcoholDetailsViewModel : AlcoholDetailsViewModel!

@@ -218,6 +218,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-6O-VSe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOM-p2-x2Q">
+                                <rect key="frame" x="16" y="147" width="343" height="417"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqi-8c-tZ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="425"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-my-4Jh" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="48" width="327" height="42.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Dh-dGn" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="130.5" width="327" height="34"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="alcPercentageChanged:" destination="KNx-dV-4vX" eventType="editingChanged" id="xMh-f9-L5M"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vum-0o-7rH" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="204.5" width="327" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-Ib-wYN" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                                <rect key="frame" x="198" y="267.5" width="137" height="29.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="ml"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="ounce"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-vx-qxb" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="317" width="327" height="34"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                <connections>
+                                                    <action selector="alcVolumeChanged:" destination="KNx-dV-4vX" eventType="editingChanged" id="C0b-mC-SrF"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="xFS-Dh-dGn" secondAttribute="trailing" id="0HK-g9-pqG"/>
+                                            <constraint firstItem="ea7-my-4Jh" firstAttribute="height" secondItem="Qqi-8c-tZ9" secondAttribute="height" multiplier="0.1" id="6oS-T4-bE1"/>
+                                            <constraint firstItem="xFS-Dh-dGn" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="7Ma-7J-ob8"/>
+                                            <constraint firstItem="Z8M-vx-qxb" firstAttribute="height" secondItem="ea7-my-4Jh" secondAttribute="height" multiplier="0.8" id="913-2X-YN0"/>
+                                            <constraint firstItem="Z8M-vx-qxb" firstAttribute="top" secondItem="uR3-Ib-wYN" secondAttribute="bottom" constant="20" id="Ah4-d1-gBq"/>
+                                            <constraint firstItem="xFS-Dh-dGn" firstAttribute="height" secondItem="ea7-my-4Jh" secondAttribute="height" multiplier="0.8" id="CWK-pL-JiT"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="vum-0o-7rH" secondAttribute="trailing" id="Dy9-UZ-GCL"/>
+                                            <constraint firstItem="vum-0o-7rH" firstAttribute="top" secondItem="xFS-Dh-dGn" secondAttribute="bottom" constant="40" id="HMT-gf-p1J"/>
+                                            <constraint firstItem="Z8M-vx-qxb" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="HQr-BH-NHB"/>
+                                            <constraint firstItem="uR3-Ib-wYN" firstAttribute="width" secondItem="Qqi-8c-tZ9" secondAttribute="width" multiplier="0.4" id="JV0-Jw-GBy"/>
+                                            <constraint firstItem="uR3-Ib-wYN" firstAttribute="top" secondItem="vum-0o-7rH" secondAttribute="bottom" constant="20" id="Loo-gP-B51"/>
+                                            <constraint firstItem="ea7-my-4Jh" firstAttribute="height" secondItem="vum-0o-7rH" secondAttribute="height" id="QdM-MK-cKK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Z8M-vx-qxb" secondAttribute="bottom" constant="74" id="WNE-MB-JWk"/>
+                                            <constraint firstItem="xFS-Dh-dGn" firstAttribute="top" secondItem="ea7-my-4Jh" secondAttribute="bottom" constant="40" id="Xnw-MW-FPl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ea7-my-4Jh" secondAttribute="trailing" id="cNb-1I-IZl"/>
+                                            <constraint firstItem="ea7-my-4Jh" firstAttribute="top" secondItem="Qqi-8c-tZ9" secondAttribute="topMargin" constant="40" id="iSJ-qO-0Rg"/>
+                                            <constraint firstItem="uR3-Ib-wYN" firstAttribute="trailing" secondItem="Qqi-8c-tZ9" secondAttribute="trailingMargin" id="jxb-ht-nGV"/>
+                                            <constraint firstItem="ea7-my-4Jh" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="m2I-RG-rSP"/>
+                                            <constraint firstItem="uR3-Ib-wYN" firstAttribute="height" secondItem="vum-0o-7rH" secondAttribute="height" multiplier="0.7" id="mBv-ly-3i4"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Z8M-vx-qxb" secondAttribute="trailing" id="s6p-o8-KS4"/>
+                                            <constraint firstItem="vum-0o-7rH" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="wCM-Db-LgP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Qqi-8c-tZ9" secondAttribute="trailing" id="5Y6-I3-thQ"/>
+                                    <constraint firstItem="Qqi-8c-tZ9" firstAttribute="centerX" secondItem="XOM-p2-x2Q" secondAttribute="centerX" id="FSU-Qj-zD7"/>
+                                    <constraint firstItem="Qqi-8c-tZ9" firstAttribute="leading" secondItem="XOM-p2-x2Q" secondAttribute="leading" id="oHA-0f-b2e"/>
+                                    <constraint firstItem="Qqi-8c-tZ9" firstAttribute="top" secondItem="XOM-p2-x2Q" secondAttribute="top" id="qjH-G1-Bzb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qqi-8c-tZ9" secondAttribute="bottom" id="zae-Qo-hG9"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="KNx-dV-4vX" id="bBl-uH-Peh"/>
+                                </connections>
+                            </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oU-sV-BrE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,90 +324,20 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqi-8c-tZ9">
-                                <rect key="frame" x="16" y="127" width="343" height="457"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-my-4Jh" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="48" width="327" height="45.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Dh-dGn" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="133.5" width="327" height="46"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="alcPercentageChanged:" destination="KNx-dV-4vX" eventType="valueChanged" id="QCS-C6-Dq5"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vum-0o-7rH" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="219.5" width="327" height="45.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-Ib-wYN" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                        <rect key="frame" x="198" y="285" width="137" height="32"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="ml"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="ounce"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-vx-qxb" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="337" width="327" height="45.5"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
-                                        <connections>
-                                            <action selector="alcVolumeChanged:" destination="KNx-dV-4vX" eventType="valueChanged" id="MCN-4A-KT3"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="xFS-Dh-dGn" secondAttribute="trailing" id="0HK-g9-pqG"/>
-                                    <constraint firstItem="ea7-my-4Jh" firstAttribute="height" secondItem="Qqi-8c-tZ9" secondAttribute="height" multiplier="0.1" id="6oS-T4-bE1"/>
-                                    <constraint firstItem="xFS-Dh-dGn" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="7Ma-7J-ob8"/>
-                                    <constraint firstItem="ea7-my-4Jh" firstAttribute="height" secondItem="Z8M-vx-qxb" secondAttribute="height" id="913-2X-YN0"/>
-                                    <constraint firstItem="Z8M-vx-qxb" firstAttribute="top" secondItem="uR3-Ib-wYN" secondAttribute="bottom" constant="20" id="Ah4-d1-gBq"/>
-                                    <constraint firstItem="ea7-my-4Jh" firstAttribute="height" secondItem="xFS-Dh-dGn" secondAttribute="height" id="CWK-pL-JiT"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="vum-0o-7rH" secondAttribute="trailing" id="Dy9-UZ-GCL"/>
-                                    <constraint firstItem="vum-0o-7rH" firstAttribute="top" secondItem="xFS-Dh-dGn" secondAttribute="bottom" constant="40" id="HMT-gf-p1J"/>
-                                    <constraint firstItem="Z8M-vx-qxb" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="HQr-BH-NHB"/>
-                                    <constraint firstItem="uR3-Ib-wYN" firstAttribute="width" secondItem="Qqi-8c-tZ9" secondAttribute="width" multiplier="0.4" id="JV0-Jw-GBy"/>
-                                    <constraint firstItem="uR3-Ib-wYN" firstAttribute="top" secondItem="vum-0o-7rH" secondAttribute="bottom" constant="20" id="Loo-gP-B51"/>
-                                    <constraint firstItem="ea7-my-4Jh" firstAttribute="height" secondItem="vum-0o-7rH" secondAttribute="height" id="QdM-MK-cKK"/>
-                                    <constraint firstItem="xFS-Dh-dGn" firstAttribute="top" secondItem="ea7-my-4Jh" secondAttribute="bottom" constant="40" id="Xnw-MW-FPl"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="ea7-my-4Jh" secondAttribute="trailing" id="cNb-1I-IZl"/>
-                                    <constraint firstItem="ea7-my-4Jh" firstAttribute="top" secondItem="Qqi-8c-tZ9" secondAttribute="topMargin" constant="40" id="iSJ-qO-0Rg"/>
-                                    <constraint firstItem="uR3-Ib-wYN" firstAttribute="trailing" secondItem="Qqi-8c-tZ9" secondAttribute="trailingMargin" id="jxb-ht-nGV"/>
-                                    <constraint firstItem="ea7-my-4Jh" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="m2I-RG-rSP"/>
-                                    <constraint firstItem="uR3-Ib-wYN" firstAttribute="height" secondItem="vum-0o-7rH" secondAttribute="height" multiplier="0.7" id="mBv-ly-3i4"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Z8M-vx-qxb" secondAttribute="trailing" id="s6p-o8-KS4"/>
-                                    <constraint firstItem="vum-0o-7rH" firstAttribute="leading" secondItem="Qqi-8c-tZ9" secondAttribute="leadingMargin" id="wCM-Db-LgP"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ff-1I-XWL">
-                                <rect key="frame" x="16" y="584" width="343" height="83"/>
-                                <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="agY-Om-Exa" firstAttribute="trailing" secondItem="Qqi-8c-tZ9" secondAttribute="trailing" constant="16" id="6GS-Xo-PXj"/>
-                            <constraint firstItem="Qqi-8c-tZ9" firstAttribute="top" secondItem="9oU-sV-BrE" secondAttribute="bottom" constant="63" id="6rv-no-yxl"/>
+                            <constraint firstItem="XOM-p2-x2Q" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" constant="16" id="5BA-V3-gE2"/>
                             <constraint firstItem="9oU-sV-BrE" firstAttribute="top" secondItem="agY-Om-Exa" secondAttribute="top" id="9Tc-ZG-z6b"/>
-                            <constraint firstItem="agY-Om-Exa" firstAttribute="trailing" secondItem="3ff-1I-XWL" secondAttribute="trailing" constant="16" id="Bba-Zp-caS"/>
-                            <constraint firstItem="3ff-1I-XWL" firstAttribute="top" secondItem="Qqi-8c-tZ9" secondAttribute="bottom" id="E0c-Ee-FQT"/>
+                            <constraint firstItem="agY-Om-Exa" firstAttribute="trailing" secondItem="D4q-6O-VSe" secondAttribute="trailing" id="Ah7-9K-sOt"/>
+                            <constraint firstItem="agY-Om-Exa" firstAttribute="bottom" secondItem="D4q-6O-VSe" secondAttribute="bottom" id="EO7-5v-jYs"/>
                             <constraint firstItem="9oU-sV-BrE" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" id="HJz-aP-8Xm"/>
                             <constraint firstItem="9oU-sV-BrE" firstAttribute="trailing" secondItem="agY-Om-Exa" secondAttribute="trailing" id="PZp-4G-MNd"/>
-                            <constraint firstItem="agY-Om-Exa" firstAttribute="bottom" secondItem="Qqi-8c-tZ9" secondAttribute="bottom" constant="83" id="fDX-dA-DgS"/>
-                            <constraint firstItem="3ff-1I-XWL" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" constant="16" id="l6R-Bj-K68"/>
-                            <constraint firstItem="3ff-1I-XWL" firstAttribute="bottom" secondItem="agY-Om-Exa" secondAttribute="bottom" id="xv2-Mi-gSs"/>
-                            <constraint firstItem="Qqi-8c-tZ9" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" constant="16" id="ymU-Zt-ZeC"/>
+                            <constraint firstItem="XOM-p2-x2Q" firstAttribute="top" secondItem="9oU-sV-BrE" secondAttribute="bottom" constant="83" id="dN3-wT-t1O"/>
+                            <constraint firstItem="agY-Om-Exa" firstAttribute="trailing" secondItem="XOM-p2-x2Q" secondAttribute="trailing" constant="16" id="qLA-JO-qpL"/>
+                            <constraint firstItem="agY-Om-Exa" firstAttribute="bottom" secondItem="XOM-p2-x2Q" secondAttribute="bottom" constant="103" id="vQF-Ax-GhM"/>
+                            <constraint firstItem="D4q-6O-VSe" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" id="wjS-KB-DEZ"/>
+                            <constraint firstItem="D4q-6O-VSe" firstAttribute="top" secondItem="agY-Om-Exa" secondAttribute="top" id="yIv-SN-ysp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agY-Om-Exa"/>
                     </view>
@@ -332,6 +348,7 @@
                         <outlet property="alcVolumeLabel" destination="vum-0o-7rH" id="07g-Fl-U8I"/>
                         <outlet property="layerView" destination="Qqi-8c-tZ9" id="mdc-CQ-Dwf"/>
                         <outlet property="mlOunceSwitch" destination="uR3-Ib-wYN" id="Ghl-do-fSU"/>
+                        <outlet property="scrollView" destination="XOM-p2-x2Q" id="WD1-FK-q3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Y4-pp-Nu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -372,13 +389,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZj-38-iVv">
                                                     <rect key="frame" x="136" y="308" width="102.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92j-Sn-ZQC">
                                                     <rect key="frame" x="136" y="12" width="102.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

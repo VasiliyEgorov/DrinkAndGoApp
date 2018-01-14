@@ -9,34 +9,56 @@
 import Foundation
 
 struct AlcoholDetailsViewModel {
-    private let maxMlLenght = 5
-    private let maxOunceLenght = 6
+    private let maxMlLenght = 4
+    private let maxOunceLenght = 5
+    private let maxVolume = 3
     var title : String!
     var alcPercentage : String!
     
-    func filterVolume(volume: String, ml: Bool) -> String {
-        if ml {
-           return cutVolume(volume: volume, volumeCount: maxMlLenght)
+    func filterVolume(volume: String, isOunce: Bool) -> String {
+        if isOunce {
+           return cutVolume(volume: volume, volumeCount: maxOunceLenght)
         } else {
-            return cutVolume(volume: volume, volumeCount: maxOunceLenght)
+            return cutVolume(volume: volume, volumeCount: maxMlLenght)
         }
     }
     private func cutVolume(volume: String, volumeCount: Int) -> String {
         if volume.count <= volumeCount {
             return volume
         } else {
-            let result = String(volume[..<volume.endIndex])
+            let index = volume.index(volume.startIndex, offsetBy: volumeCount)
+            let result = String(volume[..<index])
             return result
         }
     }
     func filterPercentage(percentage: String) -> String {
-        let startRange = NSRange.init(location: 0, length: 1)
-        guard let range = Range.init(startRange, in: percentage) else { return "" }
-        let result = percentage.replacingCharacters(in: range, with: "%")
-        return result
+        if percentage.count < maxVolume {
+            guard let _ = percentage.index(of: "%")
+                else {
+                    switch percentage.count {
+                    case 1:  return percentage + "%"
+                    default: return percentage
+                    }
+            }
+            let temp = percentage.replacingOccurrences(of: "%", with: "")
+            let result = temp + "%"
+            return result
+        } else {
+            let temp = percentage.replacingOccurrences(of: "%", with: "")
+            let index = temp.index(temp.startIndex, offsetBy: maxVolume - 1)
+            let result = String(temp[..<index]) + "%"
+            return result
+        }
+    }
+    func setDefaultPercentage(percentage: String) -> String {
+        if percentage.count == 1 {
+            return self.alcPercentage
+        } else {
+            return percentage
+        }
     }
     init(alcTitle: String, alcPercentage: String) {
         self.title = alcTitle
-        self.alcPercentage = alcPercentage + " tap here to correct"
+        self.alcPercentage = alcPercentage + ". Tap here to correct"
     }
 }
