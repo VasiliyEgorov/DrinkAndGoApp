@@ -16,6 +16,7 @@
 		FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */; };
 		FFA301A31FFCC43400D8C96B /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA301A21FFCC43300D8C96B /* DataExtension.swift */; };
 		FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */; };
+		FFA9E63D200C007200756002 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9E63C200C007200756002 /* KeyboardView.swift */; };
 		FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */; };
 		FFE591351FF1A3D60027D029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE591331FF1A3D60027D029 /* Main.storyboard */; };
 		FFE591371FF1A3D60027D029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE591361FF1A3D60027D029 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCell.swift; sourceTree = "<group>"; };
 		FFA301A21FFCC43300D8C96B /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCellVM.swift; sourceTree = "<group>"; };
+		FFA9E63C200C007200756002 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		FFE5912C1FF1A3D60027D029 /* DrinkAndGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkAndGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE591341FF1A3D60027D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				FFE591621FF726710027D029 /* RoundedSwitch.swift */,
 				FFE591731FF85D870027D029 /* titleLabel.swift */,
 				FF82995C2008B8D80032E0E5 /* alcTextField.swift */,
+				FFA9E63C200C007200756002 /* KeyboardView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */,
 				FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */,
 				FFE591741FF85D870027D029 /* titleLabel.swift in Sources */,
+				FFA9E63D200C007200756002 /* KeyboardView.swift in Sources */,
 				FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */,
 				FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */,
 				FFE591651FF736750027D029 /* GenderVC.swift in Sources */,

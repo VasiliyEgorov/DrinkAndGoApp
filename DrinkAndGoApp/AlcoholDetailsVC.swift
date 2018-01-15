@@ -11,7 +11,7 @@ import UIKit
 protocol AlcoholDetailsDelegate : class {
     func setAlcohol(volume: String?, percentage: String?)
 }
-class AlcoholDetailsVC: UIViewController, UITextFieldDelegate {
+class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var layerView: UIView!
@@ -22,12 +22,15 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mlOunceSwitch: RoundedSwitch!
     var delegate : AlcoholDetailsDelegate?
     var viewModel : AlcoholDetailsViewModel!
+    private var keyboardView: KeyboardView!
+    private var bottomConstraint : NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayerView()
         configureScrollView()
         addNotifications()
+        addKeyboardView()
         self.alcTitleLabel.text = viewModel.title
         self.alcPercentageCorrection.placeholder = viewModel.alcPercentage
         
@@ -37,10 +40,27 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    private func addKeyboardView() {
+        self.keyboardView = KeyboardView.init(frame: CGRect.zero)
+        self.view.addSubview(self.keyboardView)
+        self.keyboardView.delegate = self
+        self.keyboardView.isHidden = true
+        let leading = NSLayoutConstraint.init(item: self.keyboardView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint.init(item: self.keyboardView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+        let equalHeight = NSLayoutConstraint.init(item: self.keyboardView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 0.05, constant: 0)
+        self.bottomConstraint = NSLayoutConstraint.init(item: self.keyboardView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+        
+        self.keyboardView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addConstraint(leading)
+        self.view.addConstraint(trailing)
+        self.view.addConstraint(equalHeight)
+        self.view.addConstraint(self.bottomConstraint)
+    }
     private func addNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
     }
     private func configureLayerView() {
         self.layerView.layer.cornerRadius = 12
@@ -81,7 +101,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate {
         if let text = textField.text, text.isEmpty {
                 let animation = CABasicAnimation(keyPath: "position")
                 animation.duration = 0.07
-                animation.repeatCount = 4
+                animation.repeatCount = 3
                 animation.autoreverses = true
                 animation.fromValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x - 10, y: self.alcVolumeCorrection.center.y))
                 animation.toValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x + 10, y: self.alcVolumeCorrection.center.y))
@@ -100,20 +120,32 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         checkForEmptyField(textField: self.alcVolumeCorrection)
     }
+    // MARK: - KeyboardView Delegate
+    func upButtonPressed(button: UIButton) {
+        
+    }
+    
+    func downButtonPressed(button: UIButton) {
+        
+    }
+    
+    func doneButtonPressed(button: UIButton) {
+        
+    }
     // MARK: - Notifications
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-           
             self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
-           
         }
     }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardDidShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-           
-            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-            
+            self.bottomConstraint.constant = -keyboardSize.height
+            self.keyboardView.isHidden = false
         }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.keyboardView.isHidden = true
+        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
     }
 }
