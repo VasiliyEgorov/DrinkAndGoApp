@@ -23,6 +23,7 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        self.collectableView.viewModel = self.viewModel.setCollectableViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,19 +58,20 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             alcDetailsVC.delegate = self
             self.present(alcDetailsVC, animated: true, completion: nil)
         }
+        
     }
    
     // MARK: - AlcoholDetailsDelegate
     func setAlcohol(volume: String?, percentage: String?, indexPath: IndexPath) {
         let cell = self.collectionView.cellForItem(at: indexPath) as! AlcoholCell
-        let alcImage = UIImageView.init(image: cell.cellsImageView.image)
-        for gradiendLayer in cell.layer.sublayers! {
-            if gradiendLayer.isKind(of: CAGradientLayer.self) {
-                alcImage.layer.insertSublayer(gradiendLayer, at: 0)
-            }
-        }
-        cell.addSubview(alcImage)
-        self.collectableView.calculateFrameFor(alcoholImageView: alcImage)
+        let storeDefaultText = cell.alcPercentLabel.text
+        cell.alcPercentLabel.text = percentage
+        let alcImageView = UIImageView.init(frame: cell.contentView.frame)
+        let newImage = UIImage.mergeLayer(andView: cell)
+        alcImageView.image = newImage
+        cell.addSubview(alcImageView)
+        cell.alcPercentLabel.text = storeDefaultText
+        self.collectableView.calculateFrameFor(alcoholImageView: alcImageView)
         self.collectableView.viewModel.addAlcohol(volume: volume, percentage: percentage)
     }
     // MARK: - Buttons

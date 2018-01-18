@@ -12,8 +12,10 @@ struct AlcoholDetailsViewModel {
     private let maxMlLenght = 4
     private let maxOunceLenght = 5
     private let maxVolume = 3
+    private var tempPercentage : String!
+    private let defaultPercentage : String
     var title : String!
-    var alcPercentage : String!
+    let alcPercentageEdited : String!
     var indexPath : IndexPath!
     func filterVolume(volume: String, isOunce: Bool) -> String {
         if isOunce {
@@ -50,16 +52,28 @@ struct AlcoholDetailsViewModel {
             return result
         }
     }
-    func setDefaultPercentage(percentage: String) -> String {
-        if percentage.count == 1 {
-            return self.alcPercentage
+    func setDefaultPercentage(percentage: String?) -> String? {
+        if let text = percentage {
+            if text.count == 1 {
+                return self.tempPercentage
+            } else {
+                return percentage
+            }
         } else {
             return percentage
         }
     }
+    func setDefaultPercentageForExit(text: String) -> String {
+        if text.isEmpty {
+            return self.defaultPercentage
+        }
+        return text.replacingOccurrences(of: "%", with: " %")
+    }
     init(alcTitle: String, alcPercentage: String, indexPath: IndexPath) {
         self.title = alcTitle
-        self.alcPercentage = alcPercentage + ". Tap here to correct"
+        self.defaultPercentage = alcPercentage
+        self.alcPercentageEdited = alcPercentage + ". Tap here to correct"
+        self.tempPercentage = alcPercentage.replacingOccurrences(of: " ", with: "")
         self.indexPath = indexPath
     }
 }

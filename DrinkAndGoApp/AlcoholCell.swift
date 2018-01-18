@@ -9,6 +9,7 @@
 import UIKit
 
 class AlcoholCell: UICollectionViewCell {
+ 
     @IBOutlet weak var alcPercentLabel: UILabel!
     @IBOutlet weak var cellsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

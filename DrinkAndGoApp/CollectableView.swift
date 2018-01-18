@@ -16,20 +16,23 @@ class CollectableView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
         self.scrollView.showsHorizontalScrollIndicator = false
     }
     func calculateFrameFor(alcoholImageView: UIImageView) {
-        let newWidth = self.scrollView.frame.size.width / 3 - offset
+        let newWidth = self.scrollView.frame.size.width / 4 - offset
         let newHeight = newWidth * 2
         let findWidthDelta = 100.0 * (alcoholImageView.frame.size.width - newWidth) / alcoholImageView.frame.size.width
         let findHeightDelta = 100.0 * (alcoholImageView.frame.size.height - newHeight) / alcoholImageView.frame.size.height
         let newScale = CGAffineTransform.init(scaleX: 1 - (findWidthDelta / 100), y: 1 - (findHeightDelta / 100))
-        let newPoint = CGAffineTransform.init(translationX: 0, y: 0)
+        let newPoint = CGAffineTransform.init(translationX: self.scrollView.frame.minX, y: self.scrollView.frame.minY)
         animate(alcImageView: alcoholImageView, toNewPoint: newPoint, andNewScale: newScale)
     }
     private func animate(alcImageView: UIImageView, toNewPoint point: CGAffineTransform, andNewScale scale: CGAffineTransform) {
         
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 2,
                        delay: 0.0,
                        options: [.curveLinear],
                        animations: {

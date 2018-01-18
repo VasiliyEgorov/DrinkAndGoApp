@@ -14,6 +14,8 @@
 		FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */; };
 		FF328DB1200FB6CD00ED39D6 /* CollectableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB0200FB6CD00ED39D6 /* CollectableView.swift */; };
 		FF328DB3200FB6DF00ED39D6 /* CollectableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB2200FB6DF00ED39D6 /* CollectableVM.swift */; };
+		FF328DB52010B35A00ED39D6 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB42010B35900ED39D6 /* UIImageExtension.swift */; };
+		FF328DB72010B89400ED39D6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB62010B89400ED39D6 /* UIViewExtension.swift */; };
 		FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */; };
 		FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */; };
 		FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995C2008B8D80032E0E5 /* alcTextField.swift */; };
@@ -72,6 +74,8 @@
 		FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVM.swift; sourceTree = "<group>"; };
 		FF328DB0200FB6CD00ED39D6 /* CollectableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableView.swift; sourceTree = "<group>"; };
 		FF328DB2200FB6DF00ED39D6 /* CollectableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableVM.swift; sourceTree = "<group>"; };
+		FF328DB42010B35900ED39D6 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		FF328DB62010B89400ED39D6 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVC.swift; sourceTree = "<group>"; };
 		FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVM.swift; sourceTree = "<group>"; };
 		FF82995C2008B8D80032E0E5 /* alcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alcTextField.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				FFA301A21FFCC43300D8C96B /* DataExtension.swift */,
+				FF328DB42010B35900ED39D6 /* UIImageExtension.swift */,
+				FF328DB62010B89400ED39D6 /* UIViewExtension.swift */,
 			);
 			path = Extesions;
 			sourceTree = "<group>";
@@ -573,9 +579,11 @@
 				FFE5917A1FFB000C0027D029 /* AlcoholVM.swift in Sources */,
 				FFE591781FFAFFAE0027D029 /* AlcoholVC.swift in Sources */,
 				FFE5916D1FF737AD0027D029 /* GenderVM.swift in Sources */,
+				FF328DB72010B89400ED39D6 /* UIViewExtension.swift in Sources */,
 				FFA301A31FFCC43400D8C96B /* DataExtension.swift in Sources */,
 				FFE5916B1FF736B10027D029 /* Interview.swift in Sources */,
 				FFE5916F1FF73DF60027D029 /* DidYouEatVM.swift in Sources */,
+				FF328DB52010B35A00ED39D6 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

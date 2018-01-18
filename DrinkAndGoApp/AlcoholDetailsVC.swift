@@ -37,7 +37,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         addNotifications()
         addKeyboardView()
         self.alcTitleLabel.text = viewModel.title
-        self.alcPercentageCorrection.placeholder = viewModel.alcPercentage
+        self.alcPercentageCorrection.placeholder = viewModel.alcPercentageEdited
         
     }
 
@@ -83,11 +83,25 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.txtFieldEnum = TextFieldEnum.init(rawValue: textField.tag)
+        
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.txtFieldEnum = TextFieldEnum.init(rawValue: textField.tag)
+        if let _ = textField.selectedTextRange {
+            switch textField.text?.count {
+            case 1?: correctPosition(textField: textField, offset: 1)
+            case 2?: correctPosition(textField: textField, offset: 1)
+            case 3?: correctPosition(textField: textField, offset: 2)
+            default: return
+            }
+        }
     }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+       self.alcPercentageCorrection.text = self.viewModel.setDefaultPercentage(percentage: self.alcPercentageCorrection.text)
+        return true
+    }
+    
     // MARK: - UITextField
     @IBAction func alcPercentageChanged(_ sender: UITextField) {
         sender.text = self.viewModel.filterPercentage(percentage: sender.text!)
@@ -107,14 +121,9 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     @IBAction func alcVolumeChanged(_ sender: UITextField) {
         sender.text = self.viewModel.filterVolume(volume: sender.text!, isOunce: self.mlOunceSwitch.rightSelected)
     }
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        self.alcVolumeCorrection.text = self.viewModel.setDefaultPercentage(percentage: self.alcVolumeCorrection.text!)
-    }
-    private func checkForEmptyField(textField: UITextField) {
-        if let text = textField.text, text.isEmpty {
+    
+    private func checkForEmptyFields(alcVolume: UITextField, alcPercentage: UITextField) {
+        if let text = alcVolume.text, text.isEmpty {
                 let animation = CABasicAnimation(keyPath: "position")
                 animation.duration = 0.07
                 animation.repeatCount = 3
@@ -122,8 +131,11 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
                 animation.fromValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x - 10, y: self.alcVolumeCorrection.center.y))
                 animation.toValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x + 10, y: self.alcVolumeCorrection.center.y))
                 self.alcVolumeCorrection.layer.add(animation, forKey: "position")
+        } else if let text = alcPercentage.text, text.isEmpty {
+            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.viewModel.setDefaultPercentageForExit(text: text), indexPath: self.viewModel.indexPath)
+            self.dismiss(animated: true, completion: nil)
         } else {
-            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.alcPercentageCorrection.text, indexPath: self.viewModel.indexPath)
+            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.viewModel.setDefaultPercentageForExit(text: self.alcPercentageCorrection.text!), indexPath: self.viewModel.indexPath)
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -134,7 +146,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     }
     
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
-        checkForEmptyField(textField: self.alcVolumeCorrection)
+        checkForEmptyFields(alcVolume: self.alcVolumeCorrection, alcPercentage: self.alcPercentageCorrection)
     }
     // MARK: - KeyboardView Delegate
     func upButtonPressed(button: UIButton) {
