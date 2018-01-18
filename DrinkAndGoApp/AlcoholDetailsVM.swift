@@ -14,7 +14,7 @@ struct AlcoholDetailsViewModel {
     private let maxVolume = 3
     var title : String!
     var alcPercentage : String!
-    
+    var indexPath : IndexPath!
     func filterVolume(volume: String, isOunce: Bool) -> String {
         if isOunce {
            return cutVolume(volume: volume, volumeCount: maxOunceLenght)
@@ -57,8 +57,9 @@ struct AlcoholDetailsViewModel {
             return percentage
         }
     }
-    init(alcTitle: String, alcPercentage: String) {
+    init(alcTitle: String, alcPercentage: String, indexPath: IndexPath) {
         self.title = alcTitle
         self.alcPercentage = alcPercentage + ". Tap here to correct"
+        self.indexPath = indexPath
     }
 }

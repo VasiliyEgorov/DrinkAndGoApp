@@ -9,14 +9,13 @@
 import UIKit
 import GravitySliderFlowLayout
 
-class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CellsDelegate, AlcoholDetailsDelegate {
+class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, AlcoholDetailsDelegate {
     
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var resultsView: UIView!
+    @IBOutlet weak var collectableView: CollectableView!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
     private let segueID = "CompleteSegue"
-    private let detailsID = "AlcoholDetailsSegue"
     private let cellID = "AlcoholCell"
     private let collectionViewCellHeight : CGFloat = 0.85
     private let collectionViewCellWidth : CGFloat = 0.55
@@ -24,7 +23,6 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-    
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,31 +48,40 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! AlcoholCell
         cell.viewModel = self.viewModel.setCellsViewModel(row: indexPath.row)
-        cell.delegate = self
         return cell
     }
-    
-    // MARK: - Cells Delegate
-    func tapAction(title: String?, alcPercent: String?) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let alcDetailsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AlcoholDetails") as? AlcoholDetailsVC {
-            alcDetailsVC.viewModel = self.viewModel.setAlcoholDetailsViewModel(title: title, alcPercentage: alcPercent)
+            let cell = collectionView.cellForItem(at: indexPath) as! AlcoholCell
+            alcDetailsVC.viewModel = self.viewModel.setAlcoholDetailsViewModel(title: cell.titleLabel.text, alcPercentage: cell.alcPercentLabel.text, indexPath: indexPath)
             alcDetailsVC.delegate = self
             self.present(alcDetailsVC, animated: true, completion: nil)
         }
     }
+   
     // MARK: - AlcoholDetailsDelegate
-    func setAlcohol(volume: String?, percentage: String?) {
-        self.viewModel.addAlcohol(volume: volume, percentage: percentage)
+    func setAlcohol(volume: String?, percentage: String?, indexPath: IndexPath) {
+        let cell = self.collectionView.cellForItem(at: indexPath) as! AlcoholCell
+        let alcImage = UIImageView.init(image: cell.cellsImageView.image)
+        for gradiendLayer in cell.layer.sublayers! {
+            if gradiendLayer.isKind(of: CAGradientLayer.self) {
+                alcImage.layer.insertSublayer(gradiendLayer, at: 0)
+            }
+        }
+        cell.addSubview(alcImage)
+        self.collectableView.calculateFrameFor(alcoholImageView: alcImage)
+        self.collectableView.viewModel.addAlcohol(volume: volume, percentage: percentage)
     }
     // MARK: - Buttons
     @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: segueID, sender: nil)
     }
     
     // MARK: - Navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if let resultVC = segue.destination as? ResultVC {
+            resultVC.viewModel = self.collectableView.viewModel.setResultViewModel()
+        }
     }
     /*
     private func animateChangingTitle(for indexPath: IndexPath) {

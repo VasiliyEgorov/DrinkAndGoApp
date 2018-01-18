@@ -219,11 +219,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-6O-VSe">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOM-p2-x2Q">
-                                <rect key="frame" x="16" y="147" width="343" height="417"/>
+                                <rect key="frame" x="16" y="147" width="343" height="437"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqi-8c-tZ9">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="425"/>
@@ -241,6 +241,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 <connections>
                                                     <action selector="alcPercentageChanged:" destination="KNx-dV-4vX" eventType="editingChanged" id="xMh-f9-L5M"/>
+                                                    <outlet property="delegate" destination="KNx-dV-4vX" id="1dJ-RM-aYC"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vum-0o-7rH" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
@@ -257,13 +258,14 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="rightText" value="ounce"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-vx-qxb" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-vx-qxb" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="317" width="327" height="34"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 <connections>
                                                     <action selector="alcVolumeChanged:" destination="KNx-dV-4vX" eventType="editingChanged" id="C0b-mC-SrF"/>
+                                                    <outlet property="delegate" destination="KNx-dV-4vX" id="FZB-j6-1v7"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -334,10 +336,10 @@
                             <constraint firstItem="9oU-sV-BrE" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" id="HJz-aP-8Xm"/>
                             <constraint firstItem="9oU-sV-BrE" firstAttribute="trailing" secondItem="agY-Om-Exa" secondAttribute="trailing" id="PZp-4G-MNd"/>
                             <constraint firstItem="XOM-p2-x2Q" firstAttribute="top" secondItem="9oU-sV-BrE" secondAttribute="bottom" constant="83" id="dN3-wT-t1O"/>
+                            <constraint firstItem="D4q-6O-VSe" firstAttribute="top" secondItem="9oU-sV-BrE" secondAttribute="bottom" id="g7O-lm-rRd"/>
                             <constraint firstItem="agY-Om-Exa" firstAttribute="trailing" secondItem="XOM-p2-x2Q" secondAttribute="trailing" constant="16" id="qLA-JO-qpL"/>
-                            <constraint firstItem="agY-Om-Exa" firstAttribute="bottom" secondItem="XOM-p2-x2Q" secondAttribute="bottom" constant="103" id="vQF-Ax-GhM"/>
+                            <constraint firstItem="agY-Om-Exa" firstAttribute="bottom" secondItem="XOM-p2-x2Q" secondAttribute="bottom" constant="83" id="vQF-Ax-GhM"/>
                             <constraint firstItem="D4q-6O-VSe" firstAttribute="leading" secondItem="agY-Om-Exa" secondAttribute="leading" id="wjS-KB-DEZ"/>
-                            <constraint firstItem="D4q-6O-VSe" firstAttribute="top" secondItem="agY-Om-Exa" secondAttribute="top" id="yIv-SN-ysp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="agY-Om-Exa"/>
                     </view>
@@ -423,9 +425,26 @@
                                     <outlet property="delegate" destination="weA-qm-SSM" id="UtN-Sz-Fo4"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-mW-oTQ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-mW-oTQ" customClass="CollectableView" customModule="DrinkAndGoApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="429.5" width="375" height="185.5"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-3Q-940">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="185.5"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="uDD-mW-oTQ" id="Z8h-co-V1f"/>
+                                        </connections>
+                                    </scrollView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="VhP-3Q-940" secondAttribute="bottom" id="SJt-fl-rmL"/>
+                                    <constraint firstItem="VhP-3Q-940" firstAttribute="top" secondItem="uDD-mW-oTQ" secondAttribute="top" id="e9N-oo-ZWT"/>
+                                    <constraint firstAttribute="trailing" secondItem="VhP-3Q-940" secondAttribute="trailing" id="eLu-2i-xRt"/>
+                                    <constraint firstItem="VhP-3Q-940" firstAttribute="leading" secondItem="uDD-mW-oTQ" secondAttribute="leading" id="jxD-Rv-Juz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="scrollView" destination="VhP-3Q-940" id="yW7-By-bXo"/>
+                                </connections>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8hm-ro-xT1">
                                 <rect key="frame" x="168" y="623" width="39" height="37"/>
@@ -454,9 +473,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectableView" destination="uDD-mW-oTQ" id="tr8-X4-wwD"/>
                         <outlet property="collectionView" destination="G77-i7-1Le" id="ej5-OP-724"/>
                         <outlet property="pageControl" destination="8hm-ro-xT1" id="46E-qs-z4f"/>
-                        <outlet property="resultsView" destination="uDD-mW-oTQ" id="dJD-ma-4zm"/>
                         <segue destination="X1e-bd-9R3" kind="show" identifier="CompleteSegue" id="fwh-UJ-0vm"/>
                     </connections>
                 </viewController>
@@ -471,7 +490,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ss7-HP-8lI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="10A-at-Afa"/>
                     </view>
                 </viewController>

@@ -8,8 +8,12 @@
 
 import UIKit
 
+fileprivate enum TextFieldEnum : Int {
+    case Percentage = 0
+    case Volume = 1
+}
 protocol AlcoholDetailsDelegate : class {
-    func setAlcohol(volume: String?, percentage: String?)
+    func setAlcohol(volume: String?, percentage: String?, indexPath: IndexPath)
 }
 class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDelegate {
 
@@ -24,6 +28,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     var viewModel : AlcoholDetailsViewModel!
     private var keyboardView: KeyboardView!
     private var bottomConstraint : NSLayoutConstraint!
+    private var txtFieldEnum : TextFieldEnum!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     private func addKeyboardView() {
         self.keyboardView = KeyboardView.init(frame: CGRect.zero)
         self.view.addSubview(self.keyboardView)
@@ -69,8 +75,18 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         self.layerView.layer.borderColor = UIColor.white.cgColor
     }
     private func configureScrollView() {
-        self.view.layoutIfNeeded()
-        self.scrollView.contentSize = CGSize(width: self.layerView.frame.size.width, height: self.layerView.frame.size.height + 1)
+        self.scrollView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+        self.scrollView.contentSize = CGSize(width: self.layerView.frame.size.width, height: self.layerView.frame.size.height)
+    }
+    // MARK: - UITextField Delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.txtFieldEnum = TextFieldEnum.init(rawValue: textField.tag)
     }
     // MARK: - UITextField
     @IBAction func alcPercentageChanged(_ sender: UITextField) {
@@ -107,7 +123,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
                 animation.toValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x + 10, y: self.alcVolumeCorrection.center.y))
                 self.alcVolumeCorrection.layer.add(animation, forKey: "position")
         } else {
-            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.alcPercentageCorrection.text)
+            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.alcPercentageCorrection.text, indexPath: self.viewModel.indexPath)
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -122,15 +138,29 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     }
     // MARK: - KeyboardView Delegate
     func upButtonPressed(button: UIButton) {
-        
+        switch self.txtFieldEnum {
+        case .Volume:
+            self.scrollView.scrollRectToVisible(self.alcTitleLabel.frame, animated: true)
+            self.alcPercentageCorrection.becomeFirstResponder()
+        default: return
+        }
     }
     
     func downButtonPressed(button: UIButton) {
-        
+        switch self.txtFieldEnum {
+        case .Percentage:
+            self.scrollView.scrollRectToVisible(self.alcVolumeCorrection.frame, animated: true)
+            self.alcVolumeCorrection.becomeFirstResponder()
+        default: return
+        }
     }
     
     func doneButtonPressed(button: UIButton) {
-        
+        switch self.txtFieldEnum {
+        case .Percentage: self.alcPercentageCorrection.resignFirstResponder()
+        case .Volume: self.alcVolumeCorrection.resignFirstResponder()
+        default: return
+        }
     }
     // MARK: - Notifications
     @objc func keyboardWillShow(notification: NSNotification) {

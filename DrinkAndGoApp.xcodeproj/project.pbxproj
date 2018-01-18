@@ -10,6 +10,10 @@
 		848CC49E2894E5139746E4E3 /* Pods_DrinkAndGoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4346865DA5CA60DA3644EC /* Pods_DrinkAndGoApp.framework */; };
 		92678CC951DB9026B3B074D0 /* Pods_DrinkAndGoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF2A3D28104FAD312FDFE72 /* Pods_DrinkAndGoAppUITests.framework */; };
 		995F20DDD41358E0AAECE399 /* Pods_DrinkAndGoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6263D0DA6330A3A791A38D9 /* Pods_DrinkAndGoAppTests.framework */; };
+		FF328DAD200FAF2F00ED39D6 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */; };
+		FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */; };
+		FF328DB1200FB6CD00ED39D6 /* CollectableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB0200FB6CD00ED39D6 /* CollectableView.swift */; };
+		FF328DB3200FB6DF00ED39D6 /* CollectableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB2200FB6DF00ED39D6 /* CollectableVM.swift */; };
 		FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */; };
 		FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */; };
 		FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995C2008B8D80032E0E5 /* alcTextField.swift */; };
@@ -64,6 +68,10 @@
 		E60B7ACEC88A3765C79C09E1 /* Pods-DrinkAndGoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoAppTests/Pods-DrinkAndGoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E687ADB65947338F8BCDDD27 /* Pods-DrinkAndGoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoApp/Pods-DrinkAndGoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EF85350714D9F553392E645E /* Pods-DrinkAndGoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoApp/Pods-DrinkAndGoApp.release.xcconfig"; sourceTree = "<group>"; };
+		FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVM.swift; sourceTree = "<group>"; };
+		FF328DB0200FB6CD00ED39D6 /* CollectableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableView.swift; sourceTree = "<group>"; };
+		FF328DB2200FB6DF00ED39D6 /* CollectableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectableVM.swift; sourceTree = "<group>"; };
 		FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVC.swift; sourceTree = "<group>"; };
 		FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVM.swift; sourceTree = "<group>"; };
 		FF82995C2008B8D80032E0E5 /* alcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alcTextField.swift; sourceTree = "<group>"; };
@@ -200,8 +208,12 @@
 				FFE591791FFB000C0027D029 /* AlcoholVM.swift */,
 				FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */,
 				FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */,
+				FF328DB0200FB6CD00ED39D6 /* CollectableView.swift */,
+				FF328DB2200FB6DF00ED39D6 /* CollectableVM.swift */,
 				FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */,
 				FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */,
+				FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */,
+				FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */,
 				FFA301A61FFCC75B00D8C96B /* Model */,
 				FFA301A11FFCC42100D8C96B /* Extesions */,
 				FFE591721FF85D640027D029 /* Custom Views */,
@@ -546,12 +558,16 @@
 				FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */,
 				FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */,
 				FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */,
+				FF328DAD200FAF2F00ED39D6 /* ResultVC.swift in Sources */,
 				FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */,
 				FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */,
 				FFE591741FF85D870027D029 /* titleLabel.swift in Sources */,
 				FFA9E63D200C007200756002 /* KeyboardView.swift in Sources */,
+				FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */,
 				FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */,
+				FF328DB3200FB6DF00ED39D6 /* CollectableVM.swift in Sources */,
 				FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */,
+				FF328DB1200FB6CD00ED39D6 /* CollectableView.swift in Sources */,
 				FFE591651FF736750027D029 /* GenderVC.swift in Sources */,
 				FFE591761FF86D210027D029 /* WeightVM.swift in Sources */,
 				FFE5917A1FFB000C0027D029 /* AlcoholVM.swift in Sources */,

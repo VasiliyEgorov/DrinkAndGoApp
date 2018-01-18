@@ -8,7 +8,7 @@
 
 import UIKit
 
-class alcTextField: UITextField, UITextFieldDelegate {
+class alcTextField: UITextField {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,7 +23,4 @@ class alcTextField: UITextField, UITextFieldDelegate {
         self.font = UIFont.init(name: "HelveticaNeue-Thin", size: self.frame.size.height * 0.6)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return true
-    }
 }
