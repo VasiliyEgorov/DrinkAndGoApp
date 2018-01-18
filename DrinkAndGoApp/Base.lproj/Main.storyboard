@@ -425,61 +425,46 @@
                                     <outlet property="delegate" destination="weA-qm-SSM" id="UtN-Sz-Fo4"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDD-mW-oTQ" customClass="CollectableView" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="429.5" width="375" height="185.5"/>
-                                <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-3Q-940">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="185.5"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="uDD-mW-oTQ" id="Z8h-co-V1f"/>
-                                        </connections>
-                                    </scrollView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="VhP-3Q-940" secondAttribute="bottom" id="SJt-fl-rmL"/>
-                                    <constraint firstItem="VhP-3Q-940" firstAttribute="top" secondItem="uDD-mW-oTQ" secondAttribute="top" id="e9N-oo-ZWT"/>
-                                    <constraint firstAttribute="trailing" secondItem="VhP-3Q-940" secondAttribute="trailing" id="eLu-2i-xRt"/>
-                                    <constraint firstItem="VhP-3Q-940" firstAttribute="leading" secondItem="uDD-mW-oTQ" secondAttribute="leading" id="jxD-Rv-Juz"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="scrollView" destination="VhP-3Q-940" id="yW7-By-bXo"/>
-                                </connections>
-                            </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8hm-ro-xT1">
                                 <rect key="frame" x="168" y="623" width="39" height="37"/>
                             </pageControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45c-TH-4Zq">
+                                <rect key="frame" x="0.0" y="430" width="375" height="185"/>
+                                <connections>
+                                    <segue destination="2TL-oQ-u2b" kind="embed" id="tiv-Oi-xjL"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="G77-i7-1Le" firstAttribute="trailing" secondItem="qag-MC-kbS" secondAttribute="trailing" id="0b2-fu-cGO"/>
                             <constraint firstItem="G77-i7-1Le" firstAttribute="height" secondItem="iF7-K0-QYF" secondAttribute="height" multiplier="0.5" id="3cm-Y3-veb"/>
-                            <constraint firstItem="8hm-ro-xT1" firstAttribute="top" secondItem="uDD-mW-oTQ" secondAttribute="bottom" constant="8" id="7Pu-Nb-LwN"/>
-                            <constraint firstItem="uDD-mW-oTQ" firstAttribute="leading" secondItem="qag-MC-kbS" secondAttribute="leading" id="9Vi-fd-41L"/>
+                            <constraint firstItem="45c-TH-4Zq" firstAttribute="top" secondItem="G77-i7-1Le" secondAttribute="bottom" constant="8" id="FzH-I1-pKT"/>
                             <constraint firstItem="8hm-ro-xT1" firstAttribute="centerX" secondItem="iF7-K0-QYF" secondAttribute="centerX" id="Rjv-cI-LZW"/>
                             <constraint firstItem="G77-i7-1Le" firstAttribute="leading" secondItem="qag-MC-kbS" secondAttribute="leading" id="X63-pO-0Hw"/>
+                            <constraint firstItem="qag-MC-kbS" firstAttribute="trailing" secondItem="45c-TH-4Zq" secondAttribute="trailing" id="XET-5a-qgl"/>
+                            <constraint firstItem="8hm-ro-xT1" firstAttribute="top" secondItem="45c-TH-4Zq" secondAttribute="bottom" constant="8" id="Xsd-Q6-rCw"/>
                             <constraint firstItem="G77-i7-1Le" firstAttribute="top" secondItem="qag-MC-kbS" secondAttribute="top" constant="24" id="cLd-mA-cR8"/>
                             <constraint firstItem="qag-MC-kbS" firstAttribute="bottom" secondItem="8hm-ro-xT1" secondAttribute="bottom" constant="7" id="fGm-fR-LsG"/>
-                            <constraint firstItem="uDD-mW-oTQ" firstAttribute="trailing" secondItem="qag-MC-kbS" secondAttribute="trailing" id="uPl-g2-IYi"/>
-                            <constraint firstItem="uDD-mW-oTQ" firstAttribute="top" secondItem="G77-i7-1Le" secondAttribute="bottom" constant="8" id="zIc-vR-yPY"/>
+                            <constraint firstItem="45c-TH-4Zq" firstAttribute="leading" secondItem="qag-MC-kbS" secondAttribute="leading" id="v5G-I2-NCg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qag-MC-kbS"/>
                     </view>
                     <navigationItem key="navigationItem" id="OIV-m1-bFM">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="OAZ-Ej-r0b">
                             <connections>
-                                <action selector="nextButtonAction:" destination="weA-qm-SSM" id="0Qm-3G-1EK"/>
+                                <action selector="nextButtonAction:" destination="i7c-Z4-CAg" id="WXm-kb-1QX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectableView" destination="uDD-mW-oTQ" id="tr8-X4-wwD"/>
                         <outlet property="collectionView" destination="G77-i7-1Le" id="ej5-OP-724"/>
                         <outlet property="pageControl" destination="8hm-ro-xT1" id="46E-qs-z4f"/>
                         <segue destination="X1e-bd-9R3" kind="show" identifier="CompleteSegue" id="fwh-UJ-0vm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgq-Z7-58t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="i7c-Z4-CAg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2765.5999999999999" y="70.614692653673174"/>
         </scene>
@@ -497,6 +482,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7Y-u6-KSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3580" y="69"/>
+        </scene>
+        <!--Alcohol ChildVC-->
+        <scene sceneID="XCR-gt-YR8">
+            <objects>
+                <viewController id="2TL-oQ-u2b" customClass="AlcoholChildVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ums-MU-MD7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GpT-8Q-ezU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UAd-tb-tMd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChildCell" id="LPT-zR-Ate" customClass="AlcoholChildCell" customModule="DrinkAndGoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0tu-FS-cF9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="0tu-FS-cF9" secondAttribute="bottom" id="3aF-0G-8Pa"/>
+                                            <constraint firstAttribute="trailing" secondItem="0tu-FS-cF9" secondAttribute="trailing" id="5ir-vg-xmm"/>
+                                            <constraint firstItem="0tu-FS-cF9" firstAttribute="leading" secondItem="LPT-zR-Ate" secondAttribute="leading" id="g12-Iq-Fcn"/>
+                                            <constraint firstItem="0tu-FS-cF9" firstAttribute="top" secondItem="LPT-zR-Ate" secondAttribute="top" id="wIW-Mo-vNV"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="0tu-FS-cF9" id="3ie-T0-zuj"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2TL-oQ-u2b" id="bZd-pi-jkP"/>
+                                    <outlet property="delegate" destination="2TL-oQ-u2b" id="tew-dg-RsW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="aEX-WM-OeZ" firstAttribute="trailing" secondItem="GpT-8Q-ezU" secondAttribute="trailing" id="NfW-Gx-1xX"/>
+                            <constraint firstItem="aEX-WM-OeZ" firstAttribute="bottom" secondItem="GpT-8Q-ezU" secondAttribute="bottom" id="hyS-YZ-Qq8"/>
+                            <constraint firstItem="GpT-8Q-ezU" firstAttribute="leading" secondItem="aEX-WM-OeZ" secondAttribute="leading" id="mHu-5C-4iK"/>
+                            <constraint firstItem="GpT-8Q-ezU" firstAttribute="top" secondItem="aEX-WM-OeZ" secondAttribute="top" id="q3C-hV-OWS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aEX-WM-OeZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="GpT-8Q-ezU" id="m50-gU-gTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHi-MJ-CNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2766" y="654"/>
         </scene>
     </scenes>
 </document>

@@ -12,18 +12,16 @@ import GravitySliderFlowLayout
 class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, AlcoholDetailsDelegate {
     
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var collectableView: CollectableView!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
-    private let segueID = "CompleteSegue"
     private let cellID = "AlcoholCell"
     private let collectionViewCellHeight : CGFloat = 0.85
     private let collectionViewCellWidth : CGFloat = 0.55
-    
+    private var childController : AlcoholChildVC!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        self.collectableView.viewModel = self.viewModel.setCollectableViewModel()
+        setupChildController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +30,10 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
    
     // MARK: - Setup
-    
+    private func setupChildController() {
+        self.childController = self.childViewControllers[0] as! AlcoholChildVC
+        self.childController.viewModel = self.viewModel.setChildViewModel()
+    }
     private func setupCollectionView() {
         let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * self.collectionViewCellWidth,
                                                                        height: self.collectionView.frame.size.height * self.collectionViewCellHeight))
@@ -71,21 +72,18 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         alcImageView.image = newImage
         cell.addSubview(alcImageView)
         cell.alcPercentLabel.text = storeDefaultText
-        self.collectableView.calculateFrameFor(alcoholImageView: alcImageView)
-        self.collectableView.viewModel.addAlcohol(volume: volume, percentage: percentage)
-    }
-    // MARK: - Buttons
-    @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: segueID, sender: nil)
+        self.childController.calculateFrameFor(alcoholImageView: alcImageView)
+        self.childController.viewModel.addAlcohol(volume: volume, percentage: percentage)
     }
     
+    /*
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultVC = segue.destination as? ResultVC {
             resultVC.viewModel = self.collectableView.viewModel.setResultViewModel()
         }
     }
-    /*
+    
     private func animateChangingTitle(for indexPath: IndexPath) {
         UIView.transition(with: productTitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.productTitleLabel.text = self.titles[indexPath.row % self.titles.count]

@@ -16,7 +16,7 @@ struct AlcoholViewModel {
     private let alcPercent = ["5", "40", "37", "12", "13", "16", "45"]
     private var alcoholDetailsViewModel : AlcoholDetailsViewModel!
     private var cellViewModel : AlcoholCellViewModel!
-    private var collectableViewModel : CollectableViewModel!
+    private var childViewModel : AlcoholChildViewModel!
     func numberOfCells() -> Int {
         return images.count
     }
@@ -32,9 +32,9 @@ struct AlcoholViewModel {
         }
         return self.alcoholDetailsViewModel
     }
-    mutating func setCollectableViewModel() -> CollectableViewModel {
-        self.collectableViewModel = CollectableViewModel.init(model: self.model)
-        return self.collectableViewModel
+    mutating func setChildViewModel() -> AlcoholChildViewModel {
+        self.childViewModel = AlcoholChildViewModel.init(model: self.model)
+        return self.childViewModel
     }
     
     init(model: Interview) {
