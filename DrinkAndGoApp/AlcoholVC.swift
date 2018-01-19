@@ -11,10 +11,12 @@ import GravitySliderFlowLayout
 
 class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, AlcoholDetailsDelegate {
     
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
     private let cellID = "AlcoholCell"
+    private let segueID = "CompleteSegue"
     private let collectionViewCellHeight : CGFloat = 0.85
     private let collectionViewCellWidth : CGFloat = 0.55
     private var childController : AlcoholChildVC!
@@ -22,6 +24,7 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         super.viewDidLoad()
         setupCollectionView()
         setupChildController()
+        setupNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +42,22 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
                                                                        height: self.collectionView.frame.size.height * self.collectionViewCellHeight))
         self.collectionView.collectionViewLayout = gravityLayoutSlider
         self.pageControl.numberOfPages = self.viewModel.numberOfCells()
+        self.nextButton.isEnabled = false
+    }
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(alcoholCountDidChange(notification:)), name: Notification.Name.alcoholCountDidChange, object: nil)
+    }
+    @objc private func alcoholCountDidChange(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let alcCount = userInfo["count"] as? Int
+            else {
+                return
+            }
+        switch alcCount {
+        case 0: self.nextButton.isEnabled = false
+        case 1...: self.nextButton.isEnabled = true
+        default: return
+        }
     }
     // MARK: - Collection View
     
@@ -76,14 +95,17 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         self.childController.viewModel.addAlcohol(volume: volume, percentage: percentage)
     }
     
-    /*
+    @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: segueID, sender: nil)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultVC = segue.destination as? ResultVC {
-            resultVC.viewModel = self.collectableView.viewModel.setResultViewModel()
+            resultVC.viewModel = self.childController.viewModel.setResultViewModel()
         }
     }
-    
+    /*
     private func animateChangingTitle(for indexPath: IndexPath) {
         UIView.transition(with: productTitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.productTitleLabel.text = self.titles[indexPath.row % self.titles.count]

@@ -8,11 +8,14 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let alcoholCountDidChange = Notification.Name("alcoholCountDidChange")
+}
+
 class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private let cellID = "ChildCell"
-    private let segueID = "CompleteSegue"
     private var cellWidth : CGFloat!
     private var cellHeight : CGFloat!
     private let cellOffset : CGFloat = 8.0
@@ -41,6 +44,7 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
        
         self.viewModel.removeItemAt(index: indexPath.row)
         collectionView.deleteItems(at: [indexPath])
+        postNotification()
     }
     // MARK: - Flow Delegate
     
@@ -61,18 +65,11 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             let range = Range.init(uncheckedBounds: (0, self.collectionView.numberOfSections))
             let indexSet = IndexSet.init(integersIn: range)
             self.collectionView.reloadSections(indexSet)
+            postNotification()
         }
     }
-    // MARK: - Button Action
-    @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: segueID, sender: nil)
+    private func postNotification() {
+        let dict = ["count" : self.viewModel.numberOfCells()]
+        NotificationCenter.default.post(Notification.init(name: Notification.Name.alcoholCountDidChange, object: nil, userInfo: dict))
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let resultVC = segue.destination as? ResultVC {
-            resultVC.viewModel = self.viewModel.setResultViewModel()
-        }
-    }
-
 }

@@ -21,6 +21,8 @@ struct AlcoholChildViewModel {
     }
     mutating func removeItemAt(index: Int) {
         self.alcImagesArray.remove(at: index)
+        self.choosenVolume.remove(at: index)
+        self.choosenPercent.remove(at: index)
     }
     mutating func addNewImage(image: Data?) {
         if let data = image {

@@ -16,9 +16,8 @@ class AlcoholChildCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         self.closeButton = UIButton.init(type: .custom)
         self.closeButton.frame = CGRect.zero
-        self.closeButton.setImage(UIImage.init(named: ""), for: .normal)
+        self.closeButton.setImage(UIImage.init(named: "closeButton.png"), for: .normal)
         self.closeButton.addTarget(self, action: #selector(closeButtonAction(_:)), for: .touchUpInside)
-        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,10 +32,10 @@ class AlcoholChildCell: UICollectionViewCell {
     
     // MARK: - Constraints
     private func setConstraintsTo(closeButton: UIButton, andToAlcImageView alcImageView: UIImageView) {
-        let top = NSLayoutConstraint.init(item: closeButton, attribute: .top, relatedBy: .equal, toItem: alcImageView, attribute: .top, multiplier: 1, constant: 0)
-        let trailing = NSLayoutConstraint.init(item: closeButton, attribute: .trailing, relatedBy: .equal, toItem: alcImageView, attribute: .trailing, multiplier: 1, constant: 0)
-        let width = NSLayoutConstraint.init(item: closeButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: alcImageView.frame.size.width / 3)
-        let height = NSLayoutConstraint.init(item: closeButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: alcImageView.frame.size.width / 3)
+        let top = NSLayoutConstraint.init(item: closeButton, attribute: .top, relatedBy: .equal, toItem: alcImageView, attribute: .top, multiplier: 1, constant: 4)
+        let trailing = NSLayoutConstraint.init(item: closeButton, attribute: .trailing, relatedBy: .equal, toItem: alcImageView, attribute: .trailing, multiplier: 1, constant: -4)
+        let width = NSLayoutConstraint.init(item: closeButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: alcImageView.frame.size.width / 2)
+        let height = NSLayoutConstraint.init(item: closeButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: alcImageView.frame.size.width / 2)
         
         alcImageView.addConstraint(top)
         alcImageView.addConstraint(trailing)

@@ -61,7 +61,7 @@ class KeyboardView: UIView {
         let topUpButton = NSLayoutConstraint.init(item: upButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 8)
         let leadingUpButton = NSLayoutConstraint.init(item: upButton, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 16)
         let bottomUpButton = NSLayoutConstraint.init(item: upButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -8)
-        let aspectRatioUpButton = NSLayoutConstraint.init(item: upButton, attribute: .height, relatedBy: .equal, toItem: upButton, attribute: .width, multiplier: 1/1.6, constant: 0)
+        let aspectRatioUpButton = NSLayoutConstraint.init(item: upButton, attribute: .height, relatedBy: .equal, toItem: upButton, attribute: .width, multiplier: 1/2, constant: 0)
         
         upButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -82,9 +82,9 @@ class KeyboardView: UIView {
         self.addConstraint(leadingDownButton)
         self.addConstraint(equalWidthDownButton)
         
-        let trailingDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -16)
-        let topDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 4)
-        let bottomDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -4)
+        let trailingDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -8)
+        let topDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
+        let bottomDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
         let aspectRatioDoneButton = NSLayoutConstraint.init(item: doneButton, attribute: .width, relatedBy: .equal, toItem: doneButton, attribute: .height, multiplier: 2/1, constant: 0)
         
         doneButton.translatesAutoresizingMaskIntoConstraints = false
