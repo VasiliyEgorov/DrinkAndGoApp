@@ -32,7 +32,7 @@ class DidYouEatVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let weightVC = segue.destination as? WeightVC {
-            weightVC.viewModel = self.viewModel.instantiateNextViewModel()
+            weightVC.viewModel = self.viewModel.setWeightViewModel()
         }
     }
     

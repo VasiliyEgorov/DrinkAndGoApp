@@ -7,30 +7,43 @@
 //
 
 import UIKit
+import UICircularProgressRing
 
-class ResultVC: UIViewController {
-
+class ResultVC: UIViewController, TimerDelegate {
+    
+    @IBOutlet weak var timerLabel: titleLabel!
+    @IBOutlet weak var progressCircular: UICircularProgressRingView!
+    private var timer : EliminationTimer!
     var viewModel: ResultViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupCircular()
+        setupTimerAndLabel()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.progressCircular.setProgress(value: 100, animationDuration: self.viewModel.setAnimationDurationForCicular()) {
+            //notif
+        }
     }
-    */
-
+    private func setupTimerAndLabel() {
+        self.timer = EliminationTimer.init(withSeconds: self.viewModel.setSecondsForTimer())
+        self.timer.delegate = self
+        self.timerLabel.text = self.viewModel.convertToHoursMinutesSecondsForLabel()
+    }
+    private func setupCircular() {
+        self.progressCircular.minValue = 0
+        self.progressCircular.value = 0
+        self.progressCircular.maxValue = 100
+    }
+    // MARK: - Timer Delegate
+    func setNewTimeForLabel(timeString: String, progress: Int) {
+        self.timerLabel.text = timeString
+    }
 }

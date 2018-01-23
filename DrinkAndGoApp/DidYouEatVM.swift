@@ -16,7 +16,7 @@ struct DidYouEatViewModel {
             self.model.didEat = self.didYouEat
         }
     }
-    mutating func instantiateNextViewModel() -> WeightViewModel {
+    mutating func setWeightViewModel() -> WeightViewModel {
         self.weightViewModel = WeightViewModel(model: model)
         return self.weightViewModel
     }

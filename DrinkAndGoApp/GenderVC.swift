@@ -34,7 +34,7 @@ class GenderVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let didEatVC = segue.destination as? DidYouEatVC {
-            didEatVC.viewModel = self.viewModel.instantiateNextViewModel()
+            didEatVC.viewModel = self.viewModel.setDidYouEatViewModel()
         }
     }
     

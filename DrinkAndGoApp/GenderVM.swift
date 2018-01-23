@@ -19,7 +19,7 @@ struct GenderViewModel {
             }
         }
     }
-    mutating func instantiateNextViewModel() -> DidYouEatViewModel {
+    mutating func setDidYouEatViewModel() -> DidYouEatViewModel {
         self.didYouEatViewModel = DidYouEatViewModel.init(model: self.model)
         return self.didYouEatViewModel
     }

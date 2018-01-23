@@ -8,15 +8,17 @@
 
 import Foundation
 
-struct AlcoholDetailsViewModel {
+struct AlcoholDetailsViewModel : AlcTupleProtocol {
     private let maxMlLenght = 4
-    private let maxOunceLenght = 5
+    private let maxOunceLenght = 3
     private let maxVolume = 3
     private var tempPercentage : String!
     private let defaultPercentage : String
     var title : String!
     let alcPercentageEdited : String!
     var indexPath : IndexPath!
+    var alcDetails : AlcTuple!
+    
     func filterVolume(volume: String, isOunce: Bool) -> String {
         if isOunce {
            return cutVolume(volume: volume, volumeCount: maxOunceLenght)
@@ -68,6 +70,17 @@ struct AlcoholDetailsViewModel {
             return self.defaultPercentage
         }
         return text.replacingOccurrences(of: "%", with: " %")
+    }
+    mutating func correctAlcBeforeExit(volume: String?, percentage: String?, isOunce: Bool, indexPath: IndexPath) -> AlcTuple {
+        if let perc = percentage {
+            if perc.isEmpty {
+                self.alcDetails = AlcTuple(volume: volume, percentage: self.defaultPercentage, isOunce: isOunce,indexPath: indexPath)
+            } else {
+                self.alcDetails = AlcTuple(volume: volume, percentage: perc.replacingOccurrences(of: "%", with: " %"), isOunce: isOunce,indexPath: indexPath)
+            }
+        }
+        
+        return self.alcDetails
     }
     init(alcTitle: String, alcPercentage: String, indexPath: IndexPath) {
         self.title = alcTitle

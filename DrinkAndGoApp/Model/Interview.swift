@@ -16,8 +16,7 @@ enum GenderEnum : Int {
 struct Interview {
     var gender : GenderEnum!
     var weight : Int!
+    var height: Int!
     var didEat : Bool!
-    var volume : Int!
-    var alcPercentage : Int!
-    var ml : Bool!
+    
 }

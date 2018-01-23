@@ -82,17 +82,16 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
    
     // MARK: - AlcoholDetailsDelegate
-    func setAlcohol(volume: String?, percentage: String?, indexPath: IndexPath) {
-        let cell = self.collectionView.cellForItem(at: indexPath) as! AlcoholCell
+    func setAlcohol(tuple: AlcTuple) {
+        let cell = self.collectionView.cellForItem(at: tuple.indexPath) as! AlcoholCell
         let storeDefaultText = cell.alcPercentLabel.text
-        cell.alcPercentLabel.text = percentage
+        cell.alcPercentLabel.text = tuple.percentage
         let alcImageView = UIImageView.init(frame: cell.contentView.frame)
         let newImage = UIImage.mergeLayer(andView: cell)
         alcImageView.image = newImage
-        cell.addSubview(alcImageView)
         cell.alcPercentLabel.text = storeDefaultText
         self.childController.calculateFrameFor(alcoholImageView: alcImageView)
-        self.childController.viewModel.addAlcohol(volume: volume, percentage: percentage)
+        self.childController.viewModel.addAlcohol(tuple: tuple)
     }
     
     @IBAction func nextButtonAction(_ sender: UIBarButtonItem) {

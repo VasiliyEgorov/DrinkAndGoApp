@@ -12,9 +12,13 @@ fileprivate enum TextFieldEnum : Int {
     case Percentage = 0
     case Volume = 1
 }
-protocol AlcoholDetailsDelegate : class {
-    func setAlcohol(volume: String?, percentage: String?, indexPath: IndexPath)
+protocol AlcTupleProtocol {
+    typealias AlcTuple = (volume: String?, percentage: String?, isOunce: Bool,indexPath: IndexPath)
 }
+protocol AlcoholDetailsDelegate : class, AlcTupleProtocol {
+    func setAlcohol(tuple: AlcTuple)
+}
+
 class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -131,11 +135,8 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
                 animation.fromValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x - 10, y: self.alcVolumeCorrection.center.y))
                 animation.toValue = NSValue.init(cgPoint: CGPoint(x: self.alcVolumeCorrection.center.x + 10, y: self.alcVolumeCorrection.center.y))
                 self.alcVolumeCorrection.layer.add(animation, forKey: "position")
-        } else if let text = alcPercentage.text, text.isEmpty {
-            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.viewModel.setDefaultPercentageForExit(text: text), indexPath: self.viewModel.indexPath)
-            self.dismiss(animated: true, completion: nil)
         } else {
-            self.delegate?.setAlcohol(volume: self.alcVolumeCorrection.text, percentage: self.viewModel.setDefaultPercentageForExit(text: self.alcPercentageCorrection.text!), indexPath: self.viewModel.indexPath)
+            self.delegate?.setAlcohol(tuple: self.viewModel.correctAlcBeforeExit(volume: self.alcVolumeCorrection.text, percentage: self.alcPercentageCorrection.text, isOunce: self.mlOunceSwitch.rightSelected, indexPath: self.viewModel.indexPath))
             self.dismiss(animated: true, completion: nil)
         }
     }

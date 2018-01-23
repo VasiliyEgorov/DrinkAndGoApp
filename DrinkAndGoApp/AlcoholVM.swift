@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AlcoholViewModel {
+struct AlcoholViewModel  {
     private var model : Interview
     private let images = [Data.init(imageName: "Beer.png"), Data.init(imageName: "Vodka.png"), Data.init(imageName: "Gin.png"), Data.init(imageName: "Wine.png"),
                           Data.init(imageName: "Champagne.png"), Data.init(imageName: "Vermouth.png"), Data.init(imageName: "Rum.png")]
@@ -17,6 +17,7 @@ struct AlcoholViewModel {
     private var alcoholDetailsViewModel : AlcoholDetailsViewModel!
     private var cellViewModel : AlcoholCellViewModel!
     private var childViewModel : AlcoholChildViewModel!
+    
     func numberOfCells() -> Int {
         return images.count
     }
