@@ -19,7 +19,6 @@
 		FF6243C52011341100A9B2EF /* AlcoholChildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6243C42011341100A9B2EF /* AlcoholChildCell.swift */; };
 		FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */; };
 		FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */; };
-		FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82995C2008B8D80032E0E5 /* alcTextField.swift */; };
 		FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */; };
 		FFA301A31FFCC43400D8C96B /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA301A21FFCC43300D8C96B /* DataExtension.swift */; };
 		FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */; };
@@ -29,6 +28,7 @@
 		FFDF063D2016964B004E2D25 /* HeightVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF063C2016964B004E2D25 /* HeightVM.swift */; };
 		FFDF06412017B320004E2D25 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06402017B320004E2D25 /* DoneButton.swift */; };
 		FFDF06462017E2B1004E2D25 /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */; };
+		FFDF06482018AE7B004E2D25 /* CircularVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06472018AE7B004E2D25 /* CircularVM.swift */; };
 		FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */; };
 		FFE591351FF1A3D60027D029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE591331FF1A3D60027D029 /* Main.storyboard */; };
 		FFE591371FF1A3D60027D029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE591361FF1A3D60027D029 /* Assets.xcassets */; };
@@ -43,7 +43,6 @@
 		FFE5916B1FF736B10027D029 /* Interview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5916A1FF736B10027D029 /* Interview.swift */; };
 		FFE5916D1FF737AD0027D029 /* GenderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5916C1FF737AD0027D029 /* GenderVM.swift */; };
 		FFE5916F1FF73DF60027D029 /* DidYouEatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5916E1FF73DF60027D029 /* DidYouEatVM.swift */; };
-		FFE591741FF85D870027D029 /* titleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591731FF85D870027D029 /* titleLabel.swift */; };
 		FFE591761FF86D210027D029 /* WeightVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591751FF86D210027D029 /* WeightVM.swift */; };
 		FFE591781FFAFFAE0027D029 /* AlcoholVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591771FFAFFAE0027D029 /* AlcoholVC.swift */; };
 		FFE5917A1FFB000C0027D029 /* AlcoholVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591791FFB000C0027D029 /* AlcoholVM.swift */; };
@@ -85,7 +84,6 @@
 		FF6243C42011341100A9B2EF /* AlcoholChildCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholChildCell.swift; sourceTree = "<group>"; };
 		FF8299582000D1B40032E0E5 /* AlcoholDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVC.swift; sourceTree = "<group>"; };
 		FF82995A2000D3D20032E0E5 /* AlcoholDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholDetailsVM.swift; sourceTree = "<group>"; };
-		FF82995C2008B8D80032E0E5 /* alcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alcTextField.swift; sourceTree = "<group>"; };
 		FFA3019F1FFC94F300D8C96B /* AlcoholCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCell.swift; sourceTree = "<group>"; };
 		FFA301A21FFCC43300D8C96B /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		FFA301A41FFCC60F00D8C96B /* AlcoholCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCellVM.swift; sourceTree = "<group>"; };
@@ -95,6 +93,7 @@
 		FFDF063C2016964B004E2D25 /* HeightVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightVM.swift; sourceTree = "<group>"; };
 		FFDF06402017B320004E2D25 /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
+		FFDF06472018AE7B004E2D25 /* CircularVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularVM.swift; sourceTree = "<group>"; };
 		FFE5912C1FF1A3D60027D029 /* DrinkAndGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkAndGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE591341FF1A3D60027D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 		FFE5916A1FF736B10027D029 /* Interview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interview.swift; sourceTree = "<group>"; };
 		FFE5916C1FF737AD0027D029 /* GenderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVM.swift; sourceTree = "<group>"; };
 		FFE5916E1FF73DF60027D029 /* DidYouEatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidYouEatVM.swift; sourceTree = "<group>"; };
-		FFE591731FF85D870027D029 /* titleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleLabel.swift; sourceTree = "<group>"; };
 		FFE591751FF86D210027D029 /* WeightVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightVM.swift; sourceTree = "<group>"; };
 		FFE591771FFAFFAE0027D029 /* AlcoholVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholVC.swift; sourceTree = "<group>"; };
 		FFE591791FFB000C0027D029 /* AlcoholVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholVM.swift; sourceTree = "<group>"; };
@@ -236,6 +234,7 @@
 				FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */,
 				FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */,
 				FFDF06382015E0BA004E2D25 /* Timer.swift */,
+				FFDF06472018AE7B004E2D25 /* CircularVM.swift */,
 				FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */,
 				FFA301A61FFCC75B00D8C96B /* Model */,
 				FFA301A11FFCC42100D8C96B /* Extesions */,
@@ -271,8 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				FFE591621FF726710027D029 /* RoundedSwitch.swift */,
-				FFE591731FF85D870027D029 /* titleLabel.swift */,
-				FF82995C2008B8D80032E0E5 /* alcTextField.swift */,
 				FFA9E63C200C007200756002 /* KeyboardView.swift */,
 				FFDF06402017B320004E2D25 /* DoneButton.swift */,
 			);
@@ -587,6 +584,7 @@
 				FFE591631FF726710027D029 /* RoundedSwitch.swift in Sources */,
 				FFE591691FF736940027D029 /* WeightVC.swift in Sources */,
 				FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */,
+				FFDF06482018AE7B004E2D25 /* CircularVM.swift in Sources */,
 				FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */,
 				FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */,
 				FFDF06412017B320004E2D25 /* DoneButton.swift in Sources */,
@@ -594,10 +592,8 @@
 				FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */,
 				FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */,
 				FFDF06462017E2B1004E2D25 /* UserNotificationManager.swift in Sources */,
-				FFE591741FF85D870027D029 /* titleLabel.swift in Sources */,
 				FFA9E63D200C007200756002 /* KeyboardView.swift in Sources */,
 				FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */,
-				FF82995D2008B8D80032E0E5 /* alcTextField.swift in Sources */,
 				FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */,
 				FFE591651FF736750027D029 /* GenderVC.swift in Sources */,
 				FFDF063B2016963A004E2D25 /* HeightVC.swift in Sources */,
@@ -784,11 +780,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6R5CTCNFL9;
 				INFOPLIST_FILE = DrinkAndGoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasiliyegorov.DrinkAndGoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -800,11 +797,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6R5CTCNFL9;
 				INFOPLIST_FILE = DrinkAndGoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasiliyegorov.DrinkAndGoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

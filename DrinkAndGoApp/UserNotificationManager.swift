@@ -20,9 +20,8 @@ class UserNotificationManager {
     }
     func addNotificationWithTimeIntervalTrigger(time: TimeInterval) {
         let content = UNMutableNotificationContent()
-        content.title = "title"
-        content.subtitle = "subtitle"
-        content.body = "body"
+        content.title = "You sorbed up"
+        content.body = "take it easy bro!"
         content.badge = 1
         content.sound = UNNotificationSound.default()
         

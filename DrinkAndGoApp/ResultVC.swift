@@ -14,13 +14,22 @@ class ResultVC: UIViewController, TimerDelegate {
     @IBOutlet weak var timerLabel: titleLabel!
     @IBOutlet weak var progressCircular: UICircularProgressRingView!
     private var timer : EliminationTimer!
-    var viewModel: ResultViewModel!
+    private var circularViewModel : CircularViewModel! {
+        didSet {
+            UserNotificationManager.shared.addNotificationWithTimeIntervalTrigger(time: self.circularViewModel.setAnimationDurationForCicular())
+        }
+    }
+    var viewModel: ResultViewModel! {
+        didSet {
+            self.circularViewModel = self.viewModel.setCircularViewModel()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCircular()
         setupTimerAndLabel()
-        UserNotificationManager.shared.addNotificationWithTimeIntervalTrigger(time: self.viewModel.setAnimationDurationForCicular())
+        setupNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +38,11 @@ class ResultVC: UIViewController, TimerDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.progressCircular.setProgress(value: 100, animationDuration: self.viewModel.setAnimationDurationForCicular())
+        
+    }
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDidEnterBackground(notification:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationWillEnterForeground(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     private func setupTimerAndLabel() {
         self.timer = EliminationTimer.init(withSeconds: self.viewModel.setSecondsForTimer())
@@ -42,7 +55,15 @@ class ResultVC: UIViewController, TimerDelegate {
         self.progressCircular.maxValue = 100
     }
     // MARK: - Timer Delegate
-    func setNewTimeForLabel(timeString: String, progress: Int) {
+    func setNewTimeForLabel(timeString: String, progress: CGFloat) {
         self.timerLabel.text = timeString
+        self.progressCircular.setProgress(value: progress, animationDuration: 1)
+    }
+    // MARK: - Notifications
+    @objc private func UIApplicationDidEnterBackground(notification: Notification) {
+        self.timer.getCurrentTimeAndSave()
+    }
+    @objc private func UIApplicationWillEnterForeground(notification: Notification) {
+        self.timer.updateTimer()
     }
 }

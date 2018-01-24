@@ -8,12 +8,14 @@
 
 import Foundation
 
+
 struct ResultViewModel : ResultsTupleProtocol {
     private var model : Interview
     private var alcList : [ResultsTuple]!
     private let mlInOunce = 29.57
     private let eliminationRate = 0.15
     private var seconds : Int!
+    private var circularViewModel : CircularViewModel!
     
     private mutating func calculateWithWidmarkFormula() {
       
@@ -46,9 +48,7 @@ struct ResultViewModel : ResultsTupleProtocol {
         }
         self.seconds = Int(alcConcentrationOverall / self.eliminationRate * 3600.0)
     }
-    func setAnimationDurationForCicular() -> TimeInterval {
-        return TimeInterval(self.seconds)
-    }
+   
     func setSecondsForTimer() -> Int {
         return self.seconds
     }
@@ -71,7 +71,12 @@ struct ResultViewModel : ResultsTupleProtocol {
         }
         return temp
     }
- 
+    
+    
+    mutating func setCircularViewModel() -> CircularViewModel {
+        self.circularViewModel = CircularViewModel.init(seconds: self.seconds)
+        return self.circularViewModel
+    }
     init(model: Interview, alcList: [ResultsTuple]) {
         self.model = model
         self.alcList = convertOunceToMl(alcohol: alcList)
