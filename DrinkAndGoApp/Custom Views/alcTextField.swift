@@ -8,7 +8,7 @@
 
 import UIKit
 
-class alcTextField: UITextField {
+class AlcTextField: UITextField {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -11,7 +11,7 @@ import UICircularProgressRing
 
 class ResultVC: UIViewController, TimerDelegate {
     
-    @IBOutlet weak var timerLabel: titleLabel!
+    @IBOutlet weak var timerLabel: TitleLabel!
     @IBOutlet weak var progressCircular: UICircularProgressRingView!
     private var timer : EliminationTimer!
     private var circularViewModel : CircularViewModel! {

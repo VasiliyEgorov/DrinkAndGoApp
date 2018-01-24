@@ -29,6 +29,8 @@
 		FFDF06412017B320004E2D25 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06402017B320004E2D25 /* DoneButton.swift */; };
 		FFDF06462017E2B1004E2D25 /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */; };
 		FFDF06482018AE7B004E2D25 /* CircularVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06472018AE7B004E2D25 /* CircularVM.swift */; };
+		FFDF064B2018DB3E004E2D25 /* AlcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06492018DB3D004E2D25 /* AlcTextField.swift */; };
+		FFDF064C2018DB3E004E2D25 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF064A2018DB3D004E2D25 /* TitleLabel.swift */; };
 		FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */; };
 		FFE591351FF1A3D60027D029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE591331FF1A3D60027D029 /* Main.storyboard */; };
 		FFE591371FF1A3D60027D029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE591361FF1A3D60027D029 /* Assets.xcassets */; };
@@ -94,6 +96,8 @@
 		FFDF06402017B320004E2D25 /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		FFDF06472018AE7B004E2D25 /* CircularVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularVM.swift; sourceTree = "<group>"; };
+		FFDF06492018DB3D004E2D25 /* AlcTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlcTextField.swift; sourceTree = "<group>"; };
+		FFDF064A2018DB3D004E2D25 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		FFE5912C1FF1A3D60027D029 /* DrinkAndGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkAndGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE591341FF1A3D60027D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -269,6 +273,8 @@
 		FFE591721FF85D640027D029 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFDF06492018DB3D004E2D25 /* AlcTextField.swift */,
+				FFDF064A2018DB3D004E2D25 /* TitleLabel.swift */,
 				FFE591621FF726710027D029 /* RoundedSwitch.swift */,
 				FFA9E63C200C007200756002 /* KeyboardView.swift */,
 				FFDF06402017B320004E2D25 /* DoneButton.swift */,
@@ -593,6 +599,8 @@
 				FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */,
 				FFDF06462017E2B1004E2D25 /* UserNotificationManager.swift in Sources */,
 				FFA9E63D200C007200756002 /* KeyboardView.swift in Sources */,
+				FFDF064B2018DB3E004E2D25 /* AlcTextField.swift in Sources */,
+				FFDF064C2018DB3E004E2D25 /* TitleLabel.swift in Sources */,
 				FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */,
 				FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */,
 				FFE591651FF736750027D029 /* GenderVC.swift in Sources */,
