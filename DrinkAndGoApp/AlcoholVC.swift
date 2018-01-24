@@ -11,17 +11,21 @@ import GravitySliderFlowLayout
 
 class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, AlcoholDetailsDelegate {
     
+    @IBOutlet weak var pageControllBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerViewBottomContstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
     private let cellID = "AlcoholCell"
     private let segueID = "CompleteSegue"
-    private let collectionViewCellHeight : CGFloat = 0.85
-    private let collectionViewCellWidth : CGFloat = 0.55
+   // private let collectionViewCellHeight : CGFloat = 0.85
+   // private let collectionViewCellWidth : CGFloat = 0.55
     private var childController : AlcoholChildVC!
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateConstraints()
         setupCollectionView()
         setupChildController()
         setupNotifications()
@@ -33,13 +37,37 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
    
     // MARK: - Setup
+    private func updateConstraints() {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .Iphone5?:
+            self.collectionViewTopConstraint.constant = 0
+            self.containerViewBottomContstraint.constant = 0
+            self.pageControllBottomConstraint.constant = 0
+            self.view.updateConstraintsIfNeeded()
+        default: return
+        }
+    }
     private func setupChildController() {
         self.childController = self.childViewControllers[0] as! AlcoholChildVC
         self.childController.viewModel = self.viewModel.setChildViewModel()
     }
     private func setupCollectionView() {
-        let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * self.collectionViewCellWidth,
-                                                                       height: self.collectionView.frame.size.height * self.collectionViewCellHeight))
+        
+        let collectionViewCellHeight : CGFloat
+        let collectionViewCellWidth : CGFloat
+        
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .Iphone5?:
+            collectionViewCellHeight = 0.55
+            collectionViewCellWidth = 0.35
+        default:
+            collectionViewCellHeight = 0.85
+            collectionViewCellWidth = 0.55
+        }
+        let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * collectionViewCellWidth,
+                                                                       height: self.collectionView.frame.size.height * collectionViewCellHeight))
         self.collectionView.collectionViewLayout = gravityLayoutSlider
         self.pageControl.numberOfPages = self.viewModel.numberOfCells()
         self.nextButton.isEnabled = false

@@ -9,7 +9,8 @@
 import UIKit
 
 class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
- 
+    
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var weightSwitch: RoundedSwitch!
     @IBOutlet weak var weightPicker: UIPickerView!
     private let segueID = "AlcoholSegue"
@@ -21,7 +22,7 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         self.childController = self.childViewControllers[0] as! HeightVC
         self.childController.viewModel = self.viewModel.setHeightViewModel()
         self.weightPicker.showsSelectionIndicator = true
-        
+        self.nextButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,9 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.weightPicker.selectRow(self.viewModel.setDefaultRow(isLbs: self.weightSwitch.rightSelected), inComponent: 0, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.nextButton.isEnabled = true
+        }
     }
     // MARK: - Picker View Data Source
     

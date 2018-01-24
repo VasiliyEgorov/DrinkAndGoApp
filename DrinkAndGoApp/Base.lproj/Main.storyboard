@@ -56,13 +56,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw1-Vv-NaK" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="188" width="343" height="40.666666666666657"/>
+                                <rect key="frame" x="16" y="188" width="343" height="48.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-cC-UQM" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="64" y="385.66666666666669" width="247" height="40.666666666666686"/>
+                                <rect key="frame" x="64" y="381.66666666666669" width="247" height="48.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -78,11 +78,11 @@
                         <constraints>
                             <constraint firstItem="oTc-cC-UQM" firstAttribute="centerY" secondItem="ivH-Od-5Fx" secondAttribute="centerY" id="3Qn-xy-Nzg"/>
                             <constraint firstItem="oTc-cC-UQM" firstAttribute="centerX" secondItem="ivH-Od-5Fx" secondAttribute="centerX" id="EQI-oZ-VZI"/>
-                            <constraint firstItem="oTc-cC-UQM" firstAttribute="height" secondItem="ivH-Od-5Fx" secondAttribute="height" multiplier="0.05" id="HvR-s6-QBD"/>
+                            <constraint firstItem="oTc-cC-UQM" firstAttribute="height" secondItem="ivH-Od-5Fx" secondAttribute="height" multiplier="0.06" id="HvR-s6-QBD"/>
                             <constraint firstItem="oTc-cC-UQM" firstAttribute="leading" secondItem="Q0X-t6-uAa" secondAttribute="leading" constant="64" id="Iro-bL-Ha0"/>
                             <constraint firstItem="Q0X-t6-uAa" firstAttribute="trailing" secondItem="oTc-cC-UQM" secondAttribute="trailing" constant="64" id="RyT-aA-Hq5"/>
                             <constraint firstItem="Q0X-t6-uAa" firstAttribute="bottom" secondItem="xGN-gs-r6y" secondAttribute="bottom" constant="20" id="aKy-ej-fx0"/>
-                            <constraint firstItem="yw1-Vv-NaK" firstAttribute="height" secondItem="ivH-Od-5Fx" secondAttribute="height" multiplier="0.05" id="brg-4x-BfP"/>
+                            <constraint firstItem="yw1-Vv-NaK" firstAttribute="height" secondItem="ivH-Od-5Fx" secondAttribute="height" multiplier="0.06" id="brg-4x-BfP"/>
                             <constraint firstItem="yw1-Vv-NaK" firstAttribute="leading" secondItem="Q0X-t6-uAa" secondAttribute="leading" constant="16" id="cIH-0Z-iTr"/>
                             <constraint firstItem="xGN-gs-r6y" firstAttribute="leading" secondItem="Q0X-t6-uAa" secondAttribute="leading" constant="16" id="eH3-vu-4iT"/>
                             <constraint firstItem="Q0X-t6-uAa" firstAttribute="trailing" secondItem="yw1-Vv-NaK" secondAttribute="trailing" constant="16" id="h9p-CF-ASY"/>
@@ -120,10 +120,10 @@
                                 <rect key="frame" x="0.0" y="107.99999999999997" width="375" height="335.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bYi-KE-xGX">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59X-Mc-cbN" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="vqL-S3-65d">
-                                        <rect key="frame" x="0.0" y="43.333333333333343" width="375" height="37"/>
+                                        <rect key="frame" x="0.0" y="45.333333333333343" width="375" height="37"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ3-s0-JIk" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
                                                 <rect key="frame" x="262.33333333333331" y="0.0" width="112.66666666666669" height="37"/>
@@ -150,10 +150,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="weL-1X-dhc">
-                                        <rect key="frame" x="0.0" y="85.333333333333343" width="375" height="250.00000000000003"/>
+                                        <rect key="frame" x="0.0" y="87.333333333333343" width="375" height="248.00000000000003"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItB-54-Laj">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="248"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="hXH-YW-0lv" id="prk-ZB-b36"/>
                                                     <outlet property="delegate" destination="hXH-YW-0lv" id="Dh4-LP-eDg"/>
@@ -164,7 +164,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="vqL-S3-65d" firstAttribute="height" secondItem="WcF-1z-i4X" secondAttribute="height" multiplier="0.11" id="5Yx-IY-gLy"/>
-                                    <constraint firstItem="bYi-KE-xGX" firstAttribute="height" secondItem="WcF-1z-i4X" secondAttribute="height" multiplier="0.115" id="Nln-Ue-zjU"/>
+                                    <constraint firstItem="bYi-KE-xGX" firstAttribute="height" secondItem="WcF-1z-i4X" secondAttribute="height" multiplier="0.12" id="Nln-Ue-zjU"/>
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-0q-cPY">
@@ -195,6 +195,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="nOd-L4-xx1" id="csE-YD-RyX"/>
                         <outlet property="weightPicker" destination="ItB-54-Laj" id="CrC-Ly-rfz"/>
                         <outlet property="weightSwitch" destination="mQ3-s0-JIk" id="6XW-ue-Znt"/>
                         <segue destination="weA-qm-SSM" kind="show" identifier="AlcoholSegue" id="kWw-p2-NV0"/>
@@ -213,13 +214,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you eat something ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKw-QF-rrv" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="188" width="339" height="40.666666666666657"/>
+                                <rect key="frame" x="18" y="188" width="339" height="48.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3g9-BX-dAD" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="64" y="385.66666666666669" width="247" height="40.666666666666686"/>
+                                <rect key="frame" x="64" y="381.66666666666669" width="247" height="48.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -233,10 +234,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="nKw-QF-rrv" firstAttribute="height" secondItem="o5s-pg-dUN" secondAttribute="height" multiplier="0.05" id="D3q-UB-5Vn"/>
+                            <constraint firstItem="nKw-QF-rrv" firstAttribute="height" secondItem="o5s-pg-dUN" secondAttribute="height" multiplier="0.06" id="D3q-UB-5Vn"/>
                             <constraint firstItem="Z3f-nf-4vf" firstAttribute="trailing" secondItem="3g9-BX-dAD" secondAttribute="trailing" constant="64" id="QQm-bI-mmf"/>
                             <constraint firstItem="nKw-QF-rrv" firstAttribute="top" secondItem="Z3f-nf-4vf" secondAttribute="top" constant="100" id="R9W-8d-6Gs"/>
-                            <constraint firstItem="3g9-BX-dAD" firstAttribute="height" secondItem="o5s-pg-dUN" secondAttribute="height" multiplier="0.05" id="Smw-jp-MND"/>
+                            <constraint firstItem="3g9-BX-dAD" firstAttribute="height" secondItem="o5s-pg-dUN" secondAttribute="height" multiplier="0.06" id="Smw-jp-MND"/>
                             <constraint firstItem="3g9-BX-dAD" firstAttribute="leading" secondItem="Z3f-nf-4vf" secondAttribute="leading" constant="64" id="USH-Q1-GjB"/>
                             <constraint firstItem="nKw-QF-rrv" firstAttribute="leading" secondItem="Z3f-nf-4vf" secondAttribute="leading" constant="18" id="VzA-Uc-Cwo"/>
                             <constraint firstItem="3g9-BX-dAD" firstAttribute="centerX" secondItem="o5s-pg-dUN" secondAttribute="centerX" id="X4f-IG-Gh6"/>
@@ -277,16 +278,16 @@
                                 <rect key="frame" x="16" y="171" width="343" height="524"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqi-8c-tZ9">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="425"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="421.33333333333331"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-my-4Jh" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="48" width="327" height="42.666666666666657"/>
+                                                <rect key="frame" x="8" y="48" width="327" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Dh-dGn" customClass="AlcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="130.66666666666669" width="327" height="34"/>
+                                                <rect key="frame" x="8" y="130" width="327" height="33.333333333333343"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -296,13 +297,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vum-0o-7rH" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="204.66666666666669" width="327" height="43"/>
+                                                <rect key="frame" x="8" y="203.33333333333331" width="327" height="42"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-Ib-wYN" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="198" y="267.66666666666669" width="137" height="29.333333333333314"/>
+                                                <rect key="frame" x="198" y="265.33333333333331" width="137" height="29"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="ml"/>
@@ -310,7 +311,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8M-vx-qxb" customClass="AlcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="317" width="327" height="34"/>
+                                                <rect key="frame" x="8" y="314.33333333333331" width="327" height="33"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -402,6 +403,8 @@
                         <outlet property="layerView" destination="Qqi-8c-tZ9" id="mdc-CQ-Dwf"/>
                         <outlet property="mlOunceSwitch" destination="uR3-Ib-wYN" id="Ghl-do-fSU"/>
                         <outlet property="scrollView" destination="XOM-p2-x2Q" id="WD1-FK-q3t"/>
+                        <outlet property="scrollViewBottomConstraint" destination="vQF-Ax-GhM" id="N8G-q7-OKU"/>
+                        <outlet property="scrollViewTopContraint" destination="dN3-wT-t1O" id="EcW-hM-Hjd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Y4-pp-Nu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -417,7 +420,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G77-i7-1Le">
-                                <rect key="frame" x="0.0" y="164.66666666666663" width="375" height="406"/>
+                                <rect key="frame" x="0.0" y="172.66666666666663" width="375" height="406"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ABm-FZ-9Y4">
                                     <size key="itemSize" width="375" height="273"/>
@@ -480,13 +483,13 @@
                                 <rect key="frame" x="168" y="734" width="39" height="37"/>
                             </pageControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45c-TH-4Zq">
-                                <rect key="frame" x="0.0" y="578.66666666666663" width="375" height="147.33333333333337"/>
+                                <rect key="frame" x="0.0" y="586.66666666666663" width="375" height="139.33333333333337"/>
                                 <connections>
                                     <segue destination="2TL-oQ-u2b" kind="embed" id="tiv-Oi-xjL"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-P7-bWu" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="104" width="375" height="40.666666666666657"/>
+                                <rect key="frame" x="0.0" y="104.00000000000001" width="375" height="48.666666666666671"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -506,7 +509,7 @@
                             <constraint firstItem="qag-MC-kbS" firstAttribute="bottom" secondItem="8hm-ro-xT1" secondAttribute="bottom" constant="7" id="fGm-fR-LsG"/>
                             <constraint firstItem="Edf-P7-bWu" firstAttribute="top" secondItem="qag-MC-kbS" secondAttribute="top" constant="16" id="kCa-in-XED"/>
                             <constraint firstItem="qag-MC-kbS" firstAttribute="trailing" secondItem="Edf-P7-bWu" secondAttribute="trailing" id="o4m-Ac-K2g"/>
-                            <constraint firstItem="Edf-P7-bWu" firstAttribute="height" secondItem="iF7-K0-QYF" secondAttribute="height" multiplier="0.05" id="tgB-LE-e5c"/>
+                            <constraint firstItem="Edf-P7-bWu" firstAttribute="height" secondItem="iF7-K0-QYF" secondAttribute="height" multiplier="0.06" id="tgB-LE-e5c"/>
                             <constraint firstItem="45c-TH-4Zq" firstAttribute="leading" secondItem="qag-MC-kbS" secondAttribute="leading" id="v5G-I2-NCg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qag-MC-kbS"/>
@@ -520,8 +523,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="G77-i7-1Le" id="ej5-OP-724"/>
+                        <outlet property="collectionViewTopConstraint" destination="Tfd-e4-dhD" id="uGF-En-e2y"/>
+                        <outlet property="containerViewBottomContstraint" destination="Xsd-Q6-rCw" id="Yg7-14-OJb"/>
                         <outlet property="nextButton" destination="OAZ-Ej-r0b" id="UKO-dp-NZO"/>
                         <outlet property="pageControl" destination="8hm-ro-xT1" id="46E-qs-z4f"/>
+                        <outlet property="pageControllBottomConstraint" destination="fGm-fR-LsG" id="yki-pf-cBY"/>
                         <segue destination="X1e-bd-9R3" kind="show" identifier="CompleteSegue" id="fwh-UJ-0vm"/>
                     </connections>
                 </viewController>
@@ -586,7 +592,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You sober up in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5E-ko-AKV" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="104" width="375" height="40.666666666666657"/>
+                                <rect key="frame" x="0.0" y="104.00000000000001" width="375" height="48.666666666666671"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -599,7 +605,7 @@
                             <constraint firstItem="10A-at-Afa" firstAttribute="trailing" secondItem="d5E-ko-AKV" secondAttribute="trailing" id="Rcl-aR-hGz"/>
                             <constraint firstItem="P8v-Tp-6R2" firstAttribute="centerY" secondItem="Ss7-HP-8lI" secondAttribute="centerY" id="TJV-vN-fCm"/>
                             <constraint firstItem="P8v-Tp-6R2" firstAttribute="centerX" secondItem="Ss7-HP-8lI" secondAttribute="centerX" id="YN5-HZ-53q"/>
-                            <constraint firstItem="d5E-ko-AKV" firstAttribute="height" secondItem="Ss7-HP-8lI" secondAttribute="height" multiplier="0.05" id="arw-Tl-TSv"/>
+                            <constraint firstItem="d5E-ko-AKV" firstAttribute="height" secondItem="Ss7-HP-8lI" secondAttribute="height" multiplier="0.06" id="arw-Tl-TSv"/>
                             <constraint firstItem="d5E-ko-AKV" firstAttribute="leading" secondItem="10A-at-Afa" secondAttribute="leading" id="c4z-cc-mwh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="10A-at-Afa"/>
@@ -618,11 +624,11 @@
             <objects>
                 <viewController id="2TL-oQ-u2b" customClass="AlcoholChildVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ums-MU-MD7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="147.33333333333337"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="139.33333333333337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GpT-8Q-ezU">
-                                <rect key="frame" x="0.0" y="43.999999999999993" width="375" height="69.333333333333314"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="61.333333333333343"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UAd-tb-tMd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -689,10 +695,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJl-M4-bdi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlX-jZ-dGA" customClass="TitleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -700,7 +706,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Dcf-3C-90i">
-                                        <rect key="frame" x="0.0" y="43.333333333333336" width="375" height="37.000000000000007"/>
+                                        <rect key="frame" x="0.0" y="45.333333333333336" width="375" height="37.000000000000007"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wt-Y8-VPc" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
                                                 <rect key="frame" x="262.33333333333331" y="0.0" width="112.66666666666669" height="37"/>
@@ -719,10 +725,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fsq-ks-2Bo">
-                                        <rect key="frame" x="0.0" y="85.333333333333329" width="375" height="249.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="87.333333333333329" width="375" height="247.66666666666669"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQw-vj-kh3">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="249.66666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="247.66666666666666"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="mW2-h6-MSJ" id="0NX-TZ-FlV"/>
                                                     <outlet property="delegate" destination="mW2-h6-MSJ" id="752-yP-vm8"/>
@@ -733,7 +739,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Dcf-3C-90i" firstAttribute="height" secondItem="gLY-vC-NEx" secondAttribute="height" multiplier="0.11" id="xDz-Av-GDb"/>
-                                    <constraint firstItem="DJl-M4-bdi" firstAttribute="height" secondItem="gLY-vC-NEx" secondAttribute="height" multiplier="0.115" id="xu3-Yk-lsE"/>
+                                    <constraint firstItem="DJl-M4-bdi" firstAttribute="height" secondItem="gLY-vC-NEx" secondAttribute="height" multiplier="0.12" id="xu3-Yk-lsE"/>
                                 </constraints>
                             </stackView>
                         </subviews>

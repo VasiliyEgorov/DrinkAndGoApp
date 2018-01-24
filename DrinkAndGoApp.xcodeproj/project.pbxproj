@@ -31,6 +31,7 @@
 		FFDF06482018AE7B004E2D25 /* CircularVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06472018AE7B004E2D25 /* CircularVM.swift */; };
 		FFDF064B2018DB3E004E2D25 /* AlcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06492018DB3D004E2D25 /* AlcTextField.swift */; };
 		FFDF064C2018DB3E004E2D25 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF064A2018DB3D004E2D25 /* TitleLabel.swift */; };
+		FFDF064E2018E7AA004E2D25 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF064D2018E7AA004E2D25 /* ScreenSize.swift */; };
 		FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */; };
 		FFE591351FF1A3D60027D029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE591331FF1A3D60027D029 /* Main.storyboard */; };
 		FFE591371FF1A3D60027D029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE591361FF1A3D60027D029 /* Assets.xcassets */; };
@@ -98,6 +99,7 @@
 		FFDF06472018AE7B004E2D25 /* CircularVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularVM.swift; sourceTree = "<group>"; };
 		FFDF06492018DB3D004E2D25 /* AlcTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlcTextField.swift; sourceTree = "<group>"; };
 		FFDF064A2018DB3D004E2D25 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		FFDF064D2018E7AA004E2D25 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		FFE5912C1FF1A3D60027D029 /* DrinkAndGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkAndGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE591341FF1A3D60027D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				FFA301A21FFCC43300D8C96B /* DataExtension.swift */,
 				FF328DB42010B35900ED39D6 /* UIImageExtension.swift */,
 				FF328DB62010B89400ED39D6 /* UIViewExtension.swift */,
+				FFDF064D2018E7AA004E2D25 /* ScreenSize.swift */,
 			);
 			path = Extesions;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				FFDF06482018AE7B004E2D25 /* CircularVM.swift in Sources */,
 				FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */,
 				FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */,
+				FFDF064E2018E7AA004E2D25 /* ScreenSize.swift in Sources */,
 				FFDF06412017B320004E2D25 /* DoneButton.swift in Sources */,
 				FF328DAD200FAF2F00ED39D6 /* ResultVC.swift in Sources */,
 				FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */,

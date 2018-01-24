@@ -21,6 +21,9 @@ protocol AlcoholDetailsDelegate : class, AlcTupleProtocol {
 
 class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDelegate {
 
+    
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewTopContraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var layerView: UIView!
     @IBOutlet weak var alcVolumeCorrection: UITextField!
@@ -36,6 +39,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateConstraints()
         configureLayerView()
         configureScrollView()
         addNotifications()
@@ -49,15 +53,33 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    private func updateConstraints() {
+       let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .Iphone5?:
+            self.scrollViewTopContraint.constant = 40
+            self.scrollViewBottomConstraint.constant = 0
+            self.view.updateConstraintsIfNeeded()
+        default: return
+        }
+    }
     private func addKeyboardView() {
         self.keyboardView = KeyboardView.init(frame: CGRect.zero)
         self.view.addSubview(self.keyboardView)
         self.keyboardView.delegate = self
         self.keyboardView.isHidden = true
+        
+        var multiplierValue : CGFloat
+        
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .Iphone5?: multiplierValue = 0.07
+        default: multiplierValue = 0.05
+        }
+        
         let leading = NSLayoutConstraint.init(item: self.keyboardView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
         let trailing = NSLayoutConstraint.init(item: self.keyboardView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
-        let equalHeight = NSLayoutConstraint.init(item: self.keyboardView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 0.05, constant: 0)
+        let equalHeight = NSLayoutConstraint.init(item: self.keyboardView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: multiplierValue, constant: 0)
         self.bottomConstraint = NSLayoutConstraint.init(item: self.keyboardView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
         
         self.keyboardView.translatesAutoresizingMaskIntoConstraints = false
@@ -162,8 +184,8 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     func upButtonPressed(button: UIButton) {
         switch self.txtFieldEnum {
         case .Volume?:
-            self.scrollView.scrollRectToVisible(self.alcTitleLabel.frame, animated: true)
-            self.alcPercentageCorrection.becomeFirstResponder()
+            let newFrame = CGRect(x: self.alcTitleLabel.frame.origin.x, y: self.alcTitleLabel.frame.origin.y - self.alcTitleLabel.frame.size.height / 2, width: self.alcTitleLabel.frame.size.width, height: self.alcTitleLabel.frame.size.height)
+            scrollToNextTxtField(frame: newFrame, txtField: self.alcPercentageCorrection)
         default: return
         }
     }
@@ -171,8 +193,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     func downButtonPressed(button: UIButton) {
         switch self.txtFieldEnum {
         case .Percentage?:
-            self.scrollView.scrollRectToVisible(self.alcVolumeCorrection.frame, animated: true)
-            self.alcVolumeCorrection.becomeFirstResponder()
+            scrollToNextTxtField(frame: self.alcVolumeCorrection.frame, txtField: self.alcVolumeCorrection)
         default: return
         }
     }
@@ -180,10 +201,24 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     func doneButtonPressed(button: UIButton) {
         closeKeyboard()
     }
+    private func scrollToNextTxtField(frame: CGRect, txtField: UITextField) {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.scrollView.scrollRectToVisible(frame, animated: false)
+        }) { (finished) in
+            txtField.becomeFirstResponder()
+        }
+    }
+    private func calculateInset(keyboard: CGFloat) -> CGFloat {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .Iphone5?: return keyboard + self.layerView.bounds.maxY - self.alcVolumeCorrection.frame.origin.y + self.alcVolumeCorrection.frame.size.height
+        default: return keyboard
+        }
+    }
     // MARK: - Notifications
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, calculateInset(keyboard: keyboardSize.height), 0)
         }
     }
     @objc func keyboardDidShow(notification: NSNotification) {
