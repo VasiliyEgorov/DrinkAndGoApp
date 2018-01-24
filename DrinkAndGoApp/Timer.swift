@@ -36,7 +36,6 @@ class EliminationTimer {
     }
     
     init(withSeconds seconds: Int) {
-        print(seconds)
         self.startSeconds = seconds
         self.progressDown = seconds
         self.eliminationTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimer), userInfo: nil, repeats: true)

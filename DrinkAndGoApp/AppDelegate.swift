@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         FirebaseApp.configure()
+        UserNotificationManager.shared.registerNotification()
         
         return true
     }

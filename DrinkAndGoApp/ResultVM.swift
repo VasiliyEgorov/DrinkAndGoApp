@@ -11,7 +11,7 @@ import Foundation
 struct ResultViewModel : ResultsTupleProtocol {
     private var model : Interview
     private var alcList : [ResultsTuple]!
-    private let mlInOunce = 30
+    private let mlInOunce = 29.57
     private let eliminationRate = 0.15
     private var seconds : Int!
     
@@ -63,8 +63,8 @@ struct ResultViewModel : ResultsTupleProtocol {
         var temp = [ResultsTuple]()
         for tuple in alcohol {
             if tuple.isOunce {
-                let convertedVolume = tuple.volume * self.mlInOunce
-                temp.append((volume: convertedVolume, percentage: tuple.percentage, isOunce: tuple.isOunce))
+                let convertedVolume = round(Double(tuple.volume) * self.mlInOunce)
+                temp.append((volume: Int(convertedVolume), percentage: tuple.percentage, isOunce: tuple.isOunce))
             } else {
                 temp.append(tuple)
             }

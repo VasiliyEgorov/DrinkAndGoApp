@@ -20,6 +20,7 @@ class ResultVC: UIViewController, TimerDelegate {
         super.viewDidLoad()
         setupCircular()
         setupTimerAndLabel()
+        UserNotificationManager.shared.addNotificationWithTimeIntervalTrigger(time: self.viewModel.setAnimationDurationForCicular())
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,9 +29,7 @@ class ResultVC: UIViewController, TimerDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.progressCircular.setProgress(value: 100, animationDuration: self.viewModel.setAnimationDurationForCicular()) {
-            //notif
-        }
+        self.progressCircular.setProgress(value: 100, animationDuration: self.viewModel.setAnimationDurationForCicular())
     }
     private func setupTimerAndLabel() {
         self.timer = EliminationTimer.init(withSeconds: self.viewModel.setSecondsForTimer())

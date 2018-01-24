@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xw2-ZV-zaZ">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,6 +13,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Thin</string>
         </array>
@@ -23,7 +26,7 @@
             <objects>
                 <navigationController id="xw2-ZV-zaZ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TXk-Mp-d5P">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.32712173461914062" green="0.6877443790435791" blue="0.93815159797668457" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -42,23 +45,23 @@
             <objects>
                 <viewController storyboardIdentifier="GenderVC" id="rQs-SC-7mA" customClass="GenderVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ivH-Od-5Fx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGN-gs-r6y">
-                                <rect key="frame" x="16" y="513.5" width="343" height="133.5"/>
+                                <rect key="frame" x="16" y="595.66666666666663" width="343" height="162.33333333333337"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw1-Vv-NaK" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="16" y="164" width="343" height="33.5"/>
+                                <rect key="frame" x="16" y="188" width="343" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-cC-UQM" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="64" y="317" width="247" height="33"/>
+                                <rect key="frame" x="64" y="385.66666666666669" width="247" height="40.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -109,17 +112,17 @@
             <objects>
                 <viewController id="hXH-YW-0lv" customClass="WeightVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="03Y-vb-ydt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="WcF-1z-i4X">
-                                <rect key="frame" x="0.0" y="84" width="375" height="291.5"/>
+                                <rect key="frame" x="0.0" y="107.99999999999997" width="375" height="335.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bYi-KE-xGX">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59X-Mc-cbN" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -127,10 +130,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="vqL-S3-65d">
-                                        <rect key="frame" x="0.0" y="38.5" width="375" height="32"/>
+                                        <rect key="frame" x="0.0" y="43.333333333333343" width="375" height="37"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQ3-s0-JIk" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="262.5" y="0.0" width="112.5" height="32"/>
+                                                <rect key="frame" x="262.33333333333331" y="0.0" width="112.66666666666669" height="37"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="kg"/>
@@ -146,10 +149,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="weL-1X-dhc">
-                                        <rect key="frame" x="0.0" y="75.5" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="85.333333333333343" width="375" height="250.00000000000003"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItB-54-Laj">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="hXH-YW-0lv" id="prk-ZB-b36"/>
                                                     <outlet property="delegate" destination="hXH-YW-0lv" id="Dh4-LP-eDg"/>
@@ -164,7 +167,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-0q-cPY">
-                                <rect key="frame" x="0.0" y="376" width="375" height="291"/>
+                                <rect key="frame" x="0.0" y="443" width="375" height="335"/>
                                 <connections>
                                     <segue destination="mW2-h6-MSJ" kind="embed" id="4ci-xQ-POA"/>
                                 </connections>
@@ -205,17 +208,17 @@
             <objects>
                 <viewController id="Ba5-tD-w97" customClass="DidYouEatVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o5s-pg-dUN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you eat something ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKw-QF-rrv" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="18" y="164" width="339" height="33.5"/>
+                                <rect key="frame" x="18" y="188" width="339" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3g9-BX-dAD" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="64" y="316.5" width="247" height="33.5"/>
+                                <rect key="frame" x="64" y="385.66666666666669" width="247" height="40.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.11372549019607843" green="0.63137254901960782" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -262,27 +265,27 @@
             <objects>
                 <viewController storyboardIdentifier="AlcoholDetails" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="KNx-dV-4vX" customClass="AlcoholDetailsVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wEZ-sl-rxD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4q-6O-VSe">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOM-p2-x2Q">
-                                <rect key="frame" x="16" y="147" width="343" height="437"/>
+                                <rect key="frame" x="16" y="171" width="343" height="524"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqi-8c-tZ9">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="425"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea7-my-4Jh" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="48" width="327" height="42.5"/>
+                                                <rect key="frame" x="8" y="48" width="327" height="42.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFS-Dh-dGn" customClass="alcTextField" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="130.5" width="327" height="34"/>
+                                                <rect key="frame" x="8" y="130.66666666666669" width="327" height="34"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -292,13 +295,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vum-0o-7rH" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="204.5" width="327" height="43"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="8" y="204.66666666666669" width="327" height="43"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uR3-Ib-wYN" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="198" y="267.5" width="137" height="29.5"/>
+                                                <rect key="frame" x="198" y="267.66666666666669" width="137" height="29.333333333333314"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="ml"/>
@@ -354,7 +357,7 @@
                                 </connections>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9oU-sV-BrE">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -409,11 +412,11 @@
             <objects>
                 <viewController id="weA-qm-SSM" customClass="AlcoholVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iF7-K0-QYF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G77-i7-1Le">
-                                <rect key="frame" x="0.0" y="133.5" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="164.66666666666663" width="375" height="406"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ABm-FZ-9Y4">
                                     <size key="itemSize" width="375" height="273"/>
@@ -430,19 +433,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jvz-Be-kYL">
-                                                    <rect key="frame" x="147" y="54.5" width="81.5" height="164"/>
+                                                    <rect key="frame" x="147" y="54.666666666666657" width="81.666666666666686" height="164"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="jvz-Be-kYL" secondAttribute="height" multiplier="1:2" id="yTe-rO-VhM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZj-38-iVv">
-                                                    <rect key="frame" x="146.5" y="240" width="81.5" height="21"/>
+                                                    <rect key="frame" x="146.66666666666666" y="240" width="81.333333333333343" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92j-Sn-ZQC">
-                                                    <rect key="frame" x="146.5" y="12" width="81.5" height="21"/>
+                                                    <rect key="frame" x="146.66666666666666" y="12" width="81.333333333333343" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -473,16 +476,16 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8hm-ro-xT1">
-                                <rect key="frame" x="168" y="623" width="39" height="37"/>
+                                <rect key="frame" x="168" y="734" width="39" height="37"/>
                             </pageControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45c-TH-4Zq">
-                                <rect key="frame" x="0.0" y="475" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="578.66666666666663" width="375" height="147.33333333333337"/>
                                 <connections>
                                     <segue destination="2TL-oQ-u2b" kind="embed" id="tiv-Oi-xjL"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you drink ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-P7-bWu" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="80" width="375" height="33.5"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -530,17 +533,17 @@
             <objects>
                 <viewController id="X1e-bd-9R3" customClass="ResultVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ss7-HP-8lI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-Tp-6R2" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
-                                <rect key="frame" x="37" y="183" width="300.5" height="300.5"/>
+                                <rect key="frame" x="4.6666666666666572" y="223.33333333333334" width="365.66666666666674" height="365.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GW8-yX-CnG">
-                                        <rect key="frame" x="56.5" y="75" width="187.5" height="150.5"/>
+                                        <rect key="frame" x="68.333333333333314" y="90.999999999999957" width="229" height="183.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFw-mv-9y6" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="45" width="147.5" height="60.5"/>
+                                                <rect key="frame" x="20" y="54.999999999999993" width="189" height="73.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -582,7 +585,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You sober up in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5E-ko-AKV" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="80" width="375" height="33.5"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -614,11 +617,11 @@
             <objects>
                 <viewController id="2TL-oQ-u2b" customClass="AlcoholChildVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ums-MU-MD7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="147.33333333333337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GpT-8Q-ezU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="43.999999999999993" width="375" height="69.333333333333314"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UAd-tb-tMd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -678,17 +681,17 @@
             <objects>
                 <viewController id="mW2-h6-MSJ" customClass="HeightVC" customModule="DrinkAndGoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LH8-2y-FlO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="291"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gLY-vC-NEx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="291.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="335"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DJl-M4-bdi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlX-jZ-dGA" customClass="titleLabel" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="38.333333333333336"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -696,10 +699,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Dcf-3C-90i">
-                                        <rect key="frame" x="0.0" y="38.5" width="375" height="32"/>
+                                        <rect key="frame" x="0.0" y="43.333333333333336" width="375" height="37.000000000000007"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wt-Y8-VPc" customClass="RoundedSwitch" customModule="DrinkAndGoApp" customModuleProvider="target">
-                                                <rect key="frame" x="262.5" y="0.0" width="112.5" height="32"/>
+                                                <rect key="frame" x="262.33333333333331" y="0.0" width="112.66666666666669" height="37"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="leftText" value="cm"/>
@@ -715,10 +718,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fsq-ks-2Bo">
-                                        <rect key="frame" x="0.0" y="75.5" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="85.333333333333329" width="375" height="249.66666666666669"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQw-vj-kh3">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="249.66666666666666"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="mW2-h6-MSJ" id="0NX-TZ-FlV"/>
                                                     <outlet property="delegate" destination="mW2-h6-MSJ" id="752-yP-vm8"/>

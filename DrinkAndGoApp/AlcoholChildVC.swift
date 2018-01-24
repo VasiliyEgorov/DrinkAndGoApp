@@ -37,7 +37,7 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! AlcoholChildCell
         cell.imageView.image = self.viewModel.setImageToCellAt(index: indexPath.row).uiImage
-        collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+       
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -65,6 +65,10 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
             let range = Range.init(uncheckedBounds: (0, self.collectionView.numberOfSections))
             let indexSet = IndexSet.init(integersIn: range)
             self.collectionView.reloadSections(indexSet)
+            let lastSectionIndex = self.collectionView.numberOfSections - 1
+            let lastItemIndex = self.collectionView.numberOfItems(inSection: lastSectionIndex) - 1
+            let indexPath = IndexPath.init(item: lastItemIndex, section: lastSectionIndex)
+            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
             postNotification()
         }
     }

@@ -27,6 +27,8 @@
 		FFDF06392015E0BB004E2D25 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06382015E0BA004E2D25 /* Timer.swift */; };
 		FFDF063B2016963A004E2D25 /* HeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF063A2016963A004E2D25 /* HeightVC.swift */; };
 		FFDF063D2016964B004E2D25 /* HeightVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF063C2016964B004E2D25 /* HeightVM.swift */; };
+		FFDF06412017B320004E2D25 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06402017B320004E2D25 /* DoneButton.swift */; };
+		FFDF06462017E2B1004E2D25 /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */; };
 		FFE591301FF1A3D60027D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */; };
 		FFE591351FF1A3D60027D029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE591331FF1A3D60027D029 /* Main.storyboard */; };
 		FFE591371FF1A3D60027D029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE591361FF1A3D60027D029 /* Assets.xcassets */; };
@@ -91,6 +93,8 @@
 		FFDF06382015E0BA004E2D25 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		FFDF063A2016963A004E2D25 /* HeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightVC.swift; sourceTree = "<group>"; };
 		FFDF063C2016964B004E2D25 /* HeightVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightVM.swift; sourceTree = "<group>"; };
+		FFDF06402017B320004E2D25 /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
+		FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		FFE5912C1FF1A3D60027D029 /* DrinkAndGoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkAndGoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE5912F1FF1A3D60027D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE591341FF1A3D60027D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */,
 				FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */,
 				FFDF06382015E0BA004E2D25 /* Timer.swift */,
+				FFDF06452017E2B1004E2D25 /* UserNotificationManager.swift */,
 				FFA301A61FFCC75B00D8C96B /* Model */,
 				FFA301A11FFCC42100D8C96B /* Extesions */,
 				FFE591721FF85D640027D029 /* Custom Views */,
@@ -269,6 +274,7 @@
 				FFE591731FF85D870027D029 /* titleLabel.swift */,
 				FF82995C2008B8D80032E0E5 /* alcTextField.swift */,
 				FFA9E63C200C007200756002 /* KeyboardView.swift */,
+				FFDF06402017B320004E2D25 /* DoneButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -351,6 +357,11 @@
 					FFE5912B1FF1A3D60027D029 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					FFE5913F1FF1A3D60027D029 = {
 						CreatedOnToolsVersion = 9.2;
@@ -578,9 +589,11 @@
 				FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */,
 				FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */,
 				FFA301A01FFC94F300D8C96B /* AlcoholCell.swift in Sources */,
+				FFDF06412017B320004E2D25 /* DoneButton.swift in Sources */,
 				FF328DAD200FAF2F00ED39D6 /* ResultVC.swift in Sources */,
 				FF8299592000D1B50032E0E5 /* AlcoholDetailsVC.swift in Sources */,
 				FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */,
+				FFDF06462017E2B1004E2D25 /* UserNotificationManager.swift in Sources */,
 				FFE591741FF85D870027D029 /* titleLabel.swift in Sources */,
 				FFA9E63D200C007200756002 /* KeyboardView.swift in Sources */,
 				FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */,

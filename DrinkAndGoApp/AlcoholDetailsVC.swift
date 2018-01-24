@@ -32,7 +32,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     var viewModel : AlcoholDetailsViewModel!
     private var keyboardView: KeyboardView!
     private var bottomConstraint : NSLayoutConstraint!
-    private var txtFieldEnum : TextFieldEnum!
+    private var txtFieldEnum : TextFieldEnum?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +107,13 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     }
     
     // MARK: - UITextField
+    private func closeKeyboard() {
+        switch self.txtFieldEnum {
+        case .Percentage?: self.alcPercentageCorrection.resignFirstResponder()
+        case .Volume?: self.alcVolumeCorrection.resignFirstResponder()
+        default: return
+        }
+    }
     @IBAction func alcPercentageChanged(_ sender: UITextField) {
         sender.text = self.viewModel.filterPercentage(percentage: sender.text!)
             if let _ = sender.selectedTextRange {
@@ -137,12 +144,14 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
                 self.alcVolumeCorrection.layer.add(animation, forKey: "position")
         } else {
             self.delegate?.setAlcohol(tuple: self.viewModel.correctAlcBeforeExit(volume: self.alcVolumeCorrection.text, percentage: self.alcPercentageCorrection.text, isOunce: self.mlOunceSwitch.rightSelected, indexPath: self.viewModel.indexPath))
+            closeKeyboard()
             self.dismiss(animated: true, completion: nil)
         }
     }
    
     // MARK: - Buttons
     @IBAction func cancelButtonAction(_ sender: UIBarButtonItem) {
+        closeKeyboard()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -152,7 +161,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     // MARK: - KeyboardView Delegate
     func upButtonPressed(button: UIButton) {
         switch self.txtFieldEnum {
-        case .Volume:
+        case .Volume?:
             self.scrollView.scrollRectToVisible(self.alcTitleLabel.frame, animated: true)
             self.alcPercentageCorrection.becomeFirstResponder()
         default: return
@@ -161,7 +170,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     
     func downButtonPressed(button: UIButton) {
         switch self.txtFieldEnum {
-        case .Percentage:
+        case .Percentage?:
             self.scrollView.scrollRectToVisible(self.alcVolumeCorrection.frame, animated: true)
             self.alcVolumeCorrection.becomeFirstResponder()
         default: return
@@ -169,20 +178,16 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     }
     
     func doneButtonPressed(button: UIButton) {
-        switch self.txtFieldEnum {
-        case .Percentage: self.alcPercentageCorrection.resignFirstResponder()
-        case .Volume: self.alcVolumeCorrection.resignFirstResponder()
-        default: return
-        }
+        closeKeyboard()
     }
     // MARK: - Notifications
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
         }
     }
     @objc func keyboardDidShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.bottomConstraint.constant = -keyboardSize.height
             self.keyboardView.isHidden = false
         }
