@@ -22,6 +22,20 @@ struct AlcoholChildViewModel : AlcTupleProtocol, ResultsTupleProtocol {
     func numberOfCells() -> Int {
         return self.alcImagesArray.count
     }
+    func numberOfSections() -> Int {
+        return 1
+    }
+    func getIndexSetForReload() -> IndexSet {
+        let range = Range.init(uncheckedBounds: (0, self.numberOfSections()))
+        let indexSet = IndexSet.init(integersIn: range)
+        return indexSet
+    }
+    func getIndexPathToScrollTo() -> IndexPath {
+        let lastSectionIndex = self.numberOfSections() - 1
+        let lastItemIndex = self.numberOfCells() - 1
+        let indexPath = IndexPath.init(item: lastItemIndex, section: lastSectionIndex)
+        return indexPath
+    }
     mutating func removeItemAt(index: Int) {
         self.alcImagesArray.remove(at: index)
         self.alcCollection.remove(at: index)

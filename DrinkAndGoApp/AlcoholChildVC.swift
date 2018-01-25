@@ -12,7 +12,7 @@ extension Notification.Name {
     static let alcoholCountDidChange = Notification.Name("alcoholCountDidChange")
 }
 
-class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AlcChildCellDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private let cellID = "ChildCell"
@@ -30,6 +30,9 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     // MARK: - Collection View
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.viewModel.numberOfSections()
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel.numberOfCells()
     }
@@ -37,15 +40,10 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! AlcoholChildCell
         cell.imageView.image = self.viewModel.setImageToCellAt(index: indexPath.row).uiImage
-       
+        cell.delegate = self
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-        self.viewModel.removeItemAt(index: indexPath.row)
-        collectionView.deleteItems(at: [indexPath])
-        postNotification()
-    }
+   
     // MARK: - Flow Delegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -59,16 +57,21 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - Methods
     func calculateFrameFor(alcoholImageView: UIImageView) {
         self.cellWidth = self.collectionView.frame.size.width / 4
-        self.cellHeight = self.cellWidth * 1.5
+        self.cellHeight = self.collectionView.frame.size.height - self.cellOffset
         if let image = alcoholImageView.image {
             self.viewModel.addNewImage(image: UIImagePNGRepresentation(image))
-            let range = Range.init(uncheckedBounds: (0, self.collectionView.numberOfSections))
-            let indexSet = IndexSet.init(integersIn: range)
-            self.collectionView.reloadSections(indexSet)
-            let lastSectionIndex = self.collectionView.numberOfSections - 1
-            let lastItemIndex = self.collectionView.numberOfItems(inSection: lastSectionIndex) - 1
-            let indexPath = IndexPath.init(item: lastItemIndex, section: lastSectionIndex)
-            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+            self.collectionView.reloadSections(self.viewModel.getIndexSetForReload())
+            collectionView.scrollToItem(at: self.viewModel.getIndexPathToScrollTo(), at: .bottom, animated: true)
+            postNotification()
+        }
+    }
+    // MARK: - AlcChildCell Delegate
+    func closeButtonAction(_ sender: UIButton) {
+        let point : CGPoint = sender.convert(CGPoint.zero, to: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: point)
+        if let indexPath = indexPath {
+            self.viewModel.removeItemAt(index: indexPath.row)
+            collectionView.deleteItems(at: [indexPath])
             postNotification()
         }
     }
