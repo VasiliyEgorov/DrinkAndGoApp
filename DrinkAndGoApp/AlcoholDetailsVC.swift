@@ -157,6 +157,9 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     
     private func checkForEmptyFields(alcVolume: UITextField, alcPercentage: UITextField) {
         if let text = alcVolume.text, text.isEmpty {
+            
+                scrollToNextTxtField(frame: self.alcVolumeCorrection.frame, txtField: self.alcVolumeCorrection)
+            
                 let animation = CABasicAnimation(keyPath: "position")
                 animation.duration = 0.07
                 animation.repeatCount = 3
