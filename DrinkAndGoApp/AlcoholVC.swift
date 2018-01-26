@@ -20,11 +20,10 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var viewModel : AlcoholViewModel!
     private let cellID = "AlcoholCell"
     private let segueID = "CompleteSegue"
-   // private let collectionViewCellHeight : CGFloat = 0.85
-   // private let collectionViewCellWidth : CGFloat = 0.55
     private var childController : AlcoholChildVC!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupMisc()
         updateConstraints()
         setupCollectionView()
         setupChildController()
@@ -37,6 +36,10 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
    
     // MARK: - Setup
+    private func setupMisc() {
+        self.pageControl.numberOfPages = self.viewModel.numberOfCells()
+        self.nextButton.isEnabled = false
+    }
     private func updateConstraints() {
         let device = Device(rawValue: ScreenSize().size)
         switch device {
@@ -69,8 +72,6 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * collectionViewCellWidth,
                                                                        height: self.collectionView.frame.size.height * collectionViewCellHeight))
         self.collectionView.collectionViewLayout = gravityLayoutSlider
-        self.pageControl.numberOfPages = self.viewModel.numberOfCells()
-        self.nextButton.isEnabled = false
     }
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(alcoholCountDidChange(notification:)), name: Notification.Name.alcoholCountDidChange, object: nil)
@@ -132,19 +133,7 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
             resultVC.viewModel = self.childController.viewModel.setResultViewModel()
         }
     }
-    /*
-    private func animateChangingTitle(for indexPath: IndexPath) {
-        UIView.transition(with: productTitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.productTitleLabel.text = self.titles[indexPath.row % self.titles.count]
-        }, completion: nil)
-        UIView.transition(with: productSubtitleLabel, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.productSubtitleLabel.text = self.subtitles[indexPath.row % self.subtitles.count]
-        }, completion: nil)
-        UIView.transition(with: priceButton, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.priceButton.setTitle(self.prices[indexPath.row % self.prices.count], for: .normal)
-        }, completion: nil)
-    }
- */
+ 
 }
 
 extension AlcoholVC {
@@ -155,7 +144,6 @@ extension AlcoholVC {
         
         if let indexPathFirst = collectionView.indexPathForItem(at: locationFirst), let indexPathSecond = collectionView.indexPathForItem(at: locationSecond), let indexPathThird = collectionView.indexPathForItem(at: locationThird), indexPathFirst.row == indexPathSecond.row && indexPathSecond.row == indexPathThird.row && indexPathFirst.row != pageControl.currentPage {
             pageControl.currentPage = indexPathFirst.row
-            //self.animateChangingTitle(for: indexPathFirst)
         }
 }
 }
