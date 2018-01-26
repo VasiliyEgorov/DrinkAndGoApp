@@ -25,9 +25,9 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         let device = Device(rawValue: UIScreen.main.bounds.size.height)!
         switch device {
         case .Iphone5: return 74.5
-        case .Iphone6_7: return 0
-        case .Iphone6_7_plus: return 0
-        case .IphoneX: return 0
+        case .Iphone6_7: return 122.0
+        case .Iphone6_7_plus: return 134.0
+        case .IphoneX: return 134.0
         }
     }
     private var lastContentOffset : CGFloat!
@@ -86,6 +86,9 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         case .Iphone5?:
             collectionViewCellHeight = 0.55
             collectionViewCellWidth = 0.35
+        case .Iphone6_7?:
+            collectionViewCellHeight = 0.70
+            collectionViewCellWidth = 0.50
         default:
             collectionViewCellHeight = 0.85
             collectionViewCellWidth = 0.55
@@ -162,6 +165,7 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
 extension AlcoholVC {
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       
         if scrollView.contentOffset.x <= self.minDistance {
             self.actualDistance = self.staticDistance()
             self.lastContentOffset = self.minDistance
@@ -182,6 +186,7 @@ extension AlcoholVC {
             self.actualDistance = self.actualDistance - self.staticDistance()
             self.lastContentOffset = scrollView.contentOffset.x
         }
+
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.lastContentOffset = scrollView.contentOffset.x
