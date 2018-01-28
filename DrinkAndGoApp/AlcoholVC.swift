@@ -21,20 +21,20 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     private let cellID = "AlcoholCell"
     private let segueID = "CompleteSegue"
     private var childController : AlcoholChildVC!
-    private let staticDistance = { () -> CGFloat in
+    private let pageDistance = { () -> CGFloat in
         let device = Device(rawValue: UIScreen.main.bounds.size.height)!
         switch device {
-        case .Iphone5: return 74.5
-        case .Iphone6_7: return 122.0
-        case .Iphone6_7_plus: return 134.0
-        case .IphoneX: return 134.0
+        case .Iphone5: return 42.0
+        case .Iphone6_7: return 61.0
+        case .Iphone6_7_plus: return 67.0
+        case .IphoneX: return 67.0
         }
     }
     private var lastContentOffset : CGFloat!
-    private var actualDistance : CGFloat!
+    private var nextPageDistance : CGFloat!
     private var minDistance : CGFloat!
     private var maxDistance : CGFloat!
-    
+    private var currentPage = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMisc()
@@ -48,17 +48,14 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
+    
     // MARK: - Setup
     private func setupMisc() {
         self.pageControl.numberOfPages = self.viewModel.numberOfCells()
         self.nextButton.isEnabled = false
-        self.actualDistance = self.staticDistance()
+        self.nextPageDistance = self.pageDistance()
         self.minDistance = 0
-        self.maxDistance = self.staticDistance() * (CGFloat(self.viewModel.numberOfCells()) - 1)
+        self.maxDistance = self.pageDistance() * (CGFloat(self.viewModel.numberOfCells())) * 2
         self.lastContentOffset = 0
     }
     private func updateConstraints() {
@@ -165,29 +162,32 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
 extension AlcoholVC {
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-       
+     
+        
         if scrollView.contentOffset.x <= self.minDistance {
-            self.actualDistance = self.staticDistance()
-            self.lastContentOffset = self.minDistance
-            pageControl.currentPage = 0
+            self.nextPageDistance = self.pageDistance()
+            self.currentPage = 1
+            self.pageControl.currentPage = 0
         }
         else if scrollView.contentOffset.x >= self.maxDistance {
-            self.actualDistance = self.maxDistance
-            self.lastContentOffset = self.maxDistance
-            pageControl.currentPage = self.viewModel.numberOfCells()
+            self.nextPageDistance = self.maxDistance
+            self.currentPage = self.viewModel.numberOfCells()
+            self.pageControl.currentPage = self.viewModel.numberOfCells()
         }
-        else if scrollView.contentOffset.x > self.lastContentOffset && scrollView.contentOffset.x >= self.actualDistance {
-            pageControl.currentPage += 1
-            self.actualDistance = self.actualDistance + self.staticDistance()
-            self.lastContentOffset = scrollView.contentOffset.x
+        else if scrollView.contentOffset.x > self.lastContentOffset && scrollView.contentOffset.x > self.nextPageDistance && self.pageControl.currentPage != self.currentPage {
+            self.pageControl.currentPage += 1
+            self.currentPage += 1
+            self.nextPageDistance = self.nextPageDistance + self.pageDistance() * 2
         }
-        else if scrollView.contentOffset.x < self.lastContentOffset && scrollView.contentOffset.x <= self.actualDistance {
-            pageControl.currentPage -= 1
-            self.actualDistance = self.actualDistance - self.staticDistance()
-            self.lastContentOffset = scrollView.contentOffset.x
+        else if scrollView.contentOffset.x < self.lastContentOffset && scrollView.contentOffset.x + self.pageDistance() * 2 < self.nextPageDistance && self.pageControl.currentPage != self.currentPage {
+            self.pageControl.currentPage -= 1
+            self.currentPage -= 1
+            self.nextPageDistance = self.nextPageDistance - self.pageDistance() * 2
         }
-
+        self.lastContentOffset = scrollView.contentOffset.x
     }
+    
+    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.lastContentOffset = scrollView.contentOffset.x
     }
