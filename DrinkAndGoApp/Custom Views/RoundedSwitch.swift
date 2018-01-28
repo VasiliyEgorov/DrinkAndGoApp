@@ -119,6 +119,8 @@ import UIKit
         super.layoutSubviews()
         leftLabel.frame = CGRect(x: 0, y: 0, width: bounds.size.width / 2, height: bounds.size.height)
         rightLabel.frame = CGRect(x: bounds.size.width / 2, y: 0, width: bounds.size.width / 2, height: bounds.size.height)
+        leftLabel.font = UIFont.init(name: "HelveticaNeue-Light", size: leftLabel.frame.size.height * 0.5)
+        rightLabel.font = UIFont.init(name: "HelveticaNeue-Light", size: rightLabel.frame.size.height * 0.5)
     }
     
     /// Layouts sublayers of a layer. Should not be called directly.
