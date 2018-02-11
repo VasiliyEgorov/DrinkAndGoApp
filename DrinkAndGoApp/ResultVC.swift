@@ -11,6 +11,7 @@ import UICircularProgressRing
 
 class ResultVC: UIViewController, TimerDelegate {
     
+    @IBOutlet weak var titleLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var timerLabel: TitleLabel!
     @IBOutlet weak var progressCircular: UICircularProgressRingView!
     private var timer : EliminationTimer!
@@ -27,6 +28,7 @@ class ResultVC: UIViewController, TimerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateConstraints()
         setupCircular()
         setupTimerAndLabel()
         setupNotifications()
@@ -36,9 +38,16 @@ class ResultVC: UIViewController, TimerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    private func updateConstraints() {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .IpadMini_Air?, .IpadPro10_5?:
+            self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.05)
+        case .IpadPro12_9?:
+            self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.045)
+        default: return
+        }
+        self.view.updateConstraintsIfNeeded()
     }
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDidEnterBackground(notification:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)

@@ -10,12 +10,17 @@ import UIKit
 
 class HeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    @IBOutlet weak var heightSwitchWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightSwitchHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightSwitch: RoundedSwitch!
     @IBOutlet weak var heightPicker: UIPickerView!
-    var viewModel : HeightViewModel!
+    private var animationShowed : Bool = false
+    var viewModel : HeightViewModel! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateConstraints()
         self.heightPicker.showsSelectionIndicator = true
     }
 
@@ -26,7 +31,25 @@ class HeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if !self.animationShowed {
         self.heightPicker.selectRow(self.viewModel.setDefaultRow(isFt: self.heightSwitch.rightSelected), inComponent: 0, animated: true)
+            self.animationShowed = true
+        }
+    }
+    
+    private func updateConstraints() {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .IpadMini_Air?, .IpadPro10_5?:
+            self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.10)
+            self.heightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.heightSwitchHeightConstraint, multiplier: 0.08)
+        case .IpadPro12_9?:
+            self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.09)
+            self.heightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.heightSwitchHeightConstraint, multiplier: 0.06)
+            self.heightSwitchWidthConstraint = NSLayoutConstraint.changeMultiplier(self.heightSwitchWidthConstraint, multiplier: 0.2)
+        default: return
+        }
+        self.view.updateConstraintsIfNeeded()
     }
     // MARK: - Picker View Data Source
     

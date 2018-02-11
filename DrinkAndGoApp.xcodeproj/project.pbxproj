@@ -10,6 +10,7 @@
 		848CC49E2894E5139746E4E3 /* Pods_DrinkAndGoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC4346865DA5CA60DA3644EC /* Pods_DrinkAndGoApp.framework */; };
 		92678CC951DB9026B3B074D0 /* Pods_DrinkAndGoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF2A3D28104FAD312FDFE72 /* Pods_DrinkAndGoAppUITests.framework */; };
 		995F20DDD41358E0AAECE399 /* Pods_DrinkAndGoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6263D0DA6330A3A791A38D9 /* Pods_DrinkAndGoAppTests.framework */; };
+		FF0B5565202D52D6002D11F6 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0B5564202D52D6002D11F6 /* ConstraintsExtension.swift */; };
 		FF328DAD200FAF2F00ED39D6 /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */; };
 		FF328DAF200FAF3D00ED39D6 /* ResultVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */; };
 		FF328DB52010B35A00ED39D6 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF328DB42010B35900ED39D6 /* UIImageExtension.swift */; };
@@ -38,7 +39,6 @@
 		FFE5913A1FF1A3D60027D029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE591381FF1A3D60027D029 /* LaunchScreen.storyboard */; };
 		FFE591451FF1A3D60027D029 /* DrinkAndGoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591441FF1A3D60027D029 /* DrinkAndGoAppTests.swift */; };
 		FFE591501FF1A3D60027D029 /* DrinkAndGoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE5914F1FF1A3D60027D029 /* DrinkAndGoAppUITests.swift */; };
-		FFE5915E1FF1A8800027D029 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFE5915D1FF1A87F0027D029 /* GoogleService-Info.plist */; };
 		FFE591631FF726710027D029 /* RoundedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591621FF726710027D029 /* RoundedSwitch.swift */; };
 		FFE591651FF736750027D029 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591641FF736750027D029 /* GenderVC.swift */; };
 		FFE591671FF736850027D029 /* DidYouEatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE591661FF736850027D029 /* DidYouEatVC.swift */; };
@@ -78,6 +78,7 @@
 		E60B7ACEC88A3765C79C09E1 /* Pods-DrinkAndGoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoAppTests/Pods-DrinkAndGoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E687ADB65947338F8BCDDD27 /* Pods-DrinkAndGoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoApp/Pods-DrinkAndGoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EF85350714D9F553392E645E /* Pods-DrinkAndGoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkAndGoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkAndGoApp/Pods-DrinkAndGoApp.release.xcconfig"; sourceTree = "<group>"; };
+		FF0B5564202D52D6002D11F6 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		FF328DAC200FAF2F00ED39D6 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 		FF328DAE200FAF3D00ED39D6 /* ResultVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVM.swift; sourceTree = "<group>"; };
 		FF328DB42010B35900ED39D6 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		FFE5914B1FF1A3D60027D029 /* DrinkAndGoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkAndGoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE5914F1FF1A3D60027D029 /* DrinkAndGoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAndGoAppUITests.swift; sourceTree = "<group>"; };
 		FFE591511FF1A3D60027D029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFE5915D1FF1A87F0027D029 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFE591621FF726710027D029 /* RoundedSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSwitch.swift; sourceTree = "<group>"; };
 		FFE591641FF736750027D029 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
 		FFE591661FF736850027D029 /* DidYouEatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidYouEatVC.swift; sourceTree = "<group>"; };
@@ -183,6 +183,7 @@
 				FF328DB42010B35900ED39D6 /* UIImageExtension.swift */,
 				FF328DB62010B89400ED39D6 /* UIViewExtension.swift */,
 				FFDF064D2018E7AA004E2D25 /* ScreenSize.swift */,
+				FF0B5564202D52D6002D11F6 /* ConstraintsExtension.swift */,
 			);
 			path = Extesions;
 			sourceTree = "<group>";
@@ -250,7 +251,6 @@
 				FFE591361FF1A3D60027D029 /* Assets.xcassets */,
 				FFE591381FF1A3D60027D029 /* LaunchScreen.storyboard */,
 				FFE5913B1FF1A3D60027D029 /* Info.plist */,
-				FFE5915D1FF1A87F0027D029 /* GoogleService-Info.plist */,
 			);
 			path = DrinkAndGoApp;
 			sourceTree = "<group>";
@@ -407,7 +407,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFE5913A1FF1A3D60027D029 /* LaunchScreen.storyboard in Resources */,
-				FFE5915E1FF1A8800027D029 /* GoogleService-Info.plist in Resources */,
 				FFE591371FF1A3D60027D029 /* Assets.xcassets in Resources */,
 				FFE591351FF1A3D60027D029 /* Main.storyboard in Resources */,
 			);
@@ -518,17 +517,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DrinkAndGoApp/Pods-DrinkAndGoApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GravitySliderFlowLayout/GravitySliderFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GravitySliderFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -592,6 +587,7 @@
 			files = (
 				FFE591631FF726710027D029 /* RoundedSwitch.swift in Sources */,
 				FFE591691FF736940027D029 /* WeightVC.swift in Sources */,
+				FF0B5565202D52D6002D11F6 /* ConstraintsExtension.swift in Sources */,
 				FF82995B2000D3D20032E0E5 /* AlcoholDetailsVM.swift in Sources */,
 				FFDF06482018AE7B004E2D25 /* CircularVM.swift in Sources */,
 				FFA301A51FFCC60F00D8C96B /* AlcoholCellVM.swift in Sources */,
@@ -797,7 +793,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasiliyegorov.DrinkAndGoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -814,7 +810,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vasiliyegorov.DrinkAndGoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

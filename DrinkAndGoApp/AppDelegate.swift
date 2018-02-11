@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 genderController.viewModel = GenderViewModel.init(model: interview)
             }
         }
-        FirebaseApp.configure()
+        
         UserNotificationManager.shared.registerNotification()
         
         return true

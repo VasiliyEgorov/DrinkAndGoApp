@@ -10,11 +10,15 @@ import UIKit
 
 class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    @IBOutlet weak var weigthSwitchWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var weightSwitchHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var weightSwitch: RoundedSwitch!
     @IBOutlet weak var weightPicker: UIPickerView!
     private let segueID = "AlcoholSegue"
     private var childController : HeightVC!
+    private var animationShowed : Bool = false
     var viewModel : WeightViewModel! 
     
     override func viewDidLoad() {
@@ -23,6 +27,7 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         self.childController.viewModel = self.viewModel.setHeightViewModel()
         self.weightPicker.showsSelectionIndicator = true
         self.nextButton.isEnabled = false
+        updateConstraints()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,10 +36,31 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.weightPicker.selectRow(self.viewModel.setDefaultRow(isLbs: self.weightSwitch.rightSelected), inComponent: 0, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        if !self.animationShowed {
+           
+            self.weightPicker.selectRow(self.viewModel.setDefaultRow(isLbs: self.weightSwitch.rightSelected), inComponent: 0, animated: true)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.nextButton.isEnabled = true
+            self.animationShowed = true
+            
+            }
         }
+    }
+    
+    private func updateConstraints() {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .IpadMini_Air?, .IpadPro10_5?:
+            self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.10)
+            self.weightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.weightSwitchHeightConstraint, multiplier: 0.08)
+        case .IpadPro12_9?:
+            self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.09)
+            self.weightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.weightSwitchHeightConstraint, multiplier: 0.06)
+            self.weigthSwitchWidthConstraint = NSLayoutConstraint.changeMultiplier(self.weigthSwitchWidthConstraint, multiplier: 0.2)
+        default: return
+        }
+        self.view.updateConstraintsIfNeeded()
     }
     // MARK: - Picker View Data Source
     

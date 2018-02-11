@@ -21,7 +21,9 @@ protocol AlcoholDetailsDelegate : class, AlcTupleProtocol {
 
 class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDelegate {
 
-    
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var alcPercentageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollViewTopContraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -36,6 +38,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     private var keyboardView: KeyboardView!
     private var bottomConstraint : NSLayoutConstraint!
     private var txtFieldEnum : TextFieldEnum?
+    private var topConstant : CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +57,32 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         // Dispose of any resources that can be recreated.
     }
     private func updateConstraints() {
+        
+       
+        
        let device = Device(rawValue: ScreenSize().size)
         switch device {
         case .Iphone5?:
             self.scrollViewTopContraint.constant = 40
             self.scrollViewBottomConstraint.constant = 0
-            self.view.updateConstraintsIfNeeded()
+        case .IpadMini_Air?:
+            self.scrollViewWidthConstraint = NSLayoutConstraint.changeMultiplier(self.scrollViewWidthConstraint, multiplier: 0.6)
+            self.scrollViewTopContraint.constant = 226
+            self.topConstant = self.scrollViewTopContraint.constant
+        case .IpadPro10_5?:
+            self.scrollViewWidthConstraint = NSLayoutConstraint.changeMultiplier(self.scrollViewWidthConstraint, multiplier: 0.6)
+            self.alcPercentageHeightConstraint = NSLayoutConstraint.changeMultiplier(self.alcPercentageHeightConstraint, multiplier: 0.12)
+            self.scrollViewTopContraint.constant = 253
+            self.topConstant = self.scrollViewTopContraint.constant
+        case .IpadPro12_9?:
+            self.scrollViewWidthConstraint = NSLayoutConstraint.changeMultiplier(self.scrollViewWidthConstraint, multiplier: 0.6)
+            self.alcPercentageHeightConstraint = NSLayoutConstraint.changeMultiplier(self.alcPercentageHeightConstraint, multiplier: 0.12)
+            self.scrollViewTopContraint.constant = 380
+            self.topConstant = self.scrollViewTopContraint.constant
         default: return
         }
+        
+        self.view.updateConstraintsIfNeeded()
     }
     private func addKeyboardView() {
         self.keyboardView = KeyboardView.init(frame: CGRect.zero)
@@ -74,6 +95,8 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         let device = Device(rawValue: ScreenSize().size)
         switch device {
         case .Iphone5?: multiplierValue = 0.07
+        case .IpadMini_Air?, .IpadPro10_5?: multiplierValue = 0.04
+        case .IpadPro12_9?: multiplierValue = 0.03
         default: multiplierValue = 0.05
         }
         
@@ -215,7 +238,34 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         let device = Device(rawValue: ScreenSize().size)
         switch device {
         case .Iphone5?: return keyboard + self.layerView.bounds.maxY - self.alcVolumeCorrection.frame.origin.y + self.alcVolumeCorrection.frame.size.height
+        case .IpadMini_Air?: return 0
+        case .IpadPro10_5?: return 0
+        case .IpadPro12_9?: return 0
         default: return keyboard
+        }
+    }
+    private func manageTopConstraintOnKeyboardAppearance(keyboardSize: CGFloat) {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .IpadMini_Air?, .IpadPro10_5?, .IpadPro12_9?:
+            self.scrollViewTopContraint.constant = (self.view.frame.size.height - UIApplication.shared.statusBarFrame.height - self.navBar.frame.size.height - keyboardSize - self.keyboardView.frame.size.height - self.layerView.frame.size.height) / 2
+            animateConstraintChanges()
+        default: return
+        }
+    }
+    private func manageTopConstraintOnKeyboardDisappearance() {
+        let device = Device(rawValue: ScreenSize().size)
+        switch device {
+        case .IpadMini_Air?, .IpadPro10_5?, .IpadPro12_9?:
+            self.scrollViewTopContraint.constant = self.topConstant
+            animateConstraintChanges()
+        default: return
+        }
+    }
+    
+    private func animateConstraintChanges() {
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
         }
     }
     // MARK: - Notifications
@@ -228,10 +278,12 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.bottomConstraint.constant = -keyboardSize.height
             self.keyboardView.isHidden = false
+            manageTopConstraintOnKeyboardAppearance(keyboardSize: keyboardSize.height)
         }
     }
     @objc func keyboardWillHide(notification: NSNotification) {
         self.keyboardView.isHidden = true
         self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        manageTopConstraintOnKeyboardDisappearance()
     }
 }

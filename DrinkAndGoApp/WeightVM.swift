@@ -28,13 +28,13 @@ struct WeightViewModel {
             self.weight = Int(defaultMensKgSelectedRow)
             return self.mensWeightKg[0].index(of: defaultMensKgSelectedRow)!
         case (.Male, true):
-            self.weight = Int(defaultMensLbsSelectedRow)
+            self.weight = convertLbsToKg(lbsString:defaultMensLbsSelectedRow)
             return self.mensWeightLbs[0].index(of: defaultMensLbsSelectedRow)!
         case (.Female, false):
             self.weight = Int(defaultWomanKgSelectedRow)
             return self.womanWeightKg[0].index(of: defaultWomanKgSelectedRow)!
         case (.Female, true):
-            self.weight = Int(defaultWomanLbsSelectedRow)
+            self.weight = convertLbsToKg(lbsString:defaultWomanLbsSelectedRow)
             return self.womanWeightLbs[0].index(of: defaultWomanLbsSelectedRow)!
         default: return 0
         }

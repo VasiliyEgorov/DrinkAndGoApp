@@ -20,6 +20,11 @@ struct AlcoholDetailsViewModel : AlcTupleProtocol {
     var alcDetails : AlcTuple!
     
     func filterVolume(volume: String, isOunce: Bool) -> String {
+        
+        let unfiltered = volume.unicodeScalars.filter { (char) -> Bool in
+            return String(char).rangeOfCharacter(from: CharacterSet.decimalDigits) != nil
+        }
+        let volume = String(unfiltered)
         if isOunce {
            return cutVolume(volume: volume, volumeCount: maxOunceLenght)
         } else {
@@ -36,6 +41,12 @@ struct AlcoholDetailsViewModel : AlcTupleProtocol {
         }
     }
     func filterPercentage(percentage: String) -> String {
+        
+        let unfiltered = percentage.unicodeScalars.filter { (char) -> Bool in
+            return String(char).rangeOfCharacter(from: CharacterSet.decimalDigits) != nil
+        }
+        let percentage = String(unfiltered)
+        
         if percentage.count < maxVolume {
             guard let _ = percentage.index(of: "%")
                 else {
