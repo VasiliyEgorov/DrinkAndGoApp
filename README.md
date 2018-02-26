@@ -20,15 +20,15 @@ Supports all Iphones & iPads
 ### Carousel Collection View with alcohol
 
 ![carusel](https://media.giphy.com/media/oNYAJ359BzyiBiOICH/giphy.gif)
-</br>
+
 ### Progress circle
-</br>
+
 ![progress](https://media.giphy.com/media/9XXQrFN97jIKv3GIgF/giphy.gif)
-</br>
+
 ### Alc editing
-</br>
+
 ![alc](https://media.giphy.com/media/1BeoIYkzv4XAgEmNcH/giphy.gif)
-</br>
+
 ## License
 
 MIT License
