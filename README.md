@@ -2,7 +2,7 @@
 
 ## Overview
 
-Swift version designed with MVVM pattern
+Swift version designed by MVVM pattern
 
 Minimum iOS version - 10.3
 
