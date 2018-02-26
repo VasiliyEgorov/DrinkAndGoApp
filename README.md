@@ -18,7 +18,7 @@ Supports all Iphones & iPads
 
 ## App fetures in GIF
 ### Carousel Collection View with alcohol
-</br>
+
 ![carusel](https://media.giphy.com/media/oNYAJ359BzyiBiOICH/giphy.gif)
 </br>
 ### Progress circle
