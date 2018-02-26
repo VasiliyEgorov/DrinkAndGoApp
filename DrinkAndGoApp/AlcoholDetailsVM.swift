@@ -45,21 +45,15 @@ struct AlcoholDetailsViewModel : AlcTupleProtocol {
         let unfiltered = percentage.unicodeScalars.filter { (char) -> Bool in
             return String(char).rangeOfCharacter(from: CharacterSet.decimalDigits) != nil
         }
-        let percentage = String(unfiltered)
-        
-        if percentage.count < maxVolume {
-            guard let _ = percentage.index(of: "%")
-                else {
-                    switch percentage.count {
-                    case 1:  return percentage + "%"
-                    default: return percentage
-                    }
-            }
-            let temp = percentage.replacingOccurrences(of: "%", with: "")
+        let perc = String(unfiltered)
+        print(perc)
+        if perc.count < maxVolume {
+            guard let _ = perc.index(of: "%") else { return perc + "%" }
+            let temp = perc.replacingOccurrences(of: "%", with: "")
             let result = temp + "%"
             return result
         } else {
-            let temp = percentage.replacingOccurrences(of: "%", with: "")
+            let temp = perc.replacingOccurrences(of: "%", with: "")
             let index = temp.index(temp.startIndex, offsetBy: maxVolume - 1)
             let result = String(temp[..<index]) + "%"
             return result
