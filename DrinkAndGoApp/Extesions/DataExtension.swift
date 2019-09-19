@@ -16,7 +16,7 @@ extension Data {
     init?(imageName : String) {
         self.init()
         guard let img = UIImage.init(named: imageName) else { return nil }
-        guard let data = UIImagePNGRepresentation(img) else { return nil }
+        guard let data = img.pngData() else { return nil }
         self = data
     }
 }

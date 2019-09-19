@@ -43,7 +43,7 @@ class HeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         case .IpadMini_Air?, .IpadPro10_5?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.10)
             self.heightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.heightSwitchHeightConstraint, multiplier: 0.08)
-        case .IpadPro12_9?:
+        case .IpadPro12_9?, .Ipad11?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.09)
             self.heightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.heightSwitchHeightConstraint, multiplier: 0.06)
             self.heightSwitchWidthConstraint = NSLayoutConstraint.changeMultiplier(self.heightSwitchWidthConstraint, multiplier: 0.2)
@@ -71,8 +71,8 @@ class HeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         let string = self.viewModel.titleForRow(row: row, component: component, isFt: self.heightSwitch.rightSelected)
         let rowSize = self.heightPicker.rowSize(forComponent: component)
         if let str = string {
-        return NSAttributedString(string: str, attributes: [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                               NSAttributedStringKey.font : UIFont.init(name: "HelveticaNeue-Thin", size: rowSize.height * 0.8) ?? UIFont.systemFont(ofSize: rowSize.height * 0.8)])
+        return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white,
+                                                               NSAttributedString.Key.font : UIFont.init(name: "HelveticaNeue-Thin", size: rowSize.height * 0.8) ?? UIFont.systemFont(ofSize: rowSize.height * 0.8)])
         } else {
             return nil
         }

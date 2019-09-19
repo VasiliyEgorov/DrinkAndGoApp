@@ -26,9 +26,9 @@ class UserNotificationManager : NSObject {
     func addNotificationWithTimeIntervalTrigger(time: TimeInterval) {
         let content = UNMutableNotificationContent()
         content.title = "You did it"
-        content.body = "take it easy bro! Good luck and have fun"
+        content.body = "Take it easy bro and Good luck"
         content.badge = 1
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: time, repeats: false)
         let request = UNNotificationRequest.init(identifier: "timeInterval", content: content, trigger: trigger)

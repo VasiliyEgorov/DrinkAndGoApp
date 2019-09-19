@@ -74,7 +74,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
             self.alcPercentageHeightConstraint = NSLayoutConstraint.changeMultiplier(self.alcPercentageHeightConstraint, multiplier: 0.12)
             self.scrollViewTopContraint.constant = 253
             self.topConstant = self.scrollViewTopContraint.constant
-        case .IpadPro12_9?:
+        case .IpadPro12_9?, .Ipad11?:
             self.scrollViewWidthConstraint = NSLayoutConstraint.changeMultiplier(self.scrollViewWidthConstraint, multiplier: 0.6)
             self.alcPercentageHeightConstraint = NSLayoutConstraint.changeMultiplier(self.alcPercentageHeightConstraint, multiplier: 0.12)
             self.scrollViewTopContraint.constant = 380
@@ -95,15 +95,16 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         let device = Device(rawValue: ScreenSize().size)
         switch device {
         case .Iphone5?: multiplierValue = 0.07
+        case .IphoneXsMax_Xr?: multiplierValue = 0.04
         case .IpadMini_Air?, .IpadPro10_5?: multiplierValue = 0.04
-        case .IpadPro12_9?: multiplierValue = 0.03
+        case .IpadPro12_9?, .Ipad11?: multiplierValue = 0.03
         default: multiplierValue = 0.05
         }
         
-        let leading = NSLayoutConstraint.init(item: self.keyboardView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
-        let trailing = NSLayoutConstraint.init(item: self.keyboardView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
-        let equalHeight = NSLayoutConstraint.init(item: self.keyboardView, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: multiplierValue, constant: 0)
-        self.bottomConstraint = NSLayoutConstraint.init(item: self.keyboardView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
+        let leading = NSLayoutConstraint.init(item: self.keyboardView!, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
+        let trailing = NSLayoutConstraint.init(item: self.keyboardView!, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
+        let equalHeight = NSLayoutConstraint.init(item: self.keyboardView!, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: multiplierValue, constant: 0)
+        self.bottomConstraint = NSLayoutConstraint.init(item: self.keyboardView!, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
         
         self.keyboardView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -113,9 +114,9 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
         self.view.addConstraint(self.bottomConstraint)
     }
     private func addNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AlcoholDetailsVC.keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
     }
     private func configureLayerView() {
         self.layerView.layer.cornerRadius = 12
@@ -237,17 +238,18 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     private func calculateInset(keyboard: CGFloat) -> CGFloat {
         let device = Device(rawValue: ScreenSize().size)
         switch device {
-        case .Iphone5?: return keyboard + self.layerView.bounds.maxY - self.alcVolumeCorrection.frame.origin.y + self.alcVolumeCorrection.frame.size.height
+        case .Iphone5?, .IphoneXsMax_Xr?: return keyboard + self.layerView.bounds.maxY - self.alcVolumeCorrection.frame.origin.y + self.alcVolumeCorrection.frame.size.height
         case .IpadMini_Air?: return 0
         case .IpadPro10_5?: return 0
         case .IpadPro12_9?: return 0
+        case .Ipad11?: return 0
         default: return keyboard
         }
     }
     private func manageTopConstraintOnKeyboardAppearance(keyboardSize: CGFloat) {
         let device = Device(rawValue: ScreenSize().size)
         switch device {
-        case .IpadMini_Air?, .IpadPro10_5?, .IpadPro12_9?:
+        case .IpadMini_Air?, .IpadPro10_5?, .IpadPro12_9?, .Ipad11?:
             self.scrollViewTopContraint.constant = (self.view.frame.size.height - UIApplication.shared.statusBarFrame.height - self.navBar.frame.size.height - keyboardSize - self.keyboardView.frame.size.height - self.layerView.frame.size.height) / 2
             animateConstraintChanges()
         default: return
@@ -270,12 +272,12 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     }
     // MARK: - Notifications
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, calculateInset(keyboard: keyboardSize.height), 0)
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            self.scrollView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: calculateInset(keyboard: keyboardSize.height), right: 0)
         }
     }
     @objc func keyboardDidShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             self.bottomConstraint.constant = -keyboardSize.height
             self.keyboardView.isHidden = false
             manageTopConstraintOnKeyboardAppearance(keyboardSize: keyboardSize.height)
@@ -283,7 +285,7 @@ class AlcoholDetailsVC: UIViewController, UITextFieldDelegate, KeyboardViewDeleg
     }
     @objc func keyboardWillHide(notification: NSNotification) {
         self.keyboardView.isHidden = true
-        self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.scrollView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         manageTopConstraintOnKeyboardDisappearance()
     }
 }

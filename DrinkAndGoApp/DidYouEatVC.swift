@@ -34,7 +34,7 @@ class DidYouEatVC: UIViewController {
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.05)
             self.eatSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.eatSwitchHeightConstraint, multiplier: 0.04)
             self.eatSwitchWidthConstraint = NSLayoutConstraint.changeMultiplier(self.eatSwitchWidthConstraint, multiplier: 0.4)
-        case .IpadPro12_9?:
+        case .IpadPro12_9?, .Ipad11?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.045)
             self.eatSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.eatSwitchHeightConstraint, multiplier: 0.035)
             self.eatSwitchWidthConstraint = NSLayoutConstraint.changeMultiplier(self.eatSwitchWidthConstraint, multiplier: 0.35)

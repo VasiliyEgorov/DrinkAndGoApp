@@ -24,27 +24,27 @@ struct WeightViewModel {
     
     mutating func setDefaultRow(isLbs: Bool) -> Int {
         switch (model.gender, isLbs) {
-        case (.Male, false):
+        case (.Male?, false):
             self.weight = Int(defaultMensKgSelectedRow)
-            return self.mensWeightKg[0].index(of: defaultMensKgSelectedRow)!
-        case (.Male, true):
+            return self.mensWeightKg[0].firstIndex(of: defaultMensKgSelectedRow)!
+        case (.Male?, true):
             self.weight = convertLbsToKg(lbsString:defaultMensLbsSelectedRow)
-            return self.mensWeightLbs[0].index(of: defaultMensLbsSelectedRow)!
-        case (.Female, false):
+            return self.mensWeightLbs[0].firstIndex(of: defaultMensLbsSelectedRow)!
+        case (.Female?, false):
             self.weight = Int(defaultWomanKgSelectedRow)
-            return self.womanWeightKg[0].index(of: defaultWomanKgSelectedRow)!
-        case (.Female, true):
+            return self.womanWeightKg[0].firstIndex(of: defaultWomanKgSelectedRow)!
+        case (.Female?, true):
             self.weight = convertLbsToKg(lbsString:defaultWomanLbsSelectedRow)
-            return self.womanWeightLbs[0].index(of: defaultWomanLbsSelectedRow)!
+            return self.womanWeightLbs[0].firstIndex(of: defaultWomanLbsSelectedRow)!
         default: return 0
         }
     }
     func numberOfRowsInComponent(component: Int, isLbs: Bool) -> Int {
         switch (model.gender, isLbs) {
-        case (.Male, false): return self.mensWeightKg[component].count
-        case (.Male, true): return self.mensWeightLbs[component].count
-        case (.Female, false): return self.womanWeightKg[component].count
-        case (.Female, true): return self.womanWeightLbs[component].count
+        case (.Male?, false): return self.mensWeightKg[component].count
+        case (.Male?, true): return self.mensWeightLbs[component].count
+        case (.Female?, false): return self.womanWeightKg[component].count
+        case (.Female?, true): return self.womanWeightLbs[component].count
         default: return 0
         }
     }
@@ -53,19 +53,19 @@ struct WeightViewModel {
     }
     func titleForRow(row: Int, component: Int, isLbs: Bool) -> String? {
         switch (model.gender, isLbs) {
-        case (.Male, false): return self.mensWeightKg[component][row]
-        case (.Male, true): return self.mensWeightLbs[component][row]
-        case (.Female, false): return self.womanWeightKg[component][row]
-        case (.Female, true): return self.womanWeightLbs[component][row]
+        case (.Male?, false): return self.mensWeightKg[component][row]
+        case (.Male?, true): return self.mensWeightLbs[component][row]
+        case (.Female?, false): return self.womanWeightKg[component][row]
+        case (.Female?, true): return self.womanWeightLbs[component][row]
         default: return nil
         }
     }
     mutating func getSelectedRow(row: Int, component: Int, isLbs: Bool) {
         switch (model.gender, isLbs) {
-        case (.Male, false): self.weight = Int(self.mensWeightKg[component][row])
-        case (.Male, true): self.weight = convertLbsToKg(lbsString: self.mensWeightLbs[component][row])
-        case (.Female, false): self.weight = Int(self.womanWeightKg[component][row])
-        case (.Female, true): self.weight = convertLbsToKg(lbsString: self.womanWeightLbs[component][row])
+        case (.Male?, false): self.weight = Int(self.mensWeightKg[component][row])
+        case (.Male?, true): self.weight = convertLbsToKg(lbsString: self.mensWeightLbs[component][row])
+        case (.Female?, false): self.weight = Int(self.womanWeightKg[component][row])
+        case (.Female?, true): self.weight = convertLbsToKg(lbsString: self.womanWeightLbs[component][row])
         default: return
         }
     }

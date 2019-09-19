@@ -43,15 +43,15 @@ class ResultVC: UIViewController, TimerDelegate {
         switch device {
         case .IpadMini_Air?, .IpadPro10_5?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.05)
-        case .IpadPro12_9?:
+        case .IpadPro12_9?, .Ipad11?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.045)
         default: return
         }
         self.view.updateConstraintsIfNeeded()
     }
     private func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDidEnterBackground(notification:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationWillEnterForeground(notification:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDidEnterBackground(notification:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationWillEnterForeground(notification:)), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     private func setupTimerAndLabel() {
         self.timer = EliminationTimer.init(withSeconds: self.viewModel.setSecondsForTimer())

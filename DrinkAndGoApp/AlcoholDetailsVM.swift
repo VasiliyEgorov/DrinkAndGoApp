@@ -48,7 +48,7 @@ struct AlcoholDetailsViewModel : AlcTupleProtocol {
         let perc = String(unfiltered)
         print(perc)
         if perc.count < maxVolume {
-            guard let _ = perc.index(of: "%") else { return perc + "%" }
+            guard let _ = perc.firstIndex(of: "%") else { return perc + "%" }
             let temp = perc.replacingOccurrences(of: "%", with: "")
             let result = temp + "%"
             return result

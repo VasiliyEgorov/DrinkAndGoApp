@@ -26,27 +26,27 @@ struct HeightViewModel {
     
     mutating func setDefaultRow(isFt: Bool) -> Int {
         switch (model.gender, isFt) {
-        case (.Male, false):
+        case (.Male?, false):
             self.model.height = Int(mensHeightCmSelectedRow)
-            return self.mensHeightCm[0].index(of: mensHeightCmSelectedRow)!
-        case (.Male, true):
+            return self.mensHeightCm[0].firstIndex(of: mensHeightCmSelectedRow)!
+        case (.Male?, true):
             self.model.height = convertFtToCm(ftString: mensHeightFtSelectedRow)
-            return self.mensHeightFt[0].index(of: mensHeightFtSelectedRow)!
-        case (.Female, false):
+            return self.mensHeightFt[0].firstIndex(of: mensHeightFtSelectedRow)!
+        case (.Female?, false):
             self.model.height = Int(womanHeightCmSelectedRow)
-            return self.womanHeightCm[0].index(of: womanHeightCmSelectedRow)!
-        case (.Female, true):
+            return self.womanHeightCm[0].firstIndex(of: womanHeightCmSelectedRow)!
+        case (.Female?, true):
             self.model.height = convertFtToCm(ftString: womanHeightFtSelectedRow)
-            return self.womanHeightFt[0].index(of: womanHeightFtSelectedRow)!
+            return self.womanHeightFt[0].firstIndex(of: womanHeightFtSelectedRow)!
         default: return 0
         }
     }
     func numberOfRowsInComponent(component: Int, isFt: Bool) -> Int {
         switch (model.gender, isFt) {
-        case (.Male, false): return self.mensHeightCm[component].count
-        case (.Male, true): return self.mensHeightFt[component].count
-        case (.Female, false): return self.womanHeightCm[component].count
-        case (.Female, true): return self.womanHeightFt[component].count
+        case (.Male?, false): return self.mensHeightCm[component].count
+        case (.Male?, true): return self.mensHeightFt[component].count
+        case (.Female?, false): return self.womanHeightCm[component].count
+        case (.Female?, true): return self.womanHeightFt[component].count
         default: return 0
         }
     }
@@ -55,19 +55,19 @@ struct HeightViewModel {
     }
     func titleForRow(row: Int, component: Int, isFt: Bool) -> String? {
         switch (model.gender, isFt) {
-        case (.Male, false): return self.mensHeightCm[component][row]
-        case (.Male, true): return self.mensHeightFt[component][row]
-        case (.Female, false): return self.womanHeightCm[component][row]
-        case (.Female, true): return self.womanHeightFt[component][row]
+        case (.Male?, false): return self.mensHeightCm[component][row]
+        case (.Male?, true): return self.mensHeightFt[component][row]
+        case (.Female?, false): return self.womanHeightCm[component][row]
+        case (.Female?, true): return self.womanHeightFt[component][row]
         default: return nil
         }
     }
     mutating func getSelectedRow(row: Int, component: Int, isFt: Bool) {
         switch (model.gender, isFt) {
-        case (.Male, false): self.model.height = Int(self.mensHeightCm[component][row])
-        case (.Male, true): self.model.height = convertFtToCm(ftString: self.mensHeightFt[component][row])
-        case (.Female, false): self.model.height = Int(self.womanHeightCm[component][row])
-        case (.Female, true): self.model.height = convertFtToCm(ftString: self.womanHeightFt[component][row])
+        case (.Male?, false): self.model.height = Int(self.mensHeightCm[component][row])
+        case (.Male?, true): self.model.height = convertFtToCm(ftString: self.mensHeightFt[component][row])
+        case (.Female?, false): self.model.height = Int(self.womanHeightCm[component][row])
+        case (.Female?, true): self.model.height = convertFtToCm(ftString: self.womanHeightFt[component][row])
         default: return
         }
     }

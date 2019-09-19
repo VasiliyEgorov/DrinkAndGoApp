@@ -22,8 +22,8 @@ struct ResultViewModel : ResultsTupleProtocol {
         var genderCoefficient : Double
         
         switch self.model.gender {
-        case .Male: genderCoefficient = 0.7
-        case .Female: genderCoefficient = 0.6
+        case .Male?: genderCoefficient = 0.7
+        case .Female?: genderCoefficient = 0.6
         default: genderCoefficient = 0.7
         }
         
@@ -32,8 +32,8 @@ struct ResultViewModel : ResultsTupleProtocol {
         }
         var alcConcentrationOverall = 0.0
         var heightCoefficient : Double
-        
-        switch self.model.height {
+        guard let height = self.model.height else { return }
+        switch height {
         case 145...160: heightCoefficient = 0.9
         case 160...180: heightCoefficient = 0.8
         case 180...: heightCoefficient = 0.75

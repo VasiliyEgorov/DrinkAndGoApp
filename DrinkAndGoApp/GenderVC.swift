@@ -34,7 +34,7 @@ class GenderVC: UIViewController {
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.05)
             self.genderHeightConstraint = NSLayoutConstraint.changeMultiplier(self.genderHeightConstraint, multiplier: 0.04)
             self.genderWidthConstraint = NSLayoutConstraint.changeMultiplier(self.genderWidthConstraint, multiplier: 0.4)
-        case .IpadPro12_9?:
+        case .IpadPro12_9?, .Ipad11?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.045)
             self.genderHeightConstraint = NSLayoutConstraint.changeMultiplier(self.genderHeightConstraint, multiplier: 0.035)
             self.genderWidthConstraint = NSLayoutConstraint.changeMultiplier(self.genderWidthConstraint, multiplier: 0.35)

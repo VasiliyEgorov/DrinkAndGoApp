@@ -23,7 +23,7 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.childController = self.childViewControllers[0] as! HeightVC
+        self.childController = (self.children[0] as! HeightVC)
         self.childController.viewModel = self.viewModel.setHeightViewModel()
         self.weightPicker.showsSelectionIndicator = true
         self.nextButton.isEnabled = false
@@ -54,7 +54,7 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         case .IpadMini_Air?, .IpadPro10_5?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.10)
             self.weightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.weightSwitchHeightConstraint, multiplier: 0.08)
-        case .IpadPro12_9?:
+        case .IpadPro12_9?, .Ipad11?:
             self.titleLabelHeightConstraint = NSLayoutConstraint.changeMultiplier(self.titleLabelHeightConstraint, multiplier: 0.09)
             self.weightSwitchHeightConstraint = NSLayoutConstraint.changeMultiplier(self.weightSwitchHeightConstraint, multiplier: 0.06)
             self.weigthSwitchWidthConstraint = NSLayoutConstraint.changeMultiplier(self.weigthSwitchWidthConstraint, multiplier: 0.2)
@@ -82,8 +82,8 @@ class WeightVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
         let string = self.viewModel.titleForRow(row: row, component: component, isLbs: self.weightSwitch.rightSelected)
         let rowSize = self.weightPicker.rowSize(forComponent: component)
         if let str = string {
-        return NSAttributedString(string: str, attributes: [NSAttributedStringKey.foregroundColor : UIColor.white,
-                                                               NSAttributedStringKey.font : UIFont.init(name: "HelveticaNeue-Thin", size: rowSize.height * 0.8) ?? UIFont.systemFont(ofSize: rowSize.height * 0.8)])
+        return NSAttributedString(string: str, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white,
+                                                               NSAttributedString.Key.font : UIFont.init(name: "HelveticaNeue-Thin", size: rowSize.height * 0.8) ?? UIFont.systemFont(ofSize: rowSize.height * 0.8)])
         } else {
             return nil
         }

@@ -52,14 +52,14 @@ class AlcoholChildVC: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsetsMake(self.cellOffset, self.cellOffset, self.cellOffset, self.cellOffset)
+        return UIEdgeInsets.init(top: self.cellOffset, left: self.cellOffset, bottom: self.cellOffset, right: self.cellOffset)
     }
     // MARK: - Methods
     func calculateFrameFor(alcoholImageView: UIImageView) {
         self.cellWidth = self.collectionView.frame.size.width / 4
         self.cellHeight = self.collectionView.frame.size.height - self.cellOffset
         if let image = alcoholImageView.image {
-            self.viewModel.addNewImage(image: UIImagePNGRepresentation(image))
+            self.viewModel.addNewImage(image: image.pngData())
             self.collectionView.reloadSections(self.viewModel.getIndexSetForReload())
             collectionView.scrollToItem(at: self.viewModel.getIndexPathToScrollTo(), at: .bottom, animated: true)
             postNotification()

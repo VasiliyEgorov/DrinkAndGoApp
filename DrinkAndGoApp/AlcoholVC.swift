@@ -7,33 +7,27 @@
 //
 
 import UIKit
-import GravitySliderFlowLayout
 
-class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, AlcoholDetailsDelegate {
+class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AlcoholDetailsDelegate {
     
     @IBOutlet weak var titleLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var pageControllBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerViewBottomContstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextButton: UIBarButtonItem!
-    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel : AlcoholViewModel!
     private let cellID = "AlcoholCell"
     private let segueID = "CompleteSegue"
     private var childController : AlcoholChildVC!
-    private var pageDistance : CGFloat!
-    private var lastContentOffset : CGFloat!
-    private var nextPageDistance : CGFloat!
-    private var minDistance : CGFloat!
-    private var maxDistance : CGFloat!
-    private var currentPage = 1
+    private var cellHeight : CGFloat!
+    private var cellWidth : CGFloat!
+    private let cellOffset : CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPage()
+        self.nextButton.isEnabled = false
         updateConstraints()
         setupCollectionView()
         setupChildController()
@@ -45,40 +39,25 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Setup
-    private func setupPage() {
-        let device = Device(rawValue: ScreenSize().size)
-        switch device {
-        case .Iphone5?:
-            self.pageDistance = 45.0
-        case .Iphone6_7?:
-            self.pageDistance = 51.0
-        case .Iphone6_7_plus?, .IphoneX?:
-            self.pageDistance = 61.5
-        case .IpadMini_Air?:
-            self.pageDistance = 102.5
-        case .IpadPro10_5?:
-            self.pageDistance = 106.5
-        case .IpadPro12_9?:
-            self.pageDistance = 112.75
-        default:
-            self.pageDistance = 0
-        }
-        self.pageControl.numberOfPages = self.viewModel.numberOfCells()
-        self.nextButton.isEnabled = false
-        self.nextPageDistance = self.pageDistance
-        self.minDistance = 0
-        self.maxDistance = self.pageDistance * (CGFloat(self.viewModel.numberOfCells()) - 1) * 2
-        self.lastContentOffset = 0
-       
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupCollectionView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let indexPath = IndexPath(item: 3, section: 0)
+        self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    // MARK: - Setup
+  
     private func updateConstraints() {
         let device = Device(rawValue: ScreenSize().size)
         switch device {
         case .Iphone5?:
             self.collectionViewTopConstraint.constant = 0
-            self.containerViewBottomContstraint.constant = 0
-            self.pageControllBottomConstraint.constant = 0
+            self.containerViewBottomContstraint.constant = 37
+          
         case .IpadMini_Air?:
             self.collectionViewHeightConstraint = NSLayoutConstraint.changeMultiplier(self.collectionViewHeightConstraint, multiplier: 0.4)
             self.containerViewTopConstraint.constant = 160
@@ -96,43 +75,19 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         self.view.updateConstraintsIfNeeded()
     }
     private func setupChildController() {
-        self.childController = self.childViewControllers[0] as! AlcoholChildVC
+        self.childController = (self.children[0] as! AlcoholChildVC)
         self.childController.viewModel = self.viewModel.setChildViewModel()
     }
     private func setupCollectionView() {
-        
-        let collectionViewCellHeight : CGFloat
-        let collectionViewCellWidth : CGFloat
-        
         let device = Device(rawValue: ScreenSize().size)
         switch device {
-        case .Iphone5?:
-            collectionViewCellHeight = 0.32
-            collectionViewCellWidth = 0.22
-        case .Iphone6_7?:
-            collectionViewCellHeight = 0.35
-            collectionViewCellWidth = 0.25
-        case .Iphone6_7_plus?, .IphoneX?:
-            collectionViewCellHeight = 0.45
-            collectionViewCellWidth = 0.30
-        case .IpadMini_Air?:
-            collectionViewCellHeight = 0.60
-            collectionViewCellWidth = 0.50
-        case .IpadPro10_5?:
-            collectionViewCellHeight = 0.65
-            collectionViewCellWidth = 0.52
-        case .IpadPro12_9?:
-            collectionViewCellHeight = 0.68
-            collectionViewCellWidth = 0.55
+        case .IpadMini_Air?, .IpadPro10_5?, .IpadPro12_9?:
+            self.cellHeight = (self.collectionView.frame.size.height) - (self.cellOffset * 2)
+            self.cellWidth = self.cellHeight
         default:
-            collectionViewCellHeight = 0
-            collectionViewCellWidth = 0
+            self.cellHeight = (self.collectionView.frame.size.height) - (self.cellOffset * 2)
+            self.cellWidth = (self.cellHeight - (self.cellOffset * 2)) / 1.5
         }
-        
-        
-        let gravityLayoutSlider = GravitySliderFlowLayout(with: CGSize(width: self.collectionView.frame.size.height * collectionViewCellWidth,
-                                                                       height: self.collectionView.frame.size.height * collectionViewCellHeight))
-        self.collectionView.collectionViewLayout = gravityLayoutSlider
     }
     private func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(alcoholCountDidChange(notification:)), name: Notification.Name.alcoholCountDidChange, object: nil)
@@ -171,6 +126,18 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         
     }
    
+    // MARK: - CollectionView Flow Delegate
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.cellWidth, height: self.cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: self.cellOffset, left: self.cellOffset, bottom: self.cellOffset, right: self.cellOffset)
+    }
+    
+    
+   
     // MARK: - AlcoholDetailsDelegate
     func setAlcohol(tuple: AlcTuple) {
         let cell = self.collectionView.cellForItem(at: tuple.indexPath) as! AlcoholCell
@@ -198,35 +165,7 @@ class AlcoholVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
 }
 
 extension AlcoholVC {
-  
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if scrollView.contentOffset.x <= self.minDistance {
-            self.nextPageDistance = self.pageDistance
-            self.currentPage = 1
-            self.pageControl.currentPage = 0
-        }
-        else if scrollView.contentOffset.x >= self.maxDistance {
-            self.currentPage = self.viewModel.numberOfCells()
-            self.pageControl.currentPage = self.viewModel.numberOfCells()
-        }
-        else if scrollView.contentOffset.x > self.lastContentOffset && scrollView.contentOffset.x > self.nextPageDistance && scrollView.contentOffset.x < self.maxDistance && self.pageControl.currentPage != self.currentPage {
-            self.pageControl.currentPage += 1
-            self.currentPage += 1
-            self.nextPageDistance = self.nextPageDistance + self.pageDistance * 2
-        }
-        else if scrollView.contentOffset.x < self.lastContentOffset && scrollView.contentOffset.x + self.pageDistance * 2 < self.nextPageDistance && scrollView.contentOffset.x < self.maxDistance && self.pageControl.currentPage != self.currentPage {
-            
-            self.pageControl.currentPage -= 1
-            self.currentPage -= 1
-            self.nextPageDistance = self.nextPageDistance - self.pageDistance * 2
-        }
-        self.lastContentOffset = scrollView.contentOffset.x
+        self.collectionView.reloadData()
     }
-    
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.lastContentOffset = scrollView.contentOffset.x
-    }
-    
 }
